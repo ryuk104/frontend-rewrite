@@ -1,0 +1,32 @@
+.grid {
+	--cols: 12rem;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(var(--cols), 1fr));
+	grid-gap: 0.5rem;
+	@media screen and (min-width: 640px) {
+		--cols: 14rem;
+	}
+
+	margin: 0 auto;
+}
+.grid-container {
+}
+.h2 {
+	font-size: 2.074rem;
+	font-weight: 700;
+}
+.header {
+	display: flex;
+	flex-direction: column;
+}
+
+@media screen and (min-width: 37em) and (max-width: 48em) {
+	.grid {
+		grid-gap: 1rem;
+	}
+}
+@media screen and (min-width: 48em) {
+	.grid {
+		grid-gap: 1.2rem;
+	}
+}
