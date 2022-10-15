@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { groupSession } from "$lib/stores/sessions";
+	import { groupSession } from "$stores/sessionsrtrtr";
 </script>
 
 <div class="groupSessionManager-frame">

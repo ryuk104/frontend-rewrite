@@ -18,7 +18,7 @@ declare namespace App {
 		Android: boolean;
 	}
 
-	interface Platform {}
+	interface Platform {},
 
 	interface Session {
 		iOS?: boolean;

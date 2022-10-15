@@ -13,7 +13,7 @@
 	import { tweened } from "svelte/motion";
 	import { cubicOut } from "svelte/easing";
 	import { draggable } from "$lib/actions/draggable";
-	import { groupSession } from "$lib/stores/sessions";
+	import { groupSession } from "$stores/sessionsrtrtr";
 	import ProgressBar from "./ProgressBar";
 	import { CTX_ListItem } from "$lib/contexts";
 	import { requestFrameSingle } from "$lib/utils";

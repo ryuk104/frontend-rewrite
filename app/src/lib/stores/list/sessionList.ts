@@ -5,7 +5,7 @@ import { Mutex } from "$lib/utils/sync";
 import { splice } from "$lib/utils/collections/array";
 import { writable, get } from "svelte/store";
 import { playerLoading, currentTitle, filterAutoPlay } from "../stores";
-import { groupSession } from "../sessions";
+import { groupSession } from "../sessionsrtrtr";
 import type { ISessionListService, ISessionListProvider } from "./types.list";
 import { fetchNext, split, filterList } from "./utils.list";
 

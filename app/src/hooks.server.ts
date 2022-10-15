@@ -1,3 +1,4 @@
+/*
 import { dev } from "$app/environment";
 
 import type { Handle } from "@sveltejs/kit";
@@ -9,6 +10,8 @@ const headers = {
 	"X-Content-Type-Options": "nosniff",
 	"Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
 };
+
+
 
 const checkUserAgent = (userAgent: string) =>
 	/i(Phone|Pad|Pod)/i.test(userAgent) ? "iOS" : /Android/i.test(userAgent) ? "Android" : "Other";
@@ -25,6 +28,7 @@ export const handle: Handle = async ({ event, resolve }) => {
 	}
 	return response;
 };
+*/
 
 //#NODE process.on('SIGINT', function () { process.exit(); }); // Ctrl+C
 //#NODE process.on('SIGTERM', function () { process.exit(); }); // docker stop

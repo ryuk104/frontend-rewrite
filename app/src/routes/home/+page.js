@@ -1,6 +1,7 @@
 
-import { BASE_URL } from "$lib/config";
+//import { BASE_URL } from "$lib/config";
 
+/*
 export async function load({ fetch }) {
   const posts = await fetch(`${BASE_URL}/api/post?page=0&limit=3`);
   const users = await fetch(`${BASE_URL}/api/user?page=0&limit=5`);
@@ -11,3 +12,4 @@ export async function load({ fetch }) {
   users: await res[1].json(),
 };
 }
+*/

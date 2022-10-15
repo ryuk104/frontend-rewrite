@@ -1,21 +1,3 @@
-<script context="module">
-
-  import { BASE_URL } from "$lib/config";
-
-  // export async function load({ fetch }) {
-  //   const posts = await fetch(`${BASE_URL}/api/post?page=0&limit=3`);
-  //   const users = await fetch(`${BASE_URL}/api/user?page=0&limit=5`);
-  //   const res = await Promise.all([posts, users]);
-
-  //   return {
-  //     props: {
-  //       posts: await res[0].json(),
-  //       users: await res[1].json(),
-  //     },
-  //   };
-  // }
-</script>
-
 <script>
 
   import PostCard from "$lib/components/insta/post/PostCard.svelte";
@@ -26,7 +8,7 @@
   import { clickOutside } from "$lib/actions/clickOutside";
 
  
-  import { auth } from "$lib/store/auth.js";
+  import { auth } from "$lib/stores/auth.js";
   import {
     Button,
     Card,
@@ -35,9 +17,9 @@
     ProgressCircular,
     Row,
   } from "svelte-materialify";
-  import { post as postState } from "$lib/store/post.js";
+  import { post as postState } from "$lib/stores/post.js";
   import { mdiPlus } from "@mdi/js";
-  import { user } from "$lib/store/user.js";
+  import { user } from "$lib/stores/user.js";
   import { onMount } from "svelte";
 
   export let posts;
@@ -48,16 +30,21 @@
   let api;
   let page = 0;
   let limit = 3;
-  let totalPage = posts.data.pagination.totalPage;
+  //let totalPage = posts.data.pagination.totalPage;
+  let totalPage = 1;
   let loading = false;
 
+  /*
   onMount(async () => {
     api = await import("$lib/utils/axiosApi");
   });
+*/
 
-  postState.addPosts(posts.data.posts);
+  //postState.addPosts(posts.data.posts);
 
-  user.addUsers(users.data.users);
+  //user.addUsers(users.data.users);
+
+  /*
 
   async function loadMore() {
     try {
@@ -73,20 +60,21 @@
       loading = false;
     }
   }
+  */
     
-    import CustomeMenu from "$lib/components/customeMenu/CustomeMenu.svelte";
+    //import CustomeMenu from "$lib/components/customeMenu/CustomeMenu.svelte";
     //import Instagram from "$lib/components/posts/instagram.svelte";
-    import Friendsactivity from "$lib/components/friendsactivity/friendsactivity.svelte";
-    import Stories from "$lib/components/stories/stories.svelte";
-    import Modal from '$lib/components/Modal.svelte'
-    import {browser} from '$app/environment'
+    //import Friendsactivity from "$lib/components/friendsactivity/friendsactivity.svelte";
+    //import Stories from "$lib/components/stories/stories.svelte";
+    //import Modal from '$lib/components/Modal.svelte'
+    //import {browser} from '$app/environment'
     import {goto} from '$app/navigation'
 
 
     
-    import Postbuttonpopup from '$lib/components/postbuttonpopup.svelte'
+    //import Postbuttonpopup from '$lib/components/postbuttonpopup.svelte'
 
-    import "../../app.css";
+    //import "../../app.css";
 
     
     
@@ -101,17 +89,21 @@
 
 <section class="main">
   
-  <CustomeMenu></CustomeMenu>
-  <Stories></Stories>
-  <Friendsactivity>
-  <UserSuggestions users={$user.users} />
-  </Friendsactivity>
+<!--  <CustomeMenu></CustomeMenu> -->
+<!--   <Stories></Stories> -->
+<!--   <Friendsactivity> -->
+<!--   <UserSuggestions users={$user.users} /> -->
+<!--   </Friendsactivity> -->
 <!--   <Instagram></Instagram> -->
 
+
+<!-- 
   <div style="max-width:1200px ;margin: auto; padding-top:200px; padding-left:200px">
     <Row style="margin:auto">
       <Col sm={12} cols={12} md={8}>
+        -->
         <!-- create post  -->
+        <!-- 
         {#if $auth.isAuthenticated}
           <Card
             class="pa-6 mb-8"
@@ -127,8 +119,9 @@
             </Button>
           </Card>
         {/if}
+        -->
         <!--  posts -->
-  
+        <!-- 
         {#each $postState.posts as post (post._id)}
           <div class="mb-8 bg-gray-500	">
             <PostCard {post} />
@@ -151,14 +144,14 @@
       <Col sm={12} md={4} class="d-none d-md-block gray-500 pl-100">
         <div style="position: sticky;top: 64px; background-color:gray;">
           <UserSideProfile />
+          -->
           <!-- user profile on large screen -->
-  
           <UserSuggestions users={$user.users} />
-        </div>
+       <!--  </div>
       </Col>
     </Row>
   </div>
-
+-->
   
 
     <div class="leftbarbuttonpfpclick">

@@ -5,7 +5,7 @@
 
 	import { showGroupSessionCreator } from "$lib/stores";
 
-	import { groupSession } from "$lib/stores/sessions";
+	import { groupSession } from "$stores/sessionsrtrtr";
 
 	import { IsoBase64 } from "$lib/utils";
 	import { sanitize } from "$lib/utils";

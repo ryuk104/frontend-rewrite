@@ -16,7 +16,7 @@
     Chip,
   } from "svelte-materialify";
 
-  import { post as postState } from "$lib/store/post";
+  import { post as postState } from "$lib/stores/post";
   let axiosApi;
   onMount(async () => {
     axiosApi = await import("$lib/utils/axiosApi");
