@@ -45,7 +45,7 @@
 </script>
 
 <!--<Topnavbutton></Topnavbutton>-->
-<!--<Leftnavbar></Leftnavbar>-->
+<Leftnavbar></Leftnavbar>
 <Chatchannel></Chatchannel>
 <Guild/>
 <CustomeMenu></CustomeMenu>

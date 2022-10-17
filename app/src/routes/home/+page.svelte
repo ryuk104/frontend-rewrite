@@ -31,20 +31,20 @@
   let page = 0;
   let limit = 3;
   //let totalPage = posts.data.pagination.totalPage;
-  let totalPage = 1;
+  let totalPage = 2;
   let loading = false;
 
-  /*
+  
   onMount(async () => {
     api = await import("$lib/utils/axiosApi");
   });
-*/
+
 
   //postState.addPosts(posts.data.posts);
 
   //user.addUsers(users.data.users);
 
-  /*
+  
 
   async function loadMore() {
     try {
@@ -60,21 +60,21 @@
       loading = false;
     }
   }
-  */
+  
     
     //import CustomeMenu from "$lib/components/customeMenu/CustomeMenu.svelte";
     //import Instagram from "$lib/components/posts/instagram.svelte";
     //import Friendsactivity from "$lib/components/friendsactivity/friendsactivity.svelte";
-    //import Stories from "$lib/components/stories/stories.svelte";
+    import Stories from "$lib/components/stories/stories.svelte";
     //import Modal from '$lib/components/Modal.svelte'
-    //import {browser} from '$app/environment'
+    import {browser} from '$app/environment'
     import {goto} from '$app/navigation'
 
 
     
     //import Postbuttonpopup from '$lib/components/postbuttonpopup.svelte'
 
-    //import "../../app.css";
+    import "../../app.css";
 
     
     
@@ -90,20 +90,18 @@
 <section class="main">
   
 <!--  <CustomeMenu></CustomeMenu> -->
-<!--   <Stories></Stories> -->
+  <Stories></Stories> 
 <!--   <Friendsactivity> -->
 <!--   <UserSuggestions users={$user.users} /> -->
 <!--   </Friendsactivity> -->
-<!--   <Instagram></Instagram> -->
+<!--  <Instagram></Instagram>  -->
 
 
-<!-- 
+
   <div style="max-width:1200px ;margin: auto; padding-top:200px; padding-left:200px">
     <Row style="margin:auto">
       <Col sm={12} cols={12} md={8}>
-        -->
         <!-- create post  -->
-        <!-- 
         {#if $auth.isAuthenticated}
           <Card
             class="pa-6 mb-8"
@@ -119,9 +117,7 @@
             </Button>
           </Card>
         {/if}
-        -->
         <!--  posts -->
-        <!-- 
         {#each $postState.posts as post (post._id)}
           <div class="mb-8 bg-gray-500	">
             <PostCard {post} />
@@ -144,14 +140,12 @@
       <Col sm={12} md={4} class="d-none d-md-block gray-500 pl-100">
         <div style="position: sticky;top: 64px; background-color:gray;">
           <UserSideProfile />
-          -->
           <!-- user profile on large screen -->
           <UserSuggestions users={$user.users} />
-       <!--  </div>
+         </div>
       </Col>
     </Row>
   </div>
--->
   
 
     <div class="leftbarbuttonpfpclick">
