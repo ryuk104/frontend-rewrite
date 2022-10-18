@@ -29,31 +29,31 @@
 			<div class="guild home">
 				<span class="pill"></span>
 				<a href="/home">
-				<img src=/icon/homeicon.svg alt="lodsadsadgo">
+				<img src=/icon/homeicon.svg alt="lodsadsadgo" width="8px" height="8px">
 				</a>
 			</div>
 			<div class="guild home">
 				<span class="pill"></span>
 				<a href="/music/home">
-				<img src=/icon/musicicon.svg alt="lodsadsadgo">
+				<img src=/icon/musicicon.svg alt="lodsadsadgo" width="8px" height="8px">
 				</a>
 			</div>
 			<div class="guild home">
 				<span class="pill"></span>
 				<a href="/tiktok">
-				<img src=/icon/musicicon.svg alt="lodsadsadgo">
+				<img src=/icon/musicicon.svg alt="lodsadsadgo" width="8px" height="8px">
 				</a>
 			</div>
       <div class="guild home">
 				<span class="pill"></span>
 				<a href="/note">
-				<img src=/icon/musicicon.svg alt="lodsadsadgo">
+				<img src=/icon/musicicon.svg alt="lodsadsadgo" width="8px" height="8px">
 				</a>
 			</div>
       <div class="guild home">
 				<span class="pill"></span>
 				<a href="/video">
-				<img src=/icon/musicicon.svg alt="lodsadsadgo">
+				<img src=/icon/musicicon.svg alt="lodsadsadgo" width="8px" height="8px">
 				</a>
 			</div>
 			<div class="guild separator">
