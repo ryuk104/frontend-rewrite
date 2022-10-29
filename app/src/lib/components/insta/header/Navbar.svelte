@@ -14,17 +14,17 @@
   import DrawerList from "./DrawerList.svelte";
   import { onMount } from "svelte";
 
-  let axiosApi;
+  let API;
 
   onMount(async () => {
-    axiosApi = await import("$lib/utils/axiosApi");
+    API = await import("$lib/utils/Api");
   });
 
   let active = false;
 
   const handleLogout = async () => {
     try {
-      const res = await axiosApi.logoutUser();
+      const res = await API.logoutUser();
 
       snackbar.showSnackbar({
         open: true,

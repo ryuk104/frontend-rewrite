@@ -1,1 +1,1 @@
-export const BASE_URL = "http://localhost:4000" //"https://ryukshome.xyz/"  
+export const BASE_URL = "https://ryukshome.xyz/api"  //"http://localhost:4000" 

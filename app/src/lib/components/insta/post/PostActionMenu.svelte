@@ -9,17 +9,17 @@
   import { mdiDotsVertical, mdiDelete, mdiPencil } from "@mdi/js";
   import { goto } from "$app/navigation";
 
-  let axiosApi;
+  let API;
 
   onMount(async () => {
-    axiosApi = await import("$lib/utils/axiosApi");
+    API = await import("$lib/utils/Api");
   });
 
   export let postId;
 
   async function handleDeletePost() {
     try {
-      const res = await axiosApi.deletePost(postId);
+      const res = await API.deletePost(postId);
       snackbar.showSnackbar({ open: true, msg: res.message, type: res.type });
       if (res.type === "success") {
         post.removePost(postId);

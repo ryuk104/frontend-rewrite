@@ -15,9 +15,9 @@
   } from "svelte-materialify";
   let active = false;
 
-  let axiosApi;
+  let API;
   onMount(async () => {
-    axiosApi = await import("$lib/utils/axiosApi");
+    API = await import("$lib/utils/Api");
   });
   let name = $auth.user.name || "";
   let email = $auth.user.email || "";
@@ -25,7 +25,7 @@
   let profilePic = $auth.user.profilePic || "";
 
   async function handleEdit() {
-    const res = await axiosApi.editUser($auth.user._id, {
+    const res = await API.editUser($auth.user._id, {
       name,
       email,
       bio,

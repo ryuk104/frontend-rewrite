@@ -1,11 +1,10 @@
 <script>    
+import { signupUser } from "$lib/utils/Api";
 
-import axios from 'axios'
 import { emailRules, passwordRules } from "$lib/utils/validation";
 import { mdiEmail, mdiEye, mdiEyeOff, mdiLock } from "@mdi/js";
 import { onMount } from "svelte";
 
-  
 import {
   Button,
   Card,
@@ -24,7 +23,7 @@ onMount(async () => {
     if($auth.isAuthenticated){
       goto("/")
     }
-    api = await import("$lib/utils/axiosApi");
+    api = await import("$lib/utils/Api");
 });
 
 
@@ -41,7 +40,7 @@ onMount(async () => {
   async function handleLogin() {
     try {
       loading = true;
-      const res = await api.loginUser({ email, password });
+      const res = await api.signupUser({ email, password });
 
       loading = false;
       

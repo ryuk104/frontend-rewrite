@@ -17,9 +17,9 @@
   } from "svelte-materialify";
 
   import { post as postState } from "$lib/stores/post";
-  let axiosApi;
+  let API;
   onMount(async () => {
-    axiosApi = await import("$lib/utils/axiosApi");
+    API = await import("$lib/utils/Api");
   });
   import PostActionMenu from "./PostActionMenu.svelte";
 
@@ -27,7 +27,7 @@
 
   async function handleLikePost() {
     try {
-      const res = await axiosApi.likePost(post._id);
+      const res = await API.likePost(post._id);
       if (res.type === "success") {
         postState.updatePost(res.data.post);
       }
@@ -39,7 +39,7 @@
 
   async function handleDislike() {
     try {
-      const res = await axiosApi.disLike(post._id);
+      const res = await API.disLike(post._id);
       if (res.type === "success") {
         postState.updatePost(res.data.post);
       }

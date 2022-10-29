@@ -17,13 +17,13 @@
   } from "svelte-materialify";
   let active = false;
 
-  let axiosApi;
+  let API;
   onMount(async () => {
-    axiosApi = await import("$lib/utils/axiosApi");
+    API = await import("$lib/utils/Api");
   });
 
   async function handleDelete() {
-    const res = await axiosApi.deleteUser($auth.user._id);
+    const res = await API.deleteUser($auth.user._id);
 
     snackbar.showSnackbar({ open: true, type: res.type, msg: res.message });
     if (res.type === "success") {

@@ -4,8 +4,8 @@ import type { PageLoad } from "./$types";
 
 
 export const load: PageLoad = async ({ url, params, fetch, data }) => {  
-  const posts = await fetch(`${BASE_URL}/api/post?page=0&limit=3`);
-  const users = await fetch(`${BASE_URL}/api/user?page=0&limit=5`);
+  const posts = await fetch(`${BASE_URL}/post?page=0&limit=3`);
+  const users = await fetch(`${BASE_URL}/user?page=0&limit=5`);
   const res = await Promise.all([posts, users]);
 
   return {

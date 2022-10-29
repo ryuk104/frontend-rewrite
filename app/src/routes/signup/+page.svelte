@@ -1,32 +1,69 @@
-<script>
-    let username;
-    let email;
-    let password;
-    let confirmpassword;
-    let phonenumber;
+<script lang="ts">
+
+import { session } from '$app/stores';
+import { onMount } from 'svelte'
+import { goto } from '$app/navigation'
+//import { loginSession } from '../../stores'
 
 
+    let username = '';
+    let email = '';
+    let password = '';
+    let confirmpassword = '';
+    let phonenumber = '';
+
+  
+
+  let confirmPassword: HTMLInputElement
+  let message: string
+
+
+  async function submitsignup(event) {
+		try {
+			const res = await fetch('http://localhost:4000/api/auth/register', {
+				method: 'POST',
+				body: JSON.stringify([{
+                    username,
+                    email,
+                    password,
+                    confirmpassword,
+                    phonenumber
+                }]),
+				headers: {
+					'Content-Type': 'application/json'
+				}
+			})
+			if (!res.ok) {
+				if (res.status == 401)
+					// user already existed and passwords didn't match (otherwise, we login the user)
+					throw new Error('Sorry, that username is already in use.')
+				throw new Error(res.statusText) // should only occur if there's a database error
+			}
+		} catch (err) {
+			console.error('Register error', err)
+			if (err instanceof Error) {
+				throw new Error(err.message)
+			}
+		}
+	}
+
+  
+/*
     const submitsignup = async () => {
-        const login = await fetch("http://localhost:8080/api/auth/signup", {
+        const login = await fetch("http://localhost:4000/api/auth/register", {
             method: "POST",
             mode: 'cors',
             cache: "default",
-            credentials: "same-origin",
             referrerPolicy: 'no-referrer', 
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded",
-                "Access-Control-Allow-Origin": "*"
+                "Access-Control-Allow-Origin": "*",
             },
             redirect: "follow",
-            body: ({
-                username,
-                email,
-                password,
-                confirmpassword,
-                phonenumber
-            }),
-        }).then(console.log(email, password,"working"))
+            body: JSON.stringify(user),
+        })
     }
+    */
 </script>
 
 <form on:submit|preventDefault={submitsignup} action="/api/signup" class="login-form" id="reg-form" method="POST" >    <h1>Signup</h1>

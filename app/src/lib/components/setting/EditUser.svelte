@@ -17,7 +17,7 @@
   
     let axiosApi;
     onMount(async () => {
-      axiosApi = await import("$lib/utils/axiosApi");
+      axiosApi = await import("$lib/utils/Api");
     });
     let name = $auth.user.name || "";
     let email = $auth.user.email || "";

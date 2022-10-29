@@ -4,9 +4,9 @@ import { onMount } from "svelte";
 import type { PageLoad } from './$types';
 import { browser } from '$app/environment';
 
-let axiosApi;
+let Api;
 onMount(async () => {
-  axiosApi = await import("$lib/utils/axiosApi");
+  Api = await import("$lib/utils/Api");
 });
 
 
@@ -17,7 +17,7 @@ export const load: PageLoad = async ({ parent }) => {
 	}
 
 	if (browser) {
-		const { data } = await axiosApi.userApi.getUserCount();
+		const { data } = await Api.userApi.getUserCount();
 
 		return {
 			isAdminUserExist: data.userCount != 0

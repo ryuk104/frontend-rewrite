@@ -1,9 +1,9 @@
 
   import { onMount } from "svelte";
 
-let axiosApi;
+let API;
 onMount(async () => {
-  axiosApi = await import("$lib/utils/axiosApi");
+  API = await import("$lib/utils/Api");
 });
 import * as cookieParser from 'cookie';
 
@@ -20,8 +20,8 @@ export const load: LayoutServerLoad = async ({ request }) => {
 			};
 		}
 
-		axiosApi.setAccessToken(accessToken);
-		const { data: userInfo } = await axiosApi.userApi.getMyUserInfo();
+		API.setAccessToken(accessToken);
+		const { data: userInfo } = await API.userApi.getMyUserInfo();
 
 		return {
 			user: userInfo

@@ -1,30 +1,80 @@
 import { BASE_URL } from "$lib/config";
-import axios from "axios";
+import type { RequestParams } from "../../types";
 
-axios.defaults.baseURL = BASE_URL;
-axios.defaults.withCredentials = true;
-
-export const loginUser = async (data) => {
-  try {
-    localStorage.removeItem("token");
-    const res = await axios.post("/api/auth/login", data);
-
-    return res.data;
-  } catch (error) {
-    console.log(error);
-    return error.response.data;
-  }
+type Fetch = (input: RequestInfo, init?: RequestInit) => Promise<Response>;
+type APIResponse = {
+	body?: {
+		[key: string]: string;
+		value: string;
+	};
+	status: number;
+	ok: boolean;
 };
 
-export const signupUser = async (data) => {
-  try {
-    const res = await axios.post("/api/auth/register", data);
-    return res.data;
-  } catch (error) {
-    console.log(error);
-    return error.response.data;
-  }
-};
+//defaults.baseURL = BASE_URL;
+//defaults.withCredentials = true;
+
+export async function signupUser(fetch: Fetch, params?: RequestParams): Promise<APIResponse> {
+	// Turn Object's Key-Value pairs into string
+	const urlParams = queryParams(params);
+	// Make fetch call
+	const response = await fetch(`/api/auth/register`, {
+		method: "POST",
+		body: urlParams,
+
+		headers: {
+			"Content-Type": "application/x-www-form-urlencoded",
+		},
+	});
+	const data = await response.json();
+	// If request fails, return error.
+	if (!response.ok) {
+		return {
+			body: response.statusText,
+			status: response.status,
+			ok: response.ok,
+		};
+	}
+
+	// Return successful response.
+	return {
+		body: data,
+		status: response.status,
+		ok: response.ok,
+	};
+}
+
+export async function logoutUser(fetch: Fetch, params?: RequestParams): Promise<APIResponse> {
+	// Turn Object's Key-Value pairs into string
+	const urlParams = queryParams(params);
+	// Make fetch call
+	const response = await fetch(`/api/auth/register`, {
+		method: "POST",
+		body: urlParams,
+
+		headers: {
+			"Content-Type": "application/x-www-form-urlencoded",
+		},
+	});
+	const data = await response.json();
+	// If request fails, return error.
+	if (!response.ok) {
+		return {
+			body: response.statusText,
+			status: response.status,
+			ok: response.ok,
+		};
+	}
+
+	// Return successful response.
+	return {
+		body: data,
+		status: response.status,
+		ok: response.ok,
+	};
+}
+
+
 
 export const logoutUser = async () => {
   try {
