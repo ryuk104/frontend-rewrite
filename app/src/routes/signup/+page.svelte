@@ -1,8 +1,10 @@
 <script lang="ts">
 
-import { session } from '$app/stores';
+//import { session } from '$app/stores';
 import { onMount } from 'svelte'
 import { goto } from '$app/navigation'
+import { post } from '$lib/apipost';
+
 //import { loginSession } from '../../stores'
 
 
@@ -17,7 +19,30 @@ import { goto } from '$app/navigation'
   let confirmPassword: HTMLInputElement
   let message: string
 
+/*
+  async function POST({ request }) {
+	const user = await request.json();
 
+	// TODO individual properties
+	const body = await api.post('users', { user });
+
+	return respond(body);
+}
+*/
+/*
+async function submitsignup(event) {
+		const response = await post(`http://localhost:4000/api/auth/register`, {
+            body: username, email, password, confirmpassword });
+
+        /*
+		if (response.user) {
+			$session.user = response.user;
+			goto('/');
+		}
+        */
+	}
+*/
+    
   async function submitsignup(event) {
 		try {
 			const res = await fetch('http://localhost:4000/api/auth/register', {
@@ -46,7 +71,7 @@ import { goto } from '$app/navigation'
 			}
 		}
 	}
-
+*/
   
 /*
     const submitsignup = async () => {
@@ -66,21 +91,21 @@ import { goto } from '$app/navigation'
     */
 </script>
 
-<form on:submit|preventDefault={submitsignup} action="/api/signup" class="login-form" id="reg-form" method="POST" >    <h1>Signup</h1>
+<form on:submit|preventDefault={submitsignup} class="login-form" id="reg-form">    <h1>Signup</h1>
     
     <div class="txtb">
         <input type="name" name="username" placeholder="username" id="username" bind:value={username}>
         </div>
     <div class="txtb">
-        <input type="email" name="email" placeholder="email" id="email" bind:value={email}>
+        <input type="email" name="email" placeholder="email" id="email" required bind:value={email} >
         </div>
 
         <div class="txtb">
-            <input type="password" name="password" placeholder="password" id="password" bind:value={password}>
+            <input type="password" name="password" placeholder="password" id="password" required bind:value={password}>
         </div>
 
         <div class="txtb">
-            <input type="password" name="confirmpassword" placeholder="confirmpassword" id="passwordconfirm" bind:value={confirmpassword}>
+            <input type="password" name="confirmpassword" placeholder="confirmpassword" id="passwordconfirm" required bind:value={confirmpassword}>
         </div>
 
         <div class="txtb">

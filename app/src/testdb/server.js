@@ -13,9 +13,5 @@ export const serverData = [{
   },{
     "uid": "dsadhaudhuaish",
     "name": "server",
-    "serverimage": "https://www.dsac.gov/++theme++DSAC.theme/img/logo.png",
-  },{
-    "uid": "dsadhaudhuaish",
-    "name": "server",
     "serverimage": "https://centauri-dreams.org/wp-content/uploads/2015/04/DSAC_Auto4.jpeg",
   }]

@@ -3,7 +3,16 @@ import { error } from "@sveltejs/kit";
 import type { ICarousel } from "$lib/types";
 import { json } from '@sveltejs/kit';
 
+import { redirect } from '@sveltejs/kit';
 
+export async function load({ session }) {
+	if (session.user) {
+		throw redirect(302, '/');
+	}
+	return {};
+}
+
+/*
 export const POST: RequestHandler = async (event) => {
     const body = await event.request.formData();
    
@@ -29,3 +38,4 @@ export const load: PageLoad = async ({ fetch }): Promise<{ carouselItems: ICarou
 		carouselItems,
 	};
 };
+*/

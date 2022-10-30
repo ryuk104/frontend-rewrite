@@ -29,8 +29,10 @@
   {#if $postsData.length > 0}
     {#each $postsData as post, i}
       <div class="post">
+        <div class="postheader">
         <img class="avatar" src={post.profilepicture} alt={post.username} width="50"/>
         <span class="username">{post.username}</span>
+      </div>
         <img class="post-img" src={post.image} alt={postsData.image} />
         <div class="post-buttons">
           <span class="like" on:click={() => toggleLike(i)}>
@@ -72,7 +74,7 @@
   {:else}
     <p>No posts</p>
   {/if}
-</div>
+  </div>
 
 
 <!--
@@ -89,14 +91,41 @@
  <style>
 
 .instagramg {
-  text-align:center;
-  z-index: -1;
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
   background-color: rgb(73, 19, 19);
   width: 40%;
-  height: 100%;
-  top: 2%;
-  margin: auto;
+  height: 80%;
+  top: 20%;
+  right: 5%;  
+  overflow: auto;
+
   }
+
+  .postheader{
+    background-color:blue;
+    height: 80px;
+  }
+
+  .post{
+  left:10%;
+  top:10%;
+  background-color: pink;
+  display: block;
+  max-width: 80%;
+  outline: none;
+  text-decoration: none;
+  position: relative;
+  }
+
+  .post-img{
+    width: 400px;
+    height: 400px;
+  }
+
   .avatar-container {
     position: relative;
     display: inline-block;
@@ -105,10 +134,12 @@
   .avatar {
     display: inline-block;
     vertical-align: middle;
-    height: var(--border-radius);
-    width: var(--border-radius);
     object-fit: cover;
-    border-radius: var(--border-radius);
+    border-radius: 50px;
+    height: 60px;
+    width: 60px;
+    top: 20%;
+    left: 10%;
   }
 
   .edit-avatar {

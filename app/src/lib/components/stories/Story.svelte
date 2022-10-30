@@ -6,20 +6,20 @@
   import { fade } from 'svelte/transition';
 
   
-    let duration = 3000,
-    let currentIndex = 0,
-    let showInnerContent = false,
-    let showOuterContent = false,
-    let indexSelected: 0,
-    let difference: 0,
-    let key = 0,
-    let percent = 0,
-    let timer = 0,
-    let progress = 0,
-    let interval = 0,
-    let isPaused = false,
-    let newDur = 0,
-    let pausePer = 0,
+    let duration = 3000;
+    let currentIndex = 0;
+    let showInnerContent = false;
+    let showOuterContent = false;
+    let indexSelected: 0;
+    let difference: 0;
+    let key = 0;
+    let percent = 0;
+    let timer = 0;
+    let progress = 0;
+    let interval = 0;
+    let isPaused = false;
+    let newDur = 0;
+    let pausePer = 0;
 
     methods: {
     getSrc(story, index) {

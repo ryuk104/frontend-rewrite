@@ -1,7 +1,30 @@
+<script>
+	//import { isPlay, title } from '../stores/song';
 
+	export let song;
+	let icon = 'play';
+/*
+	$: if ($isPlay && song.title == $title) {
+		icon = 'pause';
+	} else {
+		icon = 'play';
+	}
+*/
+  let title = 'Reve de toi'
+  let artist = '徒 setto セット'
+  
+</script>
 
-
-
+<!-- 
+<div class="card">
+	<div class="card__info">
+		<img src="/img/{song.album.cover}" alt={song.album.name} />
+	</div>
+	<button type="button" on:click>
+		<i class="fas fa-fw fa-{icon}" />
+	</button>
+</div>
+-->
 
 <div class="minimusicplayer"> 
     <div class="musiccard">
@@ -13,13 +36,13 @@
       <div class="musiccardtext">
         <div class="musiccardtexttitle">
           <a href="artist"> 
-            <h1>Reve de toi</h1>
+            <h1>{title}</h1>
           </a>
         </div>
 
         <div class="musiccardtextartist">
           <a href="artist">
-            <h4> 徒 setto セット </h4>
+            <h4> {artist} </h4>
           </a>
         </div>
       </div>
@@ -45,3 +68,16 @@
 
 
   </div>
+
+
+  <style>
+    .minimusicplayer{
+      margin: 0;
+      padding: 0;
+      display: flex;
+      bottom: 0px;
+      background-color: purple;
+      position: fixed;
+
+    }
+  </style>

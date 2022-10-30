@@ -31,7 +31,7 @@
 	<div class="servers">
         <div>
             <div draggable="true" class="serverpicturebutton">
-                <img src={serverimage} alt={serverimage} width="48px" hieght="48px">
+                <img src={serverimage} alt={serverimage} width="48px" >
             </div>
             <div draggable="true" class="serverpicturebutton">
           </div>

@@ -13,6 +13,28 @@
         }
         document.getElementById("active").classList.add("active");
     }
+
+    /*
+    let name = ""
+    let avatar = ""
+    let server_id = ""
+    let banner = ""
+
+
+    const response = fetch ("localhost:4000/api/servers/channel", {
+      method:'GET',
+ 			headers:{
+        'Content-Type':'application/json',
+    },
+ 			body:JSON.stringify({
+ 				name,
+ 				avatar,
+        server_id,
+        banner,
+  })
+})
+*/
+    
 </script>
 
 
@@ -26,12 +48,14 @@
 
     
 		<div class="guild-container">
+       <!--  
 			<div class="guild home">
 				<span class="pill"></span>
 				<a href="/home">
 				<img src=/icon/homeicon.svg alt="lodsadsadgo" width="8px" height="8px">
 				</a>
 			</div>
+    
 			<div class="guild home">
 				<span class="pill"></span>
 				<a href="/music/home">
@@ -56,6 +80,7 @@
 				<img src=/icon/musicicon.svg alt="lodsadsadgo" width="8px" height="8px">
 				</a>
 			</div>
+    -->
 			<div class="guild separator">
 				<hr />
 			</div>
@@ -84,6 +109,7 @@
 				<img class="img" src="./assets/avatar_flam3rboy.png" alt="dsad"/>
 			</div>
 		</div>
+
 		
     <style>
         body {

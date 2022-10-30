@@ -28,6 +28,7 @@
   flex-direction: row;
   display: list-item;
   display: block;
+  padding-left: 5%;
 }
 
 .storeisbutton{
@@ -42,5 +43,6 @@
   padding-top: 0;
   text-align: center;
   width: 64px;
+
 }
 </style>

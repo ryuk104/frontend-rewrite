@@ -1,3 +1,9 @@
+import * as api from '$lib/api';
+import { post, get } from '$lib/util';
+
+
+
+
 import { BASE_URL } from "$lib/config";
 import type { RequestParams } from "../../types";
 
@@ -80,9 +86,9 @@ export const logoutUser = async () => {
   try {
     const token = localStorage.getItem("token");
     if (token) {
-      axios.defaults.headers.common["Authorization"] = "Bearer " + token;
+      api.defaults.headers.common["Authorization"] = "Bearer " + token;
     }
-    const res = await axios.get("/api/auth/logout");
+    const res = await api.get("/api/auth/logout");
     if (res.data.type === "success") {
       localStorage.removeItem("token");
     }
@@ -95,7 +101,7 @@ export const logoutUser = async () => {
 
 export const getUserById = async (userId) => {
   try {
-    const res = await axios.get(`/api/user/${userId}`);
+    const res = await api.get(`/api/user/${userId}`);
     return res.data;
   } catch (error) {
     console.log(error);
@@ -107,9 +113,9 @@ export const editUser = async (userId, data) => {
   try {
     const token = localStorage.getItem("token");
     if (token) {
-      axios.defaults.headers.common["Authorization"] = "Bearer " + token;
+      api.defaults.headers.common["Authorization"] = "Bearer " + token;
     }
-    const res = await axios.put(`/api/user/${userId}`, data);
+    const res = await api.put(`/api/user/${userId}`, data);
     return res.data;
   } catch (error) {
     console.log(error);
@@ -121,9 +127,9 @@ export const deleteUser = async (userId) => {
   try {
     const token = localStorage.getItem("token");
     if (token) {
-      axios.defaults.headers.common["Authorization"] = "Bearer " + token;
+      api.defaults.headers.common["Authorization"] = "Bearer " + token;
     }
-    const res = await axios.delete(`/api/user/${userId}`);
+    const res = await api.delete(`/api/user/${userId}`);
     return res.data;
   } catch (error) {
     console.log(error);
@@ -133,7 +139,7 @@ export const deleteUser = async (userId) => {
 
 export const getUsers = async ({ page = 0, limit = 5 }) => {
   try {
-    const res = await axios.get(`/api/user?page=${page}&limit=${limit}`);
+    const res = await api.get(`/api/user?page=${page}&limit=${limit}`);
     return res.data;
   } catch (error) {
     return error;
@@ -142,7 +148,7 @@ export const getUsers = async ({ page = 0, limit = 5 }) => {
 
 export const searchUsers = async (search) => {
   try {
-    const res = await axios.get(`/api/user?search=${search}`);
+    const res = await api.get(`/api/user?search=${search}`);
     return res.data;
   } catch (error) {
     return error;
@@ -153,9 +159,9 @@ export const followUser = async (userId) => {
   try {
     const token = localStorage.getItem("token");
     if (token) {
-      axios.defaults.headers.common["Authorization"] = "Bearer " + token;
+      api.defaults.headers.common["Authorization"] = "Bearer " + token;
     }
-    const res = await axios.put(`/api/user/${userId}/follow`);
+    const res = await api.put(`/api/user/${userId}/follow`);
     return res.data;
   } catch (error) {
     return error.response.data;
@@ -166,9 +172,9 @@ export const unFollowuser = async (userId) => {
   try {
     const token = localStorage.getItem("token");
     if (token) {
-      axios.defaults.headers.common["Authorization"] = "Bearer " + token;
+      api.defaults.headers.common["Authorization"] = "Bearer " + token;
     }
-    const res = await axios.put(`/api/user/${userId}/unfollow`);
+    const res = await api.put(`/api/user/${userId}/unfollow`);
     return res.data;
   } catch (error) {
     return error.response.data;
@@ -180,9 +186,9 @@ export const createPost = async (data) => {
   try {
     const token = localStorage.getItem("token");
     if (token) {
-      axios.defaults.headers.common["Authorization"] = "Bearer " + token;
+      api.defaults.headers.common["Authorization"] = "Bearer " + token;
     }
-    const res = await axios.post(`/api/post/`, data);
+    const res = await api.post(`/api/post/`, data);
     return res.data;
   } catch (error) {
     return error.response.data;
@@ -193,9 +199,9 @@ export const updatePost = async (postId, data) => {
   try {
     const token = localStorage.getItem("token");
     if (token) {
-      axios.defaults.headers.common["Authorization"] = "Bearer " + token;
+      api.defaults.headers.common["Authorization"] = "Bearer " + token;
     }
-    const res = await axios.put(`/api/post/${postId}`, data);
+    const res = await api.put(`/api/post/${postId}`, data);
     return res.data;
   } catch (error) {
     return error.response.data;
@@ -204,7 +210,7 @@ export const updatePost = async (postId, data) => {
 
 export const getAllPosts = async ({ page = 0, limit = 5 }) => {
   try {
-    const res = await axios.get(`/api/post?page=${page}&limit=${limit}`);
+    const res = await api.get(`/api/post?page=${page}&limit=${limit}`);
 
     return res.data;
   } catch (error) {
@@ -216,7 +222,7 @@ export const explorePosts = async ({ page = 0, limit = 5 }) => {
   try {
     const token = localStorage.getItem("token");
 
-    const res = await axios.get(
+    const res = await api.get(
       `/api/post/explore?page=${page}&limit=${limit}`,
       {
         headers: {
@@ -235,9 +241,9 @@ export const deletePost = async (postId) => {
   try {
     const token = localStorage.getItem("token");
     if (token) {
-      axios.defaults.headers.common["Authorization"] = "Bearer " + token;
+      api.defaults.headers.common["Authorization"] = "Bearer " + token;
     }
-    const res = await axios.delete(`/api/post/${postId}`);
+    const res = await api.delete(`/api/post/${postId}`);
     return res.data;
   } catch (error) {
     return error.response.data;
@@ -248,9 +254,9 @@ export const likePost = async (postId) => {
   try {
     const token = localStorage.getItem("token");
     if (token) {
-      axios.defaults.headers.common["Authorization"] = "Bearer " + token;
+      api.defaults.headers.common["Authorization"] = "Bearer " + token;
     }
-    const res = await axios.put(`/api/post/${postId}/like`);
+    const res = await api.put(`/api/post/${postId}/like`);
     return res.data;
   } catch (error) {
     return error.response.data;
@@ -261,9 +267,9 @@ export const disLike = async (postId) => {
   try {
     const token = localStorage.getItem("token");
     if (token) {
-      axios.defaults.headers.common["Authorization"] = "Bearer " + token;
+      api.defaults.headers.common["Authorization"] = "Bearer " + token;
     }
-    const res = await axios.put(`/api/post/${postId}/unlike`);
+    const res = await api.put(`/api/post/${postId}/unlike`);
     return res.data;
   } catch (error) {
     return error.response.data;

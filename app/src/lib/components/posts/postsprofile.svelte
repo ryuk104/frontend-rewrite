@@ -11,10 +11,10 @@
 <section class="Postsprofile"> 
     <article > 
         <div class="userprofile">
-            <img src={profilepicture} alt={profilepicture} wdith="40px" height="40px" class="profilepicture"> 
+            <img src={profilepicture} alt={profilepicture} wdith="20px" height="20px" class="profilepicture"> 
             <div class="username">{username}</div>
         </div>
-        <img class="instapics" src="{image}" wdith="400" height="400" alt="pic">
+        <img class="instapics" src="{image}" wdith="300" height="300" alt="pic">
         <div class="bottom"> 
             <div class="desc">{desc}</div>
             <div class="comments">{comments}</div>
@@ -26,12 +26,11 @@
 
 <style>
 .profilepicture{
-width: 40px;
-height: 40px;
+width: 20px;
+height: 20px;
 border-radius: 50%;
 position: relative;
-margin-left: 10%;
-margin-top: 10px;
+
 
 }
 

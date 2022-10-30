@@ -14,23 +14,18 @@ import Player from '../../Player/Player.svelte';
 
 <nav class="chatchaneel">
     
-      
-
-<hr>
-
-      <div class="quickacessheadspacearea"></div>
       <div class="quickacess"> 
 
       <a class="channelprofile" href="http://"> 
         <div class="avatarpicture" role="img"> 
-          <img src=../static/icon/homeicon.svg class="avatarpicturecircle" width="48px" hieght="48px" alt="d"> 
+          <img src=../icon/homeicon.svg class="avatarpicturecircle" width="48px" hieght="48px" alt="d"> 
         </div>
         <div class="friendsusername">Home</div>
       </a>
 
       <a class="channelprofile" href="d" onclick="document.location.href='/message';"> 
         <div class="avatarpicture" role="img"> 
-          <img src=../static/icon/musicicon.svg class="avatarpicturecircle" width="48px" hieght="48px" alt="d"> 
+          <img src=../icon/musicicon.svg class="avatarpicturecircle" width="48px" hieght="48px" alt="d"> 
         </div>
         <div class="friendsusername">Message</div>
       </a>
@@ -55,7 +50,21 @@ import Player from '../../Player/Player.svelte';
 
       <a class="channelprofile" href="s"> 
         <div class="avatarpicture" role="img"> 
-          <img src=../static/image/image1.jpeg class="avatarpicturecircle" width="45px" hieght="45px" alt="d"> 
+          <img src=../image/image1.jpeg class="avatarpicturecircle" width="45px" hieght="45px" alt="d"> 
+        </div>
+        <div class="friendsusername">Quax</div>
+      </a>
+
+      <a class="channelprofile" href="s"> 
+        <div class="avatarpicture" role="img"> 
+          <img src=../image/image1.jpeg class="avatarpicturecircle" width="45px" hieght="45px" alt="d"> 
+        </div>
+        <div class="friendsusername">Quax</div>
+      </a>
+
+      <a class="channelprofile" href="s"> 
+        <div class="avatarpicture" role="img"> 
+          <img src=../image/image1.jpeg class="avatarpicturecircle" width="45px" hieght="45px" alt="d"> 
         </div>
         <div class="friendsusername">Quax</div>
       </a>
@@ -63,7 +72,7 @@ import Player from '../../Player/Player.svelte';
 
 
 
-    <!--<Minimusicplayer></Minimusicplayer>-->
+    <Minimusicplayer></Minimusicplayer>
     <!--<Player></Player>-->
       
 
@@ -131,7 +140,8 @@ main#bookshelf{
   overflow-x: hidden;
   float: left;
   z-index: -1;
-
+  left: 0%;
+  top: 0%
 }
 
 .channelprofile {
