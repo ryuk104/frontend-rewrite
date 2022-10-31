@@ -5,13 +5,13 @@
 
 
 <div class="stories">
-    <div>
+    <a href="/story/d">
       <ul class="storiesul"> 
         {#each storyData as {profilepicture, username}}          
           <Storyprofile {profilepicture} {username}/>
         {/each}
   </ul>
-</div>
+</a>
 </div>
 
 <style>
@@ -19,7 +19,7 @@
   background: rgb(90, 37, 37);
   border: 1px solid #dbdbdb;
   padding: 16px 0;
-  height: 60px;
+  height: 100px;
   width: 80%;
   outline: 0;
   overflow-y: hidden;

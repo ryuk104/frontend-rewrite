@@ -1,4 +1,46 @@
 <script>
+
+  import { auth } from "$lib/stores/auth.js";
+  import { post as postState } from "$lib/stores/post.js";
+  import { user } from "$lib/stores/user.js";
+  import { onMount } from "svelte";
+
+  export let posts = {};
+  export let users;
+
+  let page = 0;
+  let limit = 7;
+  //let totalPage = posts.pagination.totalPage;
+  let totalPage = 1;
+  let loading = false;
+
+async function loadMore() {
+    try {
+      loading = true;
+      page = page + 1;
+      const res = await fetch(`http://localhost:4000/api/post`, { 
+            method: 'GET',
+            headers: {
+                'content-type': 'application/json',
+                'Accept': 'application/json',
+                'Authorization': `Bearer ${localStorage.token}`
+            }
+        });
+        const data = await res.json();
+
+      if (res.status === 200) {
+        postState.addMorePosts(data.data.posts);
+        console.log(data.data.posts)
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
+      loading = false;
+    }
+  }
+
+
+
   import Postsprofile from './postsprofile.svelte'
   
   import { postsData, username } from '../../../testdb/posts.js';
@@ -33,7 +75,7 @@
         <img class="avatar" src={post.profilepicture} alt={post.username} width="50"/>
         <span class="username">{post.username}</span>
       </div>
-        <img class="post-img" src={post.image} alt={postsData.image} />
+        <img class="post-img" src={post.image} alt={posts.image} />
         <div class="post-buttons">
           <span class="like" on:click={() => toggleLike(i)}>
             {#if postsData.liked}

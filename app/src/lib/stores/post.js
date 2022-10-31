@@ -1,5 +1,6 @@
 import { writable, derived } from "svelte/store";
 
+
 const { set, subscribe, update } = writable({
   posts: [],
 });

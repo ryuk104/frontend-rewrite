@@ -1,4 +1,10 @@
 <script>
+    import { onMount } from "svelte";
+	import { goto } from "$app/navigation";
+	import { auth } from "$lib/stores/auth";
+
+
+
     //import Topnavbutton from "$lib/components/Nav/Topnavbutton.svelte";
     import Leftnavbar from "$lib/components/Nav/leftnavbar.svelte";
     import Chatchannel from "$lib/components/Nav/chatchannel/chatchannel.svelte";
@@ -6,6 +12,37 @@
     //import CustomeMenu from "$lib/components/Nav/customeMenu/CustomeMenu.svelte";
 
 	import { redirect } from '@sveltejs/kit';
+
+	onMount(async () => {
+    try {
+      const token = localStorage.getItem("token");
+      if (token) {
+        try {
+          const res = await fetch(`http://localhost:4000/api/auth/me`, { 
+            method: 'GET',
+            headers: {
+                'content-type': 'application/json',
+				'Authorization': `Bearer ${localStorage.token}`
+            }
+        });
+		const data = await res.json();
+		 
+		  if (res.status === 200) {
+            auth.setUser({ user: data.data.user, token });
+          }
+          if (res.status === 500) {
+            //snackbar.showSnackbar({ ...res.data });
+            goto("/login");
+            return;
+          }
+        } catch (error) {
+          console.log(error);
+        }
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  });
 
 
     //import '../app.css';

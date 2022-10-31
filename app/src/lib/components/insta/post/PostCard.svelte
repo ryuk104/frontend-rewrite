@@ -17,10 +17,6 @@
   } from "svelte-materialify";
 
   import { post as postState } from "$lib/stores/post";
-  let API;
-  onMount(async () => {
-    API = await import("$lib/utils/Api");
-  });
   import PostActionMenu from "./PostActionMenu.svelte";
 
   export let post;

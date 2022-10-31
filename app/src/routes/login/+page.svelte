@@ -1,32 +1,18 @@
 <script>    
-import { signupUser } from "$lib/utils/Api";
-
+//import { signupUser } from "$lib/utils/Api";
 import { emailRules, passwordRules } from "$lib/utils/validation";
-import { mdiEmail, mdiEye, mdiEyeOff, mdiLock } from "@mdi/js";
 import { onMount } from "svelte";
-
-import {
-  Button,
-  Card,
-  Col,
-  Divider,
-  Icon,
-  ProgressCircular,
-  Row,
-  TextField,
-} from "svelte-materialify";
-
 import { goto } from "$app/navigation";
 import { auth } from "$lib/stores/auth";
 
+/*
 onMount(async () => {
     if($auth.isAuthenticated){
       goto("/")
     }
     api = await import("$lib/utils/Api");
 });
-
-
+*/
 
   let api;
 
@@ -37,6 +23,45 @@ onMount(async () => {
   let error = {};
   let loading = false;
 
+  async function handleLogin() {
+    try {
+      loading = true;
+      localStorage.removeItem("token");
+      const res = await fetch(`http://localhost:4000/api/auth/login`, { 
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+                'Accept': 'application/json',
+            },
+            body: JSON.stringify({
+                email, 
+                password 
+            })
+        });
+      const data = await res.json();
+
+      loading = false;
+      
+
+      if (res.status === 201) {
+        console.log(data.data.token)
+        localStorage.setItem("token", data.data.token);
+        auth.setUser(data.data);
+        return goto("/test");
+      }
+
+      if (res.type === "error") {
+        error = data.data;
+        return;
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  
+
+  /*
   async function handleLogin() {
     try {
       loading = true;
@@ -59,6 +84,7 @@ onMount(async () => {
       console.log(error);
     }
   }
+  */
 </script>
 
 <div class="content">

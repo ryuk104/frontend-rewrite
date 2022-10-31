@@ -5,6 +5,54 @@
     
     import Stories from "$lib/components/stories/stories.svelte";
     import Instagram from "$lib/components/posts/instagram.svelte";
+    import PostCard from "$lib/components/insta/post/PostCard.svelte";
+
+    import {
+    Button,
+    Card,
+    Col,
+    Icon,
+    ProgressCircular,
+    Row,
+  } from "svelte-materialify";
+  import { auth } from "$lib/stores/auth.js";
+  import { post as postState } from "$lib/stores/post.js";
+  import { user } from "$lib/stores/user.js";
+  import { onMount } from "svelte";
+
+  export let posts;
+  export let users;
+
+  let page = 0;
+  let limit = 3;
+  //let totalPage = posts.pagination.totalPage;
+  let totalPage = 1;
+  let loading = false;
+
+  async function loadMore() {
+    try {
+      loading = true;
+      page = page + 1;
+      const res = await fetch(`http://localhost:4000/api/post`, { 
+            method: 'GET',
+            headers: {
+                'content-type': 'application/json',
+                'Accept': 'application/json',
+                'Authorization': `Bearer ${localStorage.token}`
+            }
+        });
+        const data = await res.json();
+
+      if (res.status === 200) {
+        postState.addMorePosts(data.data.posts);
+        console.log(data.data.posts)
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
+      loading = false;
+    }
+  }
 
 </script>
 
@@ -29,6 +77,7 @@
     <div class="mediaacontainer">
         <Stories/>
         <Instagram/>
+
     </div>
 </main>
 

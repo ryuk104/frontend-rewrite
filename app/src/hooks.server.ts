@@ -1,5 +1,16 @@
 import * as cookie from 'cookie';
 
+/** @type {import('@sveltejs/kit').Handle} */
+/*
+export async function handle({ event, resolve }) {
+	event.locals.user = await getUserInformation(event.cookies.get('sessionid'));
+   
+	const response = await resolve(event);
+	response.headers.set('x-custom-header', 'potato');
+   
+	return response;
+  }
+
 export async function handle({ event, resolve }) {
 	const cookies = cookie.parse(event.request.headers.get('cookie') || '');
 	const jwt = cookies.jwt && Buffer.from(cookies.jwt, 'base64').toString('utf-8');
@@ -17,7 +28,7 @@ export function getSession({ locals }) {
 		}
 	};
 }
-
+*/
 
 
 /*

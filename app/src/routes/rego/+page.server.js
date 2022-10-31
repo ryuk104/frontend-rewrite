@@ -1,5 +1,6 @@
 
 import * as api from '$lib/api';
+import { mdiCookie } from '@mdi/js';
 
 export async function POST({ request }) {
 	const user = await request.json();
