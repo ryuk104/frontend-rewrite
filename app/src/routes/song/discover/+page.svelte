@@ -3,10 +3,10 @@
   import { push } from 'svelte-stack-router';
   import { SearchLine } from 'svelte-remixicon';
 
-  import { Title, Button } from '../components/base';
-  import TopTitle from '../components/TopTitle.svelte';
-  import ListGrid from '../components/ListGrid.svelte';
-  import Songer from '../components/Singer.svelte';
+  import { Title, Button } from '$lib/components/song/base';
+  import TopTitle from '$lib/components/song/TopTitle.svelte';
+  import ListGrid from '$lib/components/song/ListGrid.svelte';
+  import Songer from '$lib/components/song/Singer.svelte';
 
   import { isHomePageStore, isLoginStore } from '../store/common';
 
