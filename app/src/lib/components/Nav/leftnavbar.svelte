@@ -43,7 +43,7 @@
     </li>
 
     <li class="app-component">
-      <a href="/music">Music
+      <a href="/music/home">Music
       <img src=/icon/musicicon.svg width="48px" alt="dasd">
       </a>
     </li>

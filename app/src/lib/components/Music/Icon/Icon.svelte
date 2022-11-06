@@ -11,14 +11,14 @@
 </script>
 
 <svg
-	xmlns="http://www.w3.org/2000/svg"
+	xmlns="http://www.w3.org/2000/svg/"
 	focusable="false"
 	{fill}
 	stroke-width={fill !== "none" ? 0 : 2}
 	stroke-linecap="round"
 	stroke-linejoin="round"
 	style="width: {size}; height:{size}; {style}; transition: stroke linear 50ms;"
-	viewBox="0 0 24 24"><use href="/icons.svg#{name}" /></svg
+	viewBox="0 0 24 24"><use href="./icons.svg#{name}" /></svg
 >
 
 <style>

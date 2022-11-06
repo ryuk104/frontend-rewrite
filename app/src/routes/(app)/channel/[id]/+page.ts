@@ -6,7 +6,7 @@ import type { PageLoad } from '@sveltejs/kit';
 export async function load ({ url, fetch, params, stuff }) {
   try {
     const serverId = params.id;
-    const res = await fetch(`http://localhost:4000/api/server/${serverId}`);
+    const res = await fetch(`http://localhost:4000/api/channel/${channelId}`);
 
     const Data = await res.json();
 

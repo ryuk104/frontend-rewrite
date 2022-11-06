@@ -18,7 +18,7 @@
 	</TabPanel>
 
 	<TabPanel>
-		<h2>Third panel</h2>
+		<slot name="third"/>
 	</TabPanel>
 </Tabs>
 

@@ -44,7 +44,7 @@
 				<Icon name="chevron-left" size="1.6125em" />
 			</button>
 			<a
-				href={`/home`}
+				href={`/test`}
 				on:click={() => {
 					$fullscreenStore && fullscreenStore.set("closed");
 				}}
@@ -53,11 +53,11 @@
 				<img style="margin-left:1em;" width="32" height="32" src="/logo.svg" alt="logo" title="Beatbump Home" />
 			</a>
 		{:else}
-			<a href={`/home`} class="no-style">
+			<a href={`/test`} class="no-style">
 				<img
 					on:click={() => {
 						$fullscreenStore && fullscreenStore.set("closed");
-						goto("/home");
+						goto("/test");
 					}}
 					width="32"
 					height="32"
@@ -87,7 +87,7 @@
 		<button
 			on:click={() => {
 				$fullscreenStore && fullscreenStore.set("closed");
-				goto("/trending");
+				goto("/music/trending");
 			}}
 			class="nav-icon icon-btn no-style"
 			use:tooltip
@@ -101,7 +101,7 @@
 			use:tooltip
 			on:click={() => {
 				$fullscreenStore && fullscreenStore.set("closed");
-				goto("/library");
+				goto("/music/library");
 			}}
 			data-tooltip="Library"
 			aria-label="library"
@@ -168,7 +168,7 @@
 			class="icon-btn btn-settings"
 			on:click={() => {
 				$fullscreenStore && fullscreenStore.set("closed");
-				goto("/settings", {});
+				goto("/music/settings", {});
 			}}
 		>
 			<Icon name="settings" size="1.6125em" />
@@ -183,12 +183,12 @@
 		padding-inline: 0.75em;
 
 		position: fixed;
-		top: 0;
-		left: 0;
+		top: 4%;
+		left: 17%;
 		right: 0;
-		width: 100%;
-		min-width: 100vw;
-
+		width: 80%;
+		min-width: 80vw;
+		background-color:blue;
 		grid-template-areas: "l m r";
 		height: var(--top-bar-height);
 		align-content: center;

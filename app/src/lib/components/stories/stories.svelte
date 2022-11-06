@@ -7,8 +7,8 @@
 <div class="stories">
     <a href="/story/d">
       <ul class="storiesul"> 
-        {#each storyData as {profilepicture, username}}          
-          <Storyprofile {profilepicture} {username}/>
+        {#each storyData as {image, username}}          
+          <Storyprofile {image} {username}/>
         {/each}
   </ul>
 </a>

@@ -258,6 +258,7 @@
 <style lang="scss">
 	@import "../../../../global/stylesheet/components/_player.scss";
 	.now-playing {
+		left: 10%;
 		display: flex;
 		grid-area: n;
 		line-height: 1.7;
@@ -323,6 +324,8 @@
 	}
 	.player {
 		background-color: inherit;
+		bottom: 0;
+		left: 20%;
 	}
 	.volume-wrapper {
 		background: var(--dark-bottom);

@@ -38,7 +38,6 @@
 	});
 	// $: console.log($queue, $SessionListService);
 </script>
-
 <svelte:window
 	on:beforeunload={() => {
 		if (groupSession.initialized && groupSession.hasActiveSession) {
@@ -47,6 +46,7 @@
 		AudioPlayer.dispose();
 	}}
 />
+
 <Nav {key} />
 <Popper {main} />
 <div class="wrapper app-content-m" {hasplayer} bind:this={main} id="wrapper">
@@ -68,8 +68,8 @@
 </footer>
 
 <style lang="scss" global>
-	@use "../../global/stylesheet/layout" as *;
-	@use "../../global/stylesheet/main" as *;
+	@use "../../../global/stylesheet/layout" as *;
+	@use "../../../global/stylesheet/main" as *; 
 	.footer-container {
 		transition: transform cubic-bezier(0.165, 0.84, 0.44, 1) 350ms, opacity cubic-bezier(0.165, 0.84, 0.44, 1) 350ms;
 		opacity: 0;

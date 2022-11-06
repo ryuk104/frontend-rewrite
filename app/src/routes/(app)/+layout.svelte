@@ -1,4 +1,5 @@
 <script>
+
     import { onMount } from "svelte";
 	import { goto } from "$app/navigation";
 	import { auth } from "$lib/stores/auth";
@@ -116,4 +117,7 @@
 	<!-- {/key} -->
 </main>
 
+<slot name="master"></slot>
+<slot name="second"></slot>
 <slot></slot>
+

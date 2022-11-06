@@ -1,5 +1,5 @@
 <script>
-
+  //    /** @type {import('./$types').PageData} */
     export let data
     console.log(data)
     
@@ -54,6 +54,30 @@
     }
   }
 
+  let username;
+  let avatar;
+  /*
+  async function loaduser() {
+        try {
+          const res = await fetch(`http://localhost:4000/api/auth/me`, { 
+            headers: {
+                'content-type': 'application/json',
+				'Authorization': `Bearer ${localStorage.token}`
+            }
+        });
+
+		const data = await res.json();
+		 return {
+            username: data.data.username,
+            avatar: data.data.avatar
+        } 
+        }catch (error) {
+          console.log(error);
+        }
+      };
+
+      loaduser();
+*/
 </script>
 
 
@@ -62,8 +86,8 @@
     <ul class="maincontainer"> 
         <l1> 
             <div class="userprofilecard">
-                <img  class="avatar" src="https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_3x2.jpg" >
-                <div class="username">plceholder#6575</div>
+                <img  class="avatar" src="{avatar}" >
+                <div class="username">{username}</div>
                 <div class="bio">Add custom </div>
                 <div class="status">Online</div>
 
