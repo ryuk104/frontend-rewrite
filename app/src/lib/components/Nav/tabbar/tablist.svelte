@@ -12,6 +12,7 @@
         left: 300px;
         top: 0%;
         width: 100%;
-        height: 4%
+        height: 4%;
+        background-color: #37393c;
 	}
 </style>

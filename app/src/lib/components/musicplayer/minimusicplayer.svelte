@@ -1,8 +1,18 @@
 <script>
 	//import { isPlay, title } from '../stores/song';
+  import Icon from "../Music/Icon/Icon.svelte";
+
 
 	export let song;
 	let icon = 'play';
+  export let canPlay;
+	export let prevBtn;
+	export let nextBtn;
+	export let isPaused;
+	export let pause;
+	export let loading;
+	export let isQueue = false;
+	export let sizes = { main: "2em", skip: "1.5em" };
 /*
 	$: if ($isPlay && song.title == $title) {
 		icon = 'pause';
@@ -30,36 +40,39 @@
     <div class="musiccard">
 
       <div class="musiccardimage">
-        <img src="https://audio.liberta.vip/media/__sized__/attachments/a8/14/72/cover-crop-c0-5__0-5-200x200-95.jpg" class="musiccardimage" width="40%" hieght="40%" alt="d">
+        <img src="https://media.pitchfork.com/photos/623a9d636597466fa9d6e2ba/master/w_1280%2Cc_limit/beabadoobee-Beatopia.jpg" class="musiccardimage" width="40%" hieght="40%" alt="d">
       </div>
 
       <div class="musiccardtext">
         <div class="musiccardtexttitle">
           <a href="artist"> 
-            <h1>{title}</h1>
+            <h4>{title}</h4>
           </a>
         </div>
 
         <div class="musiccardtextartist">
           <a href="artist">
-            <h4> {artist} </h4>
+            <h6> {artist} </h6>
           </a>
         </div>
       </div>
     </div>
 
     <div class="trackcontroll">
-      <button title="Prevous track"> </button>
-      <button title="play"> </button>
-      <button title="Next track"> </button>
+      <div class="trackbutton" title="Prevous track" type="button">
+        <Icon fill={isQueue ? "#FFF" : "none"} color="white" name="play" size={sizes.main} />
+      </div>
+      <div class="trackbutton" title="play"></div>
+      <div class="trackbutton" title="Next track"> </div>
     </div>
 
+    <!-- 
     <div class="trackoption">
       <button title="volume"> </button>
       <button title="repeat"> </button>
       <button title="shuffle"> </button>
     </div>
-
+-->
     <div class="tracktimeline">
       <div data-percents="100" style="width:100%"></div>
       <div data-percents="100" style="width:100%"></div>
@@ -75,9 +88,55 @@
       margin: 0;
       padding: 0;
       display: flex;
-      bottom: 0px;
+      bottom: 75px;
       background-color: purple;
       position: fixed;
+      max-width: 100%;
+      width: 100%;
+      height: 20%;
+
+    }
+
+    .musiccard{
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      top: 0%;
+      position: relative;
+      width: 100%;
+      height: 5%;
+    }
+
+    .trackcontroll{
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      bottom: 75px;
+      position: fixed;
+      width: 100%;
+      height: 4%;
+      background-color:red;
+    }
+
+    .trackbutton{
+      justify-content: center;
+		  gap: 1em;
+      display: flex;
+      flex-direction: row;
+    }
+
+    .tracktimeline {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      bottom: 125px;
+      position: fixed;
+      width: 100%;
+      height: 1%;    
+      background-color:pink;
 
     }
   </style>

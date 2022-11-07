@@ -10,7 +10,15 @@
     import { Avatar, Col, Row, Chip, Divider, Button } from "svelte-materialify";
     import EditUser from "$lib/components/setting/EditUser.svelte";
     import DeleteUser from "$lib/components/setting/DeleteUser.svelte";
-  
+
+    //import * as api from '$lib/utils/ApiAction';
+
+    let api;
+
+    onMount(async () => {
+    api = await import("$lib/utils/ApiAction");
+  });
+
   
     export let user;
     export let posts;
@@ -44,7 +52,7 @@
   </script>
   
   <svelte:head>
-    <title>{data.name} | Sveltegram</title>
+    <title>{user.name} | Sveltegram</title>
   </svelte:head>
   <div style="max-width:1200px ;margin: auto;">
     <Row style="margin:auto ">

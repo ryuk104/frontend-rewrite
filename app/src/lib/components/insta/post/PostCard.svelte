@@ -1,4 +1,6 @@
 <script>
+  import * as api from '$lib/utils/ApiAction';
+
   import { auth } from "$lib/stores/auth";
   import { onMount } from "svelte";
   import { snackbar, theme } from "$lib/stores/ui";
@@ -23,7 +25,7 @@
 
   async function handleLikePost() {
     try {
-      const res = await API.likePost(post._id);
+      const res = await api.likePost(post._id);
       if (res.type === "success") {
         postState.updatePost(res.data.post);
       }
@@ -35,7 +37,7 @@
 
   async function handleDislike() {
     try {
-      const res = await API.disLike(post._id);
+      const res = await api.disLike(post._id);
       if (res.type === "success") {
         postState.updatePost(res.data.post);
       }

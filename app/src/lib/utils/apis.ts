@@ -1,4 +1,113 @@
+
+import { error } from '@sveltejs/kit';
+
+const url = 'http://localhost:4000';
+
+//const token = localStorage.getItem("token");
+
+const headers = {
+	Accept: 'application/vnd.github.v3+json',
+	//Authorization: `Bearer ${token}`,
+}
+
+
+/*
+async function send({ method, path, data, token }) {
+	const opts = { method, headers: {} };
+
+	
+	const res = await fetch(`${url}/${path}`, opts);
+	if (res.ok || res.status === 422) {
+		const text = await res.text();
+		return text ? JSON.parse(text) : {};
+	}
+
+	throw error(res.status);
+}
+
+export function POST(path, data, token) {
+	return send({ method: 'POST', path, data, token });
+}
+
+export function GET(path, token) {
+	return send({ method: 'GET', path, token });
+}
+*/
+
+
+/*
+export function(fetch, url) {
+    console.log('GET', url);
+    return fetch(url).then(res => res.json());
+}
+
+export function postJson(fetch, url, data) { 
+   console.log('POST', url);
+   return fetch(url, {
+      method: 'POST',
+      body: JSON.stringify(data)
+   }).then(res => res.json(());
+}
+*/
+
+
+
+export async function POST(fetch, url, data) {
+	return fetch(url, {
+		method: 'POST',
+		headers: {
+			...headers,
+			Accept: 'application/vnd.github.v3.raw',
+		},
+		body: JSON.stringify(data)
+	 }).then(res => res.json((data)));
+}
+
+
+/*
+export function PUT(event) {...}
+export function PATCH(event) {...}
+
+export function DELETE(path, data, token) {
+	return send({ method: 'PUT', path, data, token });
+}
+
+
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // import { id } from '$lib/config'
+
+
+
+/*
 import { loadingDelayed } from '$lib/store'
 let typingTimer
 
@@ -134,3 +243,6 @@ const cancelDelayedLoadingIndicator = async () => {
 	clearTimeout(typingTimer)
 	loadingDelayed.set(false)
 }
+
+
+*/

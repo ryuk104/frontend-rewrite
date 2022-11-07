@@ -120,7 +120,7 @@
     }
 
     .maincontainer{
-        background-color:grey;
+        background-color:#1a1a1d;
         width: 40%;
         margin: 0;
         padding: 0;
@@ -130,7 +130,7 @@
 
     .mediaacontainer{
         width:48%;
-        background-color:rgb(21, 7, 7);
+        background-color:#1c1c22;
         margin: 0;
         padding: 0;
         display: flex;
@@ -141,7 +141,7 @@
         padding: 0;
         display: flex;
         position: relative;
-        background-color: red;
+        background-color: #292a2d;
         width: 400px;
         height: 500px;
         top: 2%;
@@ -154,7 +154,7 @@
         padding: 0;
         display: flex;
         position: relative;
-        background-color: red;
+        background-color: #292a2d;
         width: 400px;
         height: 500px;
         top: 2%;
@@ -167,7 +167,7 @@
         padding: 0;
         display: flex;
         position: relative;
-        background-color: red;
+        background-color: #292a2d;
         width: 400px;
         height: 500px;
         top: 50%;
@@ -180,7 +180,7 @@
         padding: 0;
         display: flex;
         position: relative;
-        background-color: red;
+        background-color: #292a2d;
         width: 400px;
         height: 500px;
         top: 50%;

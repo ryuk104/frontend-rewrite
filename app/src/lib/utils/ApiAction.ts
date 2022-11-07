@@ -1,12 +1,15 @@
 import * as api from '$lib/api';
-import { post, get } from '$lib/util';
 
 
 
 
-import { BASE_URL } from "$lib/config";
-import type { RequestParams } from "../../types";
+//import type { RequestParams } from "../../types";
 
+
+
+
+
+/*
 type Fetch = (input: RequestInfo, init?: RequestInit) => Promise<Response>;
 type APIResponse = {
 	body?: {
@@ -16,7 +19,7 @@ type APIResponse = {
 	status: number;
 	ok: boolean;
 };
-
+*/
 //defaults.baseURL = BASE_URL;
 //defaults.withCredentials = true;
 
@@ -50,6 +53,8 @@ export async function signupUser(fetch: Fetch, params?: RequestParams): Promise<
 	};
 }
 
+
+/*
 export async function logoutUser(fetch: Fetch, params?: RequestParams): Promise<APIResponse> {
 	// Turn Object's Key-Value pairs into string
 	const urlParams = queryParams(params);
@@ -79,15 +84,12 @@ export async function logoutUser(fetch: Fetch, params?: RequestParams): Promise<
 		ok: response.ok,
 	};
 }
-
+*/
 
 
 export const logoutUser = async () => {
   try {
     const token = localStorage.getItem("token");
-    if (token) {
-      api.defaults.headers.common["Authorization"] = "Bearer " + token;
-    }
     const res = await api.get("/api/auth/logout");
     if (res.data.type === "success") {
       localStorage.removeItem("token");
@@ -95,9 +97,11 @@ export const logoutUser = async () => {
     return res.data;
   } catch (error) {
     console.log(error);
-    return error.response.data;
+    return;
   }
 };
+
+
 
 export const getUserById = async (userId) => {
   try {
@@ -105,7 +109,7 @@ export const getUserById = async (userId) => {
     return res.data;
   } catch (error) {
     console.log(error);
-    return error.response.data;
+    return;
   }
 };
 
@@ -119,7 +123,7 @@ export const editUser = async (userId, data) => {
     return res.data;
   } catch (error) {
     console.log(error);
-    return error.response.data;
+    return;
   }
 };
 
@@ -133,7 +137,7 @@ export const deleteUser = async (userId) => {
     return res.data;
   } catch (error) {
     console.log(error);
-    return error.response.data;
+    return;
   }
 };
 
@@ -164,7 +168,7 @@ export const followUser = async (userId) => {
     const res = await api.put(`/api/user/${userId}/follow`);
     return res.data;
   } catch (error) {
-    return error.response.data;
+    return;
   }
 };
 
@@ -177,11 +181,12 @@ export const unFollowuser = async (userId) => {
     const res = await api.put(`/api/user/${userId}/unfollow`);
     return res.data;
   } catch (error) {
-    return error.response.data;
+    return;
   }
 };
 
 //------------------------------ Post -----------------------------
+
 export const createPost = async (data) => {
   try {
     const token = localStorage.getItem("token");
@@ -191,7 +196,7 @@ export const createPost = async (data) => {
     const res = await api.post(`/api/post/`, data);
     return res.data;
   } catch (error) {
-    return error.response.data;
+    return;
   }
 };
 
@@ -204,7 +209,7 @@ export const updatePost = async (postId, data) => {
     const res = await api.put(`/api/post/${postId}`, data);
     return res.data;
   } catch (error) {
-    return error.response.data;
+    return;
   }
 };
 
@@ -214,7 +219,7 @@ export const getAllPosts = async ({ page = 0, limit = 5 }) => {
 
     return res.data;
   } catch (error) {
-    return error.response.data;
+    return;
   }
 };
 
@@ -233,7 +238,7 @@ export const explorePosts = async ({ page = 0, limit = 5 }) => {
 
     return res.data;
   } catch (error) {
-    return error.response.data;
+    return;
   }
 };
 
@@ -246,7 +251,7 @@ export const deletePost = async (postId) => {
     const res = await api.delete(`/api/post/${postId}`);
     return res.data;
   } catch (error) {
-    return error.response.data;
+    return;
   }
 };
 
@@ -259,7 +264,7 @@ export const likePost = async (postId) => {
     const res = await api.put(`/api/post/${postId}/like`);
     return res.data;
   } catch (error) {
-    return error.response.data;
+    return;
   }
 };
 
@@ -272,6 +277,6 @@ export const disLike = async (postId) => {
     const res = await api.put(`/api/post/${postId}/unlike`);
     return res.data;
   } catch (error) {
-    return error.response.data;
+    return;
   }
 };

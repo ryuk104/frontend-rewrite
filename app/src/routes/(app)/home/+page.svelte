@@ -27,7 +27,6 @@
   let isSettingsOpen;
 
 
-  let api;
   let page = 0;
   let limit = 3;
   //let totalPage = posts.data.pagination.totalPage;
@@ -36,7 +35,7 @@
 
   
   onMount(async () => {
-    api = await import("$lib/utils/Api");
+    let api = await import("$lib/utils/ApiAction");
   });
 
 

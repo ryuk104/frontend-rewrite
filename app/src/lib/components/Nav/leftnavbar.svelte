@@ -90,7 +90,7 @@
 .leftnavbar {
   margin: 0;
   padding: 0;
-  background: #1a4b4e;
+  background: #202124;
   height: 100%;
   align-items: center;
   position: absolute;
@@ -141,7 +141,7 @@ cursor: pointer;
   display: flex;
   flex-direction: column;
   margin-bottom: 10px;
-  background-color: pink;
+  background-color: #202124;
   height: 100%;
   width: 100%;
 }

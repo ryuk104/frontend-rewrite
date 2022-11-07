@@ -12,7 +12,7 @@
   let API;
 
   onMount(async () => {
-    API = await import("$lib/utils/Api");
+    API = await import("$lib/utils/ApiAction");
   });
 
   export let postId;

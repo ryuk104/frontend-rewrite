@@ -17,7 +17,7 @@
 
   let API;
   onMount(async () => {
-    API = await import("$lib/utils/Api");
+    API = await import("$lib/utils/ApiAction");
   });
   let name = $auth.user.name || "";
   let email = $auth.user.email || "";

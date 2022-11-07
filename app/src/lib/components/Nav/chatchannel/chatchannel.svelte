@@ -7,6 +7,8 @@ import Postbuttonpopup from './textchannelprofile.svelte'
 import Minimusicplayer from '../../musicplayer/minimusicplayer.svelte';
 import Player from '../../Player/Player.svelte';
 
+let id = "dsad";
+
 
 
 
@@ -47,8 +49,9 @@ import Player from '../../Player/Player.svelte';
  -->
       <hr>
       </div>
+      <h6>Direct Message</h6>
 
-      <a class="channelprofile" href="s"> 
+      <a class="channelprofile" href="/channel/{id}"> 
         <div class="avatarpicture" role="img"> 
           <img src=../image/image1.jpeg class="avatarpicturecircle" width="45px" hieght="45px" alt="d"> 
         </div>
@@ -74,7 +77,12 @@ import Player from '../../Player/Player.svelte';
 
     <Minimusicplayer></Minimusicplayer>
     <!--<Player></Player>-->
-      
+
+    <div class="smallprofile">
+      <img  class="smallprofileimage" src="https://media-photos.depop.com/b0/3643699/1293111538_b8d9de6ba3294226a92c1796a7e2d572/P0.jpg" width="60px" height="60px">
+      <div>Name</div>
+      <div>#dsao</div>
+    </div>      
 
 
     </div>
@@ -131,7 +139,7 @@ main#bookshelf{
   box-sizing: border-box;
   /* background-color: #2d3436; */
   /* background-image: linear-gradient(315deg, #2d3436 0%, #000000 74%); */
-  background-color: #383F51;
+  background-color: #1a1a1d;
   max-width: 225px;
   position: fixed;
   transform: translate(32%, 0%);
@@ -139,7 +147,6 @@ main#bookshelf{
   width: 225px;
   overflow-x: hidden;
   float: left;
-  z-index: -1;
   left: 0%;
   top: 0%
 }
@@ -194,5 +201,23 @@ main#bookshelf{
   padding-left: 40%;
 }
 
+.smallprofile{
+  background-color: #37393c;
+  bottom: 0;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  bottom: 0px;
+  position: fixed;
+  width: 100%;
+  height: 6%;
+}
+
+.smallprofileimage {
+  border-radius: 40px;
+  cursor: pointer;
+  position: relative;
+
+}
 
 </style>

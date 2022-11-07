@@ -6,7 +6,7 @@ import { browser } from '$app/environment';
 
 let Api;
 onMount(async () => {
-  Api = await import("$lib/utils/Api");
+  Api = await import("$lib/utils/ApiAction");
 });
 
 

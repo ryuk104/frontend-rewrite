@@ -1,15 +1,17 @@
-const base = 'localhost:4000/api';
+const base = 'http://localhost:4000/api';
 
 async function send({ method, path, data, token }) {
 	const opts = { method, headers: {} };
 
-	if (data) {
+		
+	
+
+	try {
 		opts.headers['Content-Type'] = 'application/json';
 		opts.body = JSON.stringify(data);
-	}
-
-	if (token) {
-		opts.headers['Authorization'] = `Token ${token}`;
+		opts.headers['Authorization'] = `Bearer ${localStorage.token}`;
+	} catch (error) {
+		console.log(error);
 	}
 
 	return fetch(`${base}/${path}`, opts)
