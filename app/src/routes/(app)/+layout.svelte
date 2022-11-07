@@ -1,6 +1,8 @@
 <script>
+  	/** @type {import('./$types').LayoutData} */
+	export let data;
 
-    import { onMount } from "svelte";
+  	import { onMount } from "svelte";
 	import { goto } from "$app/navigation";
 	import { auth } from "$lib/stores/auth";
 
@@ -30,6 +32,7 @@
 		 
 		  if (res.status === 200) {
             auth.setUser({ user: data.data.user, token });
+			return data;
           }
           if (res.status === 500) {
             //snackbar.showSnackbar({ ...res.data });

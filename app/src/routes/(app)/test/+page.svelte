@@ -1,7 +1,9 @@
 <script>
-  //    /** @type {import('./$types').PageData} */
-    export let data
-    console.log(data)
+    //import { page } from '$app/stores';
+
+    /** @type {import('./$types').PageData} */
+    export let data;
+    const { userdata } = data
     
     import Stories from "$lib/components/stories/stories.svelte";
     import Instagram from "$lib/components/posts/instagram.svelte";
@@ -86,10 +88,11 @@
     <ul class="maincontainer"> 
         <l1> 
             <div class="userprofilecard">
-                <img  class="avatar" src="{avatar}" >
-                <div class="username">{username}</div>
+              <h6>Profile</h6>
+                <img  class="avatar" src="{data.avatar}" >
+                <div class="username">{data.username}</div>
                 <div class="bio">Add custom </div>
-                <div class="status">Online</div>
+                <div class="status">{data.status}</div>
 
             </div> 
         </l1>
@@ -195,5 +198,27 @@
         border-radius:80px;
         top: 10%;
         left: 10%;
+        display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: center;
+    justify-self: center;
+    margin: auto;
+    overflow: hidden;
+    }
+
+    .username{
+      margin-top: 15px;
+    align-self: center;
+    }
+
+    .status{
+      margin-top: 15px;
+    align-self: center;
+    }
+
+    .bio{
+      margin-top: 15px;
+    align-self: center;
     }
 </style>

@@ -96,25 +96,31 @@
 				<span class="pill"></span>
 				<img class="img" src="./assets/avatar_xnacly.jpg" alt="dsad"/>
 			</div>
+
 			<div class="guild">
 				<span class="pill"></span>
 				<span class="img">E</span>
 			</div>
+
 			<div class="guild">
-				<span class="pill"></span>
-				<img class="img" src="./assets/avatar_xnacly.jpg" alt="dsad"/>
+				  <span class="pill"></span>        
+          <a href="/server/6964366028356718593"> 
+				    <img class="img" src="./assets/avatar_xnacly.jpg" alt="dsad"/>
+          </a>
 			</div>
+
 			<div class="guild unread">
 				<span class="pill"></span>
 				<img class="img" src="./assets/avatar_flam3rboy.png" alt="dsad"/>
 			</div>
 
       <div class="guild unread">
+        <span class="pill"></span>
         <a href="/test/createpost">
-				<span class="create-server"></span>
-				<img class="img" src="./assets/download.png" alt="dsad"/>
-      </a>
+				  <img class="img" src="./assets/download.png" alt="dsad"/>
+         </a>
 			</div>
+
 		</div>
 
 		

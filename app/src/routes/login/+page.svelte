@@ -1,4 +1,11 @@
-<script>    
+<script lang="ts">    
+//import cookies from "cookie";
+
+/** @type {import('./$types').Actions} */
+
+import type { ActionData } from './$types'
+export let form: ActionData
+
 //import { signupUser } from "$lib/utils/Api";
 import { emailRules, passwordRules } from "$lib/utils/validation";
 import { onMount } from "svelte";
@@ -16,12 +23,13 @@ onMount(async () => {
 
   let api;
 
-  let show = false;
-  let email = "";
-  let password = "";
+  export let show = false;
+  export let email = "";
+  export let password = "";
 
-  let error = {};
-  let loading = false;
+  export let error = {};
+  export let loading = false;
+
 
   async function handleLogin() {
     try {
@@ -41,7 +49,6 @@ onMount(async () => {
       const data = await res.json();
 
       loading = false;
-      
 
       if (res.status === 201) {
         console.log(data.data.token)
@@ -88,7 +95,7 @@ onMount(async () => {
 </script>
 
 <div class="content">
-	<form on:submit|preventDefault={handleLogin} class="login-form" id="reg-form" method="POST" >
+	<form on:submit|preventDefault={handleLogin} action="?/Login" class="login-form" id="reg-form" method="POST" >
         <h1>Login</h1>
         
         <div class="txtb">

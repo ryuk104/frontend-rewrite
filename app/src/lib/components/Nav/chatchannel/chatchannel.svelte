@@ -1,4 +1,6 @@
 <script>
+export let data;
+
 import { bookData } from '../../../../testdb/user.js';		 
 import Userprofile from '../../searchbar/userprofile.svelte';
 import NoResults from '../../searchbar/userprofile.svelte';
@@ -80,7 +82,7 @@ let id = "dsad";
 
     <div class="smallprofile">
       <img  class="smallprofileimage" src="https://media-photos.depop.com/b0/3643699/1293111538_b8d9de6ba3294226a92c1796a7e2d572/P0.jpg" width="60px" height="60px">
-      <div>Name</div>
+      <div>RE</div>
       <div>#dsao</div>
     </div>      
 

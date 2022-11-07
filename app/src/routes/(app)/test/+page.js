@@ -2,33 +2,37 @@
 //import type { PageLoad } from '@sveltejs/kit';
 
 
-//   /** @type {import('./$types').PageLoad} */
+   /** @type {import('./$types').PageLoad} */
 
-/*
-export async function load ({ url, fetch, params, stuff }) {
+
+export async function load ({ url, fetch, params }) {
+  let username;
   try {
-    const serverId = params.id;
-    const res = await fetch(`http://localhost:4000/api/users/${UserId}`);
-
-    const Data = await res.json();
-
-    console.log(Data)
-
-    return {
-      avatar: Data.data.avatar,
-      name: Data.data.name,
-      default_channel_id: Data.data.default_channel_id,
-      server_id: Data.data.server_id
-    };
-
-    let server_id;
-
-
+    const token = localStorage.getItem("token");
+    if (token) {
+      try {
+        const res = await fetch(`http://localhost:4000/api/auth/me`, { 
+          method: 'GET',
+          headers: {
+              'content-type': 'application/json',
+      'Authorization': `Bearer ${localStorage.token}`
+          }
+      });
+  const data = await res.json();
+  const userdata = data.data.user
+   
+    if (res.status === 200) {
+    return userdata;
+    }
+      } catch (error) {
+        console.log(error);
+      }
+    }
   } catch (error) {
     console.log(error);
   }
 }
-*/
+
 
 
 /*
