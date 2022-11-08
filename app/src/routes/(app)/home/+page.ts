@@ -1,3 +1,5 @@
+/*
+
 import { redirect } from "@sveltejs/kit";
 import { BASE_URL } from "$lib/config";
 import type { PageLoad } from "./$types";
@@ -13,4 +15,5 @@ export const load: PageLoad = async ({ url, params, fetch, data }) => {
   users: await res[1].json(),
 };
 }
+*/
 

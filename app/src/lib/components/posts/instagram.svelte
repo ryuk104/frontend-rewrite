@@ -18,7 +18,7 @@ async function loadMore() {
     try {
       loading = true;
       page = page + 1;
-      const res = await fetch(`http://localhost:4000/api/post`, { 
+      const res = await fetch(`http://localhost:4000/api/post/`, { 
             method: 'GET',
             headers: {
                 'content-type': 'application/json',
@@ -30,6 +30,7 @@ async function loadMore() {
 
       if (res.status === 200) {
         postState.addMorePosts(data.data.posts);
+        let postsData = data.data.posts;
         console.log(data.data.posts)
       }
     } catch (error) {
@@ -39,6 +40,9 @@ async function loadMore() {
     }
   }
 
+  loadMore()
+
+  
 
 
   import Postsprofile from './postsprofile.svelte'

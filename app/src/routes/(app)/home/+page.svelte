@@ -1,8 +1,8 @@
 <script>
 
   import PostCard from "$lib/components/insta/post/PostCard.svelte";
-  import UserSideProfile from "$lib/components/insta/UserSideProfile.svelte";
-  import UserSuggestions from "$lib/components/insta/UserSuggestions.svelte";
+  //import UserSideProfile from "$lib/components/insta/UserSideProfile.svelte";
+  //import UserSuggestions from "$lib/components/insta/UserSuggestions.svelte";
   import Settings from "$lib/components/Nav/Settings.svelte";
 
   import { clickOutside } from "$lib/actions/clickOutside";
@@ -26,6 +26,7 @@
   export let users;
   let isSettingsOpen;
 
+  let api;
 
   let page = 0;
   let limit = 3;
@@ -42,7 +43,68 @@
   //postState.addPosts(posts.data.posts);
 
   //user.addUsers(users.data.users);
+  
 
+  async function loadposts() {
+    try {
+      loading = true;
+      const res = await fetch(`http://localhost:4000/api/post?page=0&limit=3`, { 
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+                'Accept': 'application/json',
+                'Authorization': `Bearer ${localStorage.token}`
+            },
+            
+        });
+      const data = await res.json();
+      const postdata = data.data.post;
+
+      loading = false;
+
+      if (res.status === 201) {
+        console.log(data.data)
+        return postdata
+      }
+      if (res.type === "error") {
+        return;
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async function loadstories() {
+    try {
+      loading = true;
+      const res = await fetch(`http://localhost:4000/api/stories/allstories`, { 
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+                'Accept': 'application/json',
+                'Authorization': `Bearer ${localStorage.token}`
+            },
+            
+        });
+      const data = await res.json();
+      const postdata = data.data.post;
+
+      loading = false;
+
+      if (res.status === 201) {
+        console.log(data.data)
+        return postdata
+      }
+      if (res.type === "error") {
+        return;
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  loadposts()
+  loadstories()
   
 
   async function loadMore() {
@@ -72,9 +134,6 @@
 
     
     //import Postbuttonpopup from '$lib/components/postbuttonpopup.svelte'
-
-    import "../../app.css";
-
     
     
     
@@ -89,7 +148,7 @@
 <section class="main">
   
 <!--  <CustomeMenu></CustomeMenu> -->
-  <Stories></Stories> 
+<!--  <Stories></Stories> -->
 <!--   <Friendsactivity> -->
 <!--   <UserSuggestions users={$user.users} /> -->
 <!--   </Friendsactivity> -->
@@ -101,6 +160,7 @@
     <Row style="margin:auto">
       <Col sm={12} cols={12} md={8}>
         <!-- create post  -->
+        <!--
         {#if $auth.isAuthenticated}
           <Card
             class="pa-6 mb-8"
@@ -116,6 +176,8 @@
             </Button>
           </Card>
         {/if}
+        -->
+
         <!--  posts -->
         {#each $postState.posts as post (post._id)}
           <div class="mb-8 bg-gray-500	">
@@ -138,9 +200,9 @@
   
       <Col sm={12} md={4} class="d-none d-md-block gray-500 pl-100">
         <div style="position: sticky;top: 64px; background-color:gray;">
-          <UserSideProfile />
+           <!--<UserSideProfile /> -->
           <!-- user profile on large screen -->
-          <UserSuggestions users={$user.users} />
+           <!--<UserSuggestions users={$user.users} /> -->
          </div>
       </Col>
     </Row>
