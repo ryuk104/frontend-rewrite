@@ -2,6 +2,7 @@
     export let profilepicture;
     export let username;
     export let image;
+    export let title;
 
   </script>
   
@@ -12,7 +13,8 @@
     <div>
       <img src={image} alt={image} width="56px" height="56px" class="storyprofilepicture">
     </div>
-    <div>{username}</div>
+    <div>{title}</div>
+    <div>{title}</div>
   </button>
 </li>
 

@@ -27,6 +27,7 @@ async function loadMore() {
             }
         });
         const data = await res.json();
+        const postData = data;
 
       if (res.status === 200) {
         postState.addMorePosts(data.data.posts);

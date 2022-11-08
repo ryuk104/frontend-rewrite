@@ -1,14 +1,49 @@
 <script>
   import Storyprofile from './storyprofile.svelte'
   import { storyData } from '../../../testdb/story.js';		 
+
+  let loading = false;
+
+  async function loadstories() {
+    try {
+      loading = true;
+      const res = await fetch(`http://localhost:4000/api/stories/allstories`, { 
+            method: 'GET',
+            headers: {
+                'content-type': 'application/json',
+                'Accept': 'application/json',
+                'Authorization': `Bearer ${localStorage.token}`
+            },
+            
+        });
+      const data = await res.json();
+      const storyData = data.stories;
+
+      loading = false;
+
+      if (res.status === 201) {
+        console.log(storyData)
+        return storyData
+      }
+      if (res.type === "error") {
+        return;
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  loadstories()
+
 </script>
+
 
 
 <div class="stories">
     <a href="/story/d">
       <ul class="storiesul"> 
-        {#each storyData as {image, username}}          
-          <Storyprofile {image} {username}/>
+        {#each storyData as {image, username, title}}          
+          <Storyprofile {image} {username} {title}/>
         {/each}
   </ul>
 </a>

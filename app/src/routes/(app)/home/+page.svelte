@@ -1,5 +1,9 @@
 <script>
 
+  /** @type {import('./$types').PageData} */
+  export let data;
+  const { postdata } = data
+
   import PostCard from "$lib/components/insta/post/PostCard.svelte";
   //import UserSideProfile from "$lib/components/insta/UserSideProfile.svelte";
   //import UserSuggestions from "$lib/components/insta/UserSuggestions.svelte";
@@ -43,13 +47,15 @@
   //postState.addPosts(posts.data.posts);
 
   //user.addUsers(users.data.users);
-  
 
-  async function loadposts() {
+
+  /*
+
+  async function loadUserdata() {
     try {
       loading = true;
-      const res = await fetch(`http://localhost:4000/api/post?page=0&limit=3`, { 
-            method: 'POST',
+      const res = await fetch(`http://localhost:4000/api/user?page=0&limit=5`, { 
+            method: 'GET',
             headers: {
                 'content-type': 'application/json',
                 'Accept': 'application/json',
@@ -59,6 +65,36 @@
         });
       const data = await res.json();
       const postdata = data.data.post;
+
+      loading = false;
+
+      if (res.status === 201) {
+        console.log(data.data)
+        return postdata
+      }
+      if (res.type === "error") {
+        return;
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  
+
+  async function loadposts() {
+    try {
+      loading = true;
+      const res = await fetch(`http://localhost:4000/api/post?page=0&limit=3`, { 
+            method: 'GET',
+            headers: {
+                'content-type': 'application/json',
+                'Accept': 'application/json',
+                'Authorization': `Bearer ${localStorage.token}`
+            },
+            
+        });
+      const data = await res.json();
+      const postdata = data.data.posts;
 
       loading = false;
 
@@ -103,8 +139,10 @@
     }
   }
 
-  loadposts()
-  loadstories()
+
+  */
+  //loadposts()
+  //loadstories()
   
 
   async function loadMore() {
@@ -148,7 +186,7 @@
 <section class="main">
   
 <!--  <CustomeMenu></CustomeMenu> -->
-<!--  <Stories></Stories> -->
+  <Stories></Stories>
 <!--   <Friendsactivity> -->
 <!--   <UserSuggestions users={$user.users} /> -->
 <!--   </Friendsactivity> -->
@@ -179,7 +217,7 @@
         -->
 
         <!--  posts -->
-        {#each $postState.posts as post (post._id)}
+        {#each postdata as post (post._id)}
           <div class="mb-8 bg-gray-500	">
             <PostCard {post} />
           </div>
