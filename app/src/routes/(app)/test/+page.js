@@ -31,6 +31,10 @@ export async function load ({ url, fetch, params }) {
   } catch (error) {
     console.log(error);
   }
+
+
+
+  
 }
 
 

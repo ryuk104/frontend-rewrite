@@ -4,6 +4,11 @@
     import { goto } from "$app/navigation";
     import { auth } from "$lib/stores/auth";
   
+    export let open = false;
+
+    import { createEventDispatcher } from 'svelte'
+
+
   
     let title = "";
     let description = "";
@@ -39,6 +44,8 @@
   <svelte:head>
     <title>Create Post | Sveltegram</title>
   </svelte:head>
+
+  
 
   <div class="main">
     <div class="selection"> </div>

@@ -1,5 +1,6 @@
 <script>
   import Storyprofile from './storyprofile.svelte'
+
   import { storyData } from '../../../testdb/story.js';		 
 
   let loading = false;

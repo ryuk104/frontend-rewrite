@@ -14,6 +14,11 @@
 	import Tabbar from "$lib/components/Nav/tabbar/tabbar.svelte"
     //import CustomeMenu from "$lib/components/Nav/customeMenu/CustomeMenu.svelte";
 
+
+	import Createmediaselection from "$lib/components/createmedia/createmediaselection.svelte"
+	import { openmodal } from "$lib/stores/modal.js"
+
+
 	import { redirect } from '@sveltejs/kit';
 
 	onMount(async () => {
@@ -120,6 +125,13 @@
 	<!-- {/key} -->
 </main>
 
+<!-- 
+{#if $openmodal == open}
+  <Createmediaselection title="Our company" buttonOptions={false}>
+    <AboutUs />
+  </Createmediaselection>
+{/if}
+-->
 <slot name="master"></slot>
 <slot name="second"></slot>
 <slot></slot>
