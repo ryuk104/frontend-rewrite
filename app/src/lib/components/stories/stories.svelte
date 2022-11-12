@@ -1,7 +1,13 @@
 <script>
   import Storyprofile from './storyprofile.svelte'
+  import { story as storystate } from '$lib/stores/stories.js';	
+	 
 
-  import { storyData } from '../../../testdb/story.js';		 
+
+  //import { storyData } from '../../../testdb/story.js';		
+  
+  export let story;
+
 
   let loading = false;
 
@@ -19,6 +25,8 @@
         });
       const data = await res.json();
       const storyData = data.stories;
+      storystate.addStory(storyData)
+      console.log($storystate.story)
 
       loading = false;
 
@@ -43,12 +51,13 @@
 <div class="stories">
     <a href="/story/d">
       <ul class="storiesul"> 
-        {#each storyData as {image, username, title}}          
-          <Storyprofile {image} {username} {title}/>
+        {#each $storystate.story as storys}          
+          <Storyprofile {storys}/>
         {/each}
-  </ul>
-</a>
+    </ul>
+  </a>
 </div>
+
 
 <style>
 .stories {

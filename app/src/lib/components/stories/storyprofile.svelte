@@ -1,20 +1,20 @@
 <script>
-    export let profilepicture;
-    export let username;
-    export let image;
-    export let title;
 
-  </script>
+import { story as storystate } from "$lib/stores/stories.js";
+
+export let storys;
+
+
+</script>
   
 
 
 <li class="storycontent" >
   <button class="storeisbutton">
     <div>
-      <img src={image} alt={image} width="56px" height="56px" class="storyprofilepicture">
+      <img src={storys.image} alt={storys.image} width="56px" height="56px" class="storyprofilepicture">
     </div>
-    <div>{title}</div>
-    <div>{title}</div>
+    <div>{storys.title}</div>
   </button>
 </li>
 

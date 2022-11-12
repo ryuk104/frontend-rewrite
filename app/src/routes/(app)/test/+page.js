@@ -33,6 +33,19 @@ export async function load ({ url, fetch, params }) {
   }
 
 
+  /*
+  const posts = await fetch(`http://localhost:4000/api/post?page=0&limit=3`);
+  const users = await fetch(`http://localhost:4000/api/user?page=0&limit=5`);
+  const data = await res.json();
+
+    return {
+      props: {
+        posts: await res[0].json(),
+        users: await res[1].json(),
+      },
+    };
+
+*/
 
   
 }

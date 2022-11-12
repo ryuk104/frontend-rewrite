@@ -6,7 +6,7 @@
   import { onMount } from "svelte";
 
   export let posts = {};
-  export let users;
+  let users;
 
   let page = 0;
   let limit = 7;
@@ -14,7 +14,7 @@
   let totalPage = 1;
   let loading = false;
 
-async function loadMore() {
+export async function loadMore() {
     try {
       loading = true;
       page = page + 1;
@@ -27,11 +27,12 @@ async function loadMore() {
             }
         });
         const data = await res.json();
+        postState.addPosts(data)
         const postData = data;
 
       if (res.status === 200) {
+        return postData
         postState.addMorePosts(data.data.posts);
-        let postsData = data.data.posts;
         console.log(data.data.posts)
       }
     } catch (error) {
@@ -49,6 +50,7 @@ async function loadMore() {
   import Postsprofile from './postsprofile.svelte'
   
   import { postsData, username } from '../../../testdb/posts.js';
+	//import { post } from "$lib/apipost";
 
 
   function toggleLike(i) {
@@ -73,8 +75,8 @@ async function loadMore() {
 </script>
 
 <div class="instagramg">
-  {#if $postsData.length > 0}
-    {#each $postsData as post, i}
+  {#if $postState.length > 0}
+    {#each $postState.posts as post, i}
       <div class="post">
         <div class="postheader">
         <img class="avatar" src={post.profilepicture} alt={post.username} width="50"/>
@@ -90,10 +92,10 @@ async function loadMore() {
             {/if}
           </span>
         </div>
-        {#if postsData.description > 0}
+        {#if post.description > 0}
           <p class="description">
-            <strong>{postsData.username}</strong>
-            {@html postsData.description}
+            <strong>{post.user.username}</strong>
+            {@html post.description}
           </p>
         {/if}
         <div class="comments">

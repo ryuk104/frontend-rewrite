@@ -23,6 +23,7 @@
 
   export let post;
 
+
   async function handleLikePost() {
     try {
       const res = await api.likePost(post._id);
@@ -61,23 +62,27 @@
 
 <Card>
   <div class="theme-{$theme} d-flex align-center pa-2 justify-space-between">
-    <div class=" d-flex align-center pa-2">
-      {#if post.user.profilePic}
+    <div class=" d-flex align-center pa-2"> 
+
+
+      {#if post.user.avatar}
         <Avatar size={60}
-          ><img src={post.user.profilePic} alt={post.user.name} /></Avatar
+          ><img src={post.user.avatar} alt={post.user.username} /></Avatar
         >
       {:else}
         <Avatar class="blue white-text">
-          {post.user.name.split("")[0].toUpperCase()}
+          {post.user.username.split("")[0].toUpperCase()}
         </Avatar>
       {/if}
       <h6 class="ml-4 font-weight-bold">
-        {post.user.name}
+        {post.user.username}
       </h6>
     </div>
     {#if $auth.isAuthenticated && $auth.user._id == post.user._id}
       <PostActionMenu postId={post._id} />
     {/if}
+
+
   </div>
   {#if post.image}
     <img
@@ -85,9 +90,10 @@
       width="100%"
       height="500px"
       src={post.image}
-      alt={post.user.name}
+      alt={post.user.username}
     />
   {/if}
+  
   <CardTitle>{post.title}</CardTitle>
   <CardSubtitle>{post.description}</CardSubtitle>
   {#if $auth.isAuthenticated}

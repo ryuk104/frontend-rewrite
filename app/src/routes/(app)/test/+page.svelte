@@ -44,10 +44,15 @@
             }
         });
         const data = await res.json();
+        const postData = data.data.posts;
+        postState.addPosts(postData)
+        //console.log(postData)
+        console.log($postState.posts)
 
       if (res.status === 200) {
+        return postData
         postState.addMorePosts(data.data.posts);
-        console.log(data.data.posts)
+        console.log(data.data)
       }
     } catch (error) {
       console.log(error);
@@ -55,6 +60,11 @@
       loading = false;
     }
   }
+
+
+  loadMore()
+
+
 
   let username;
   let avatar;
@@ -103,8 +113,15 @@
     </ul>
     <div class="mediaacontainer">
         <Stories/>
-        <Instagram/>
 
+        <!--  posts -->
+        <div class="posts">
+        {#each $postState.posts as post (post._id)}
+          <div class="mb-8 bg-gray-500">
+            <PostCard {post} />
+          </div>
+        {/each}
+      </div>
     </div>
 </main>
 
@@ -120,6 +137,23 @@
         left: 300px;
         height: 96%;
         width: 100%;    
+    }
+
+    .posts{
+      background-color:#1a1a1d;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      position: fixed;
+      margin: 0;
+      padding: 0;
+      flex-direction: column;
+      background-color: rgb(73, 19, 19);
+      width: 40%;
+      height: 80%;
+      top: 20%;
+      right: 5%;  
+      overflow: auto;
     }
 
     .maincontainer{

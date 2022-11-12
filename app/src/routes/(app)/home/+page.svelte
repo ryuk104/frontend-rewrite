@@ -143,8 +143,39 @@
   */
   //loadposts()
   //loadstories()
-  
+  async function loadMore() {
+    try {
+      loading = true;
+      page = page + 1;
+      const res = await fetch(`http://localhost:4000/api/post`, { 
+            method: 'GET',
+            headers: {
+                'content-type': 'application/json',
+                'Accept': 'application/json',
+                'Authorization': `Bearer ${localStorage.token}`
+            }
+        });
+        const data = await res.json();
+        const postData = data.data.posts;
+        postState.addPosts(postData)
+        //console.log(postData)
+        console.log($postState.posts)
 
+      if (res.status === 200) {
+        return postData
+        postState.addMorePosts(data.data.posts);
+        console.log(data.data)
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
+      loading = false;
+    }
+  }
+
+  loadMore()
+
+/*
   async function loadMore() {
     try {
       loading = true;
@@ -159,6 +190,7 @@
       loading = false;
     }
   }
+  */
   
     
     //import CustomeMenu from "$lib/components/customeMenu/CustomeMenu.svelte";
@@ -217,12 +249,14 @@
         -->
 
         <!--  posts -->
-        {#each postdata as post (post._id)}
+        {#each $postState.posts as post (post._id)}
           <div class="mb-8 bg-gray-500	">
             <PostCard {post} />
           </div>
         {/each}
   
+
+        
         {#if totalPage >= page + 1}
           <div class="d-flex justify-center">
             <Button on:click={loadMore} class="blue white-text">
