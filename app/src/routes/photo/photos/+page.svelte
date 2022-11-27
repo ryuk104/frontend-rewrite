@@ -1,29 +1,31 @@
 <script lang="ts">
-	import NavigationBar from '$lib/components/shared-components/navigation-bar.svelte';
-	import SideBar from '$lib/components/shared-components/side-bar/side-bar.svelte';
-	import AssetGrid from '$lib/components/photos-page/asset-grid.svelte';
+	import NavigationBar from '$lib/components/photo/shared-components/navigation-bar.svelte';
+	//import SideBar from '$lib/components/photo/shared-components/side-bar/side-bar.svelte';
+	//import AssetGrid from '$lib/components/photo/photos-page/asset-grid.svelte';
 
 	import type { PageData } from './$types';
 
-	import { openFileUploadDialog, UploadType } from '$lib/utils/file-uploader';
+	import { openFileUploadDialog, UploadType } from '$lib/utils/photo/file-uploader';
 	import {
 		assetInteractionStore,
 		isMultiSelectStoreState,
 		selectedAssets
-	} from '$lib/stores/asset-interaction.store';
-	import ControlAppBar from '$lib/components/shared-components/control-app-bar.svelte';
-	import Close from 'svelte-material-icons/Close.svelte';
-	import CircleIconButton from '$lib/components/shared-components/circle-icon-button.svelte';
-	import DeleteOutline from 'svelte-material-icons/DeleteOutline.svelte';
-	import { api } from '@api';
+	} from '$lib/stores/photo/asset-interaction.store';
+
+	//import ControlAppBar from '$lib/components/photo/shared-components/control-app-bar.svelte';
+	//import Close from 'svelte-material-icons/Close.svelte';
+	//import CircleIconButton from '$lib/components/photo/shared-components/circle-icon-button.svelte';
+	//import DeleteOutline from 'svelte-material-icons/DeleteOutline.svelte';
 	import {
 		notificationController,
 		NotificationType
-	} from '$lib/components/shared-components/notification/notification';
-	import { assetStore } from '$lib/stores/assets.store';
+	} from '$lib/components/photo/shared-components/notification/notification';
+
+	import { assetStore } from '$lib/stores/photo/assets.store';
 
 	export let data: PageData;
 
+	/*
 	const deleteSelectedAssetHandler = async () => {
 		try {
 			if (
@@ -51,6 +53,7 @@
 			console.error('Error deleteSelectedAssetHandler', e);
 		}
 	};
+	*/
 </script>
 
 <svelte:head>
@@ -59,6 +62,7 @@
 
 <section>
 	{#if $isMultiSelectStoreState}
+	<!-- 
 		<ControlAppBar
 			on:close-button-click={() => assetInteractionStore.clearMultiselect()}
 			backIcon={Close}
@@ -74,7 +78,7 @@
 					on:click={deleteSelectedAssetHandler}
 				/>
 			</svelte:fragment>
-		</ControlAppBar>
+		</ControlAppBar>-->
 	{:else}
 		<NavigationBar
 			user={data.user}
@@ -84,6 +88,6 @@
 </section>
 
 <section class="grid grid-cols-[250px_auto] relative pt-[72px] h-screen bg-immich-bg">
-	<SideBar />
-	<AssetGrid />
+	<!--<SideBar />
+	<AssetGrid />-->
 </section>

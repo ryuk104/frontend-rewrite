@@ -1,10 +1,12 @@
-<script>
+<script lang="ts">
     //import { page } from '$app/stores';
 
     /** @type {import('./$types').PageData} */
     export let data;
     const { userdata } = data
-    
+
+    import { io } from "socket.io-client";
+     
     import Stories from "$lib/components/stories/stories.svelte";
     import Instagram from "$lib/components/posts/instagram.svelte";
     import PostCard from "$lib/components/insta/post/PostCard.svelte";
@@ -30,6 +32,57 @@
   //let totalPage = posts.pagination.totalPage;
   let totalPage = 1;
   let loading = false;
+
+  const socket = io("http://localhost:4000", {
+    transports: ['websocket']
+  })
+
+  onMount(async () => {
+    try {
+      const token = localStorage.getItem("token");
+      socket.emit("authentication", {
+        token: token,
+      })		   
+    } catch {
+      console.log("error")
+    }
+  });
+
+
+  /*
+  socket.on("authentication", {
+    token: localStorage.getItem("token"),
+  });
+*/
+
+/*
+  const onConnect = () => {
+  socket.emit("authentication", {
+    token: token,
+  });
+  
+  };
+  */
+
+  socket.on("message", (message) => {
+    console.log(message)
+  })
+
+  socket.on("connect", (message) => {
+    console.log(message)
+  })
+
+
+  /*
+  onMount(() => {
+        io.on("message", message => { // Listen to the message event
+            messages = [...messages, message]
+        })
+        io.on("name", name => { // Another listener for the name:
+            username = name // Update the name so it can be displayed
+        })
+    })
+*/
 
   async function loadMore() {
     try {

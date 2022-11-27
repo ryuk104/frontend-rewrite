@@ -1,5 +1,6 @@
 
-  import { onMount } from "svelte";
+/*
+import { onMount } from "svelte";
 
 let API;
 onMount(async () => {
@@ -33,3 +34,4 @@ export const load: LayoutServerLoad = async ({ request }) => {
 		};
 	}
 };
+*/

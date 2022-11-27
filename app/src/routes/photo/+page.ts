@@ -1,3 +1,5 @@
+/*
+
 export const prerender = false;
 import { redirect } from '@sveltejs/kit';
 import { onMount } from "svelte";
@@ -24,3 +26,4 @@ export const load: PageLoad = async ({ parent }) => {
 		};
 	}
 };
+*/

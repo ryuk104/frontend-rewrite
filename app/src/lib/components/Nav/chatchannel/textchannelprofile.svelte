@@ -1,31 +1,41 @@
-<script context="module">
-  export async function load({ fetch }) {
-    const res = await fetch('https://dummyapi.io/data/v1/user')
-    const textchannelprofile = await res.json()
-  
-
-  if (res.ok) {
-    return {
-      props: {
-        textchannelprofile
-      }
-    }
-  }
-
-  return {
-    status: res.status,
-    error: new Error('fetch failed')
-  }
-}
-</script>
-
-
-
 <script>
-  export let textchannelprofile
 
+async function textchannel() {
+    try {
+      //loading = true;
+      const res = await fetch(`http://localhost:4000/api/post`, { 
+            method: 'GET',
+            headers: {
+                'content-type': 'application/json',
+                'Accept': 'application/json',
+                'Authorization': `Bearer ${localStorage.token}`
+            }
+        });
+        const data = await res.json();
+        const postData = data.data.posts;
+        postState.addPosts(postData)
+        //console.log(postData)
+        console.log($postState.posts)
+
+      if (res.status === 200) {
+        return postData
+        postState.addMorePosts(data.data.posts);
+        console.log(data.data)
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
+      loading = false;
+    }
+  }  
+
+
+
+
+   
 
 </script>
+
 
 
   {#each textchannelprofile as textchannelpeopel}      

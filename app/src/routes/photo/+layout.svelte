@@ -1,5 +1,5 @@
 <script lang="ts">
-	import '../../app.css';
+	import './app.css';
 
 	import { fade } from 'svelte/transition';
 	import DownloadPanel from '$lib/components/Photo/asset-viewer/download-panel.svelte';

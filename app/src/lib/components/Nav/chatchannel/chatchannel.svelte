@@ -27,11 +27,18 @@ let id = "dsad";
         <div class="friendsusername">Home</div>
       </a>
 
-      <a class="channelprofile" href="d" onclick="document.location.href='/message';"> 
+      <a class="channelprofile" href="d"> 
         <div class="avatarpicture" role="img"> 
           <img src=../icon/musicicon.svg class="avatarpicturecircle" width="48px" hieght="48px" alt="d"> 
         </div>
         <div class="friendsusername">Message</div>
+      </a>
+
+      <a class="channelprofile" href="test/friends"> 
+        <div class="avatarpicture" role="img"> 
+          <img src=../icon/musicicon.svg class="avatarpicturecircle" width="48px" hieght="48px" alt="d"> 
+        </div>
+        <div class="friendsusername">Freinds</div>
       </a>
 
     <div>
@@ -52,6 +59,8 @@ let id = "dsad";
       <hr>
       </div>
       <h6>Direct Message</h6>
+
+      <!--<Textchannelprofile/>-->
 
       <a class="channelprofile" href="/channel/{id}"> 
         <div class="avatarpicture" role="img"> 

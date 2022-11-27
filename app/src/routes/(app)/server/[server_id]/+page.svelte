@@ -52,7 +52,7 @@
 </script>
 
 <svelte:head>
-  <title>{data.server_id}</title>
+  <title>fdsf</title>
 </svelte:head>
 <div style="max-width:1200px ;margin: auto;">
  

@@ -21,6 +21,8 @@
 
 	import { redirect } from '@sveltejs/kit';
 
+	
+
 	onMount(async () => {
     try {
       const token = localStorage.getItem("token");

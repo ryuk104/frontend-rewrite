@@ -1,13 +1,13 @@
 import {
 	notificationController,
 	NotificationType
-} from './../components/shared-components/notification/notification';
+} from '$lib/components/photo/shared-components/notification/notification';
 /* @vite-ignore */
 import * as exifr from 'exifr';
-import { uploadAssetsStore } from '$lib/stores/upload';
-import type { UploadAsset } from '../models/upload-asset';
-import { api, AssetFileUploadResponseDto } from '@api';
-import { albumUploadAssetStore } from '$lib/stores/album-upload-asset';
+import { uploadAssetsStore } from '$lib/stores/photo/upload';
+import type { UploadAsset } from '$lib/models/upload-asset';
+//import { api, AssetFileUploadResponseDto } from '@api';
+import { albumUploadAssetStore } from '$lib/stores/photo/album-upload-asset';
 /**
  * Determine if the upload is for album or for the user general backup
  * @variant GENERAL - Upload assets to the server for general backup

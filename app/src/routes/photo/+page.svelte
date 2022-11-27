@@ -5,7 +5,7 @@
 	export let data: PageData;
 
 	async function onGettingStartedClicked() {
-		data.isAdminUserExist ? await goto('/auth/login') : await goto('/auth/register');
+		await goto('/photo/photos');
 	}
 </script>
 

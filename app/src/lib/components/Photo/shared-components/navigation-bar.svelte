@@ -4,8 +4,8 @@
 	import { createEventDispatcher, onMount } from 'svelte';
 	import { fade, fly } from 'svelte/transition';
 	import TrayArrowUp from 'svelte-material-icons/TrayArrowUp.svelte';
-	import { clickOutside } from '../../utils/click-outside';
-	import { api, UserResponseDto } from '@api';
+	import { clickOutside } from '$lib/utils/photo/click-outside';
+	//import { api, UserResponseDto } from '@api';
 
 	export let user: UserResponseDto;
 	export let shouldShowUploadButton = true;
