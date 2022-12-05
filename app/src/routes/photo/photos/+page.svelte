@@ -5,7 +5,7 @@
 
 	import type { PageData } from './$types';
 
-	import { openFileUploadDialog, UploadType } from '$lib/utils/photo/file-uploader';
+	//import { openFileUploadDialog, UploadType } from '$lib/utils/photo/file-uploader';
 	import {
 		assetInteractionStore,
 		isMultiSelectStoreState,
@@ -16,10 +16,13 @@
 	//import Close from 'svelte-material-icons/Close.svelte';
 	//import CircleIconButton from '$lib/components/photo/shared-components/circle-icon-button.svelte';
 	//import DeleteOutline from 'svelte-material-icons/DeleteOutline.svelte';
+	
+	/*
 	import {
 		notificationController,
 		NotificationType
 	} from '$lib/components/photo/shared-components/notification/notification';
+	*/
 
 	import { assetStore } from '$lib/stores/photo/assets.store';
 
