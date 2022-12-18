@@ -1,0 +1,4 @@
+import { endpoints } from './endpoints';
+import { io } from 'socket.io-client';
+
+export const socket = io(endpoints.socket);
