@@ -1,12 +1,12 @@
 <!-- This component renders the user's current chats to the left side bar -->
 <script>
-	import CurrentChat from '../stores/currentChatStore';
-	import CurrentUser from '../stores/userDataStore';
+	import CurrentChat from '$lib/stores/chat/currentChatStore';
+	import CurrentUser from '$lib/stores/chat/userDataStore';
 	import { onMount } from 'svelte';
 	import { get } from 'svelte/store';
 	import { endpoints } from '$lib/endpoints';
-	import ChatMessages from '../stores/chatMessages';
-	import UnReadChatMessages from '../stores/unReadChatMessages';
+	import ChatMessages from '$lib/stores/chat/chatMessages';
+	import UnReadChatMessages from '$lib/stores/chat/unReadChatMessages';
 	export let chat;
 	let user = {};
 	let allChatMessages = {};

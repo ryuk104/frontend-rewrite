@@ -2,9 +2,9 @@
 <script>
 	import { onMount } from 'svelte';
 	import { get } from 'svelte/store';
-	import CurrentQuestion from '../stores/questionStore';
-	import InterestDetails from '../stores/interestStore';
-	import QuestionFormValidator from '../stores/questionFormValidator';
+	import CurrentQuestion from '$lib/stores/chat/questionStore';
+	import InterestDetails from '$lib/stores/chat/interestStore';
+	import QuestionFormValidator from '$lib/stores/chat/questionFormValidator';
 	import { form, field } from 'svelte-forms';
 	import { required } from 'svelte-forms/validators';
 	let stayingIn = field('stayingIn', '', [required()], {

@@ -1,4 +1,6 @@
 <script>
+import { room } from '$lib/stores/chat/activeRoom.js'
+import Feed from './Feed.svelte'
 import { WiredCard } from 'wired-elements';
 import { afterUpdate } from 'svelte';
 
@@ -18,6 +20,18 @@ afterUpdate(() => {
 });
 </script>
 
+{#if $room}
+    <Feed />
+{:else}
+    <div class="welcome-box">
+        <h1>Welcome!</h1>
+        <div>
+            <p class="sub">This is a chat room for humans and bots :)</p>
+            <p class="sub">Register or login to access the chat rooms.</p>
+        </div>
+    </div>
+{/if}
+
 <div class="blah-chat" bind:this={chatDiv}>
   <p class="blah-chat__intro">Start of the conversation</p>
   {#each chat.messages as msg}
@@ -33,6 +47,18 @@ afterUpdate(() => {
 </div>
 
 <style lang="scss">
+.welcome-box {
+        display: flex;
+        height: 100%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+}
+
+.sub {
+  margin: .3rem;
+}
+
 .blah-chat {
   width: calc(100% - 30px);
   height: calc(100% - 30px);

@@ -37,6 +37,18 @@
     transports: ['websocket']
   })
 
+  /*
+  onMount(() => {
+        io.on("message", message => { // Listen to the message event
+            messages = [...messages, message]
+        })
+        io.on("name", name => { // Another listener for the name:
+            username = name // Update the name so it can be displayed
+        })
+    })
+    */
+
+    
   onMount(async () => {
     try {
       const token = localStorage.getItem("token");

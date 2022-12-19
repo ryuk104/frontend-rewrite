@@ -1,6 +1,6 @@
 <!-- This component is used to render the dashboard sidebar, the chat sidebar could have been reused here, however due to limited time it was done like this -->
 <script>
-	import SideBarUser from '../components/sideBarUser.svelte';
+	import SideBarUser from '$lib/components/chattest/sideBarUser.svelte';
 	import { goto } from '$app/navigation';
 	let openSideBar = 'flex';
 	let closeSideBar = 'none';

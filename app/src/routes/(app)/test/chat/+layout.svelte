@@ -1,15 +1,11 @@
-<script>
-	import '../app.css';
-</script>
-
 <script lang='ts'>
-	import '../app.css';
-	import { onMount } from 'svelte';
-	import { Spinner } from '$components/core';
-	import ToastContainer from '$components/core/Toast/ToastContainer.svelte';
-	import 'bootstrap-icons/font/bootstrap-icons.css';
 
-	let ready = false;
+	//import '../app.css';
+	import { onMount } from 'svelte';
+	//import { Spinner } from '$components/core';
+	import ToastContainer from '$lib/components/chattest/core/Toast/ToastContainer.svelte';
+	//import 'bootstrap-icons/font/bootstrap-icons.css';
+
 
 	const darkModeToggle = () => {
 		// On page load or when changing themes, best to add inline in `head` to avoid FOUC
@@ -22,21 +18,28 @@
 
 	onMount(() => {
 		darkModeToggle();
-		ready = true;
 	});
 </script>
-<div id='wrapper' class='dark:bg-dark-2 flex flex-col'>
+
+<div class='wwrap dark:bg-dark-2 flex flex-col'>
 	<div class='app-height app-wrapper-layout'>
-		{#if ready}
 			<slot />
-		{:else}
-			<div class='h-full grid place-content-center w-full'>
-				<Spinner className='h-10 w-10' />
-			</div>
-		{/if}
 	</div>
 	<ToastContainer />
 </div>
 
 
-<main><slot /></main>
+<style>
+	.wwrap {
+		margin: 0;
+        padding: 0;
+        display: flex;
+        position: fixed;
+        top:4%;
+        left: 300px;
+        height: 96%;
+        width: 100%;    
+	}
+</style>
+
+

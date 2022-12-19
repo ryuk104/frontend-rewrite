@@ -2,11 +2,11 @@
 <script>
 	import { onMount } from 'svelte/internal';
 	import { socket } from '$lib/socket';
-	import CurrentChat from '../stores/currentChatStore';
+	import CurrentChat from '$lib/stores/chat/currentChatStore';
 	import { get } from 'svelte/store';
-	import ChatMessages from '../stores/chatMessages';
-	import UnReadChatMessages from '../stores/unReadChatMessages';
-	import CurrentUser from '../stores/userDataStore';
+	import ChatMessages from '$lib/stores/chat/chatMessages';
+	import UnReadChatMessages from '$lib/stores/chat/unReadChatMessages';
+	import CurrentUser from '$lib/stores/chat/userDataStore';
 	export let chats = [];
 	let currentChat = {},
 		sender = {},

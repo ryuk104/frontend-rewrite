@@ -1,6 +1,6 @@
 <script>
 	import { goto } from '$app/navigation';
-	import currentUser from '../stores/userDataStore';
+	import currentUser from '$lib/stores/chat/userDataStore';
 	let mainMenu = 'none';
 	let userMenu = 'none';
 	const toggleMainMenu = () => {

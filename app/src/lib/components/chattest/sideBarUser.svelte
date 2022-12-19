@@ -1,8 +1,8 @@
 <script>
 	import { onMount } from 'svelte';
 
-	import PersonalDetails from '../stores/personalDetailsStore';
-	import CurrentUser from '../stores/userDataStore';
+	import PersonalDetails from '$lib/stores/chat/personalDetailsStore';
+	import CurrentUser from '$lib/stores/chat/userDataStore';
 	let userInfo = {};
 	let user;
 	PersonalDetails.subscribe((value) => {
