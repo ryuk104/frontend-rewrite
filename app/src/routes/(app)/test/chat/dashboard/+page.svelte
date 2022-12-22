@@ -1,28 +1,14 @@
 <!-- Renders the dashboard -->
 <script>
-	import Nav from '../components/nav.svelte';
-	import DashboardSideBar from '../components/dashboardSideBar.svelte';
-	import CarouselGroupCard from '../components/carouselGroupCard.svelte';
-	import CurrentUser from '../stores/userDataStore';
+	import DashboardSideBar from '$lib/components/chattest/dashboardSideBar.svelte';
+	import CarouselGroupCard from '$lib/components/chattest/carouselGroupCard.svelte';
+	import CurrentUser from '$lib/stores/chat/userDataStore';
 	import { onMount } from 'svelte/internal';
 	import { goto } from '$app/navigation';
 
-	//Checks if newuser of logged in
-	//If new user then send the user to fill out the question
-	//if login and not a new user then they can access the dashboard
-	onMount(() => {
-		if (!$CurrentUser.loggedIn) {
-			goto('/login');
-		}
-		if ($CurrentUser.newUser) {
-			goto('/questions');
-		}
-	});
+	
 </script>
 
-<div class="sticky top-0 w-full z-40">
-	<Nav />
-</div>
 <div class="flex flex-no-wrap">
 	<div class="fixed z-30">
 		<DashboardSideBar />
