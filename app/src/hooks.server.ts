@@ -1,6 +1,7 @@
 import * as cookie from 'cookie';
 import type { Handle } from '@sveltejs/kit'
 
+/*
 export const handle: Handle = async ({ event, resolve }) => {
 	const cookies = cookie.parse(event.request.headers.get('cookie') || '');
 	//event.locals.userid = cookies.userid || uuid();
@@ -12,7 +13,7 @@ export const handle: Handle = async ({ event, resolve }) => {
 		// set a cookie so that we recognise them when they return
 		response.headers.set(
 			'set-cookie',
-			cookie.serialize('userid', event.locals.userid, {
+			cookie.serialize('connect.sid', event.locals.userid, {
 				path: '/',
 				httpOnly: true
 			})
@@ -21,6 +22,7 @@ export const handle: Handle = async ({ event, resolve }) => {
 
 	return response;
 };
+*/
 
 /*
 export const handle: Handle = async ({ event, resolve }) => {

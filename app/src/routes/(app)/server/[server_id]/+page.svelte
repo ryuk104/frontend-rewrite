@@ -4,6 +4,46 @@
 
   /** @type {import('./$types').PageData} */
   export let data;
+  import { onMount } from "svelte";
+
+
+
+
+onMount(async () => {
+  try {
+    const serverId = params.server_id;
+    
+    const getserver = async () => {
+    const res = await fetch(`http://localhost:4000/api/server/${serverId}`, { 
+      method: 'GET',
+      headers: {
+          'content-type': 'application/json',
+          'Authorization': `Bearer ${localStorage.token}`
+      }
+    });
+ 
+
+    const Data = await res.json();
+
+    console.log(Data)
+
+    return {
+      avatar: Data.data.avatar,
+      name: Data.data.name,
+      default_channel_id: Data.data.default_channel_id,
+      server_id: Data.data.server_id
+    };
+
+    let server_id;
+ }
+ getserver()
+
+  } catch (error) {
+    console.log(error);
+  }
+
+})
+
 /*
   import { onMount } from "svelte";
   import { BASE_URL } from "$lib/config";

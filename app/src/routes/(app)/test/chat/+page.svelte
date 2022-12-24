@@ -12,7 +12,7 @@
 	import ChatSideBar from '$lib/components/chattest/chatSideBar.svelte';
 	//import ChatBox from '$lib/components/chattest/chatbox.svelte';
 	import Sidepanel from '$lib/components/chattest/Sidepanel.svelte'
-	//import Chat from '$lib/components/chattest/Chat.svelte'
+	import Chat from '$lib/components/chattest/Chat.svelte'
 
 	import { goto } from '$app/navigation';
 	import { get } from 'svelte/store';
@@ -107,7 +107,7 @@
 <div class="cream-msg h-screen w-screen">
 	<div class="flex flex-no-wrap">
 		<div class="content">
-			<Sidepanel />
+			<!--<Sidepanel />-->
 			<main>
 				<!--<Chat />-->
 			</main>

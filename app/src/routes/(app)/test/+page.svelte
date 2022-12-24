@@ -49,6 +49,8 @@
     */
 
     
+
+    
   onMount(async () => {
     try {
       const token = localStorage.getItem("token");
@@ -59,6 +61,29 @@
       console.log("error")
     }
   });
+
+  try {
+      const token = localStorage.getItem("token");
+      
+      const getuser = async () => {
+        const res = await fetch(`http://localhost:4000/api/user`, { 
+          method: 'GET',
+          headers: {
+              'content-type': 'application/json',
+              'Authorization': `Bearer ${localStorage.token}`
+          }
+        });
+
+    }   
+
+    getuser()
+    
+    } catch {
+      console.log("error")
+    }
+
+
+  
 
 
   /*

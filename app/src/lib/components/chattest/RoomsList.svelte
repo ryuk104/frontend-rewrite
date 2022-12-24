@@ -46,7 +46,7 @@
     }
 
     const getRooms = async () => {
-        const res = fetch('localhost:5234/api/rooms')
+        const res = await fetch('localhost:5234/api/rooms')
         
         // ifupdateRooms(res)
         // if (selected) {

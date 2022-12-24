@@ -286,6 +286,7 @@ export const disLike = async (postId) => {
   * @throws {RequiredError}
 */
 
+/*
 export const addAssetsToAlbum = async (albumId: string, addAssetsDto: AddAssetsDto) => {
   // verify required parameter 'albumId' is not null or undefined
   assertParamExists('addAssetsToAlbum', 'albumId', albumId)
@@ -308,7 +309,7 @@ export const addAssetsToAlbum = async (albumId: string, addAssetsDto: AddAssetsD
 
   return res.data;
 },
-
+*/
 
 
 /**
@@ -318,6 +319,8 @@ export const addAssetsToAlbum = async (albumId: string, addAssetsDto: AddAssetsD
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
+
+/*
  export const addUsersToAlbum = async (albumId: string, addUsersDto: AddUsersDto) => {
   // verify required parameter 'albumId' is not null or undefined
   assertParamExists('addUsersToAlbum', 'albumId', albumId)
@@ -339,7 +342,7 @@ export const addAssetsToAlbum = async (albumId: string, addAssetsDto: AddAssetsD
   return {};
 },
 
-
+*/
 
 
 
@@ -349,6 +352,8 @@ export const addAssetsToAlbum = async (albumId: string, addAssetsDto: AddAssetsD
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
+
+/*
  export const createAlbum = async (createAlbumDto: CreateAlbumDto ) => {
   // verify required parameter 'createAlbumDto' is not null or undefined
   assertParamExists('createAlbum', 'createAlbumDto', createAlbumDto)
@@ -369,7 +374,7 @@ export const addAssetsToAlbum = async (albumId: string, addAssetsDto: AddAssetsD
   return {};
 },
 
-
+*/
 
 
 /**
@@ -378,6 +383,8 @@ export const addAssetsToAlbum = async (albumId: string, addAssetsDto: AddAssetsD
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
+
+/*
  exxport const deleteAlbum = async (albumId: string, ) => {
   // verify required parameter 'albumId' is not null or undefined
   assertParamExists('deleteAlbum', 'albumId', albumId)
@@ -398,6 +405,7 @@ export const addAssetsToAlbum = async (albumId: string, addAssetsDto: AddAssetsD
 },
 
 
+*/
 
 
 /**
@@ -407,6 +415,8 @@ export const addAssetsToAlbum = async (albumId: string, addAssetsDto: AddAssetsD
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
+
+/*
  export const downloadArchive = async (albumId: string, skip?: number, ) => {
   // verify required parameter 'albumId' is not null or undefined
   assertParamExists('downloadArchive', 'albumId', albumId)
@@ -602,7 +612,7 @@ export const updateAlbumInfo = async (albumId: string, updateAlbumDto: UpdateAlb
         },
     }
 };
-
+*/
 //------------------------------ Album -----------------------------
 
       /**
@@ -610,6 +620,8 @@ export const updateAlbumInfo = async (albumId: string, updateAlbumDto: UpdateAlb
        * @param {*} [options] Override http request option.
        * @throws {RequiredError}
        */
+
+      /*
       export const getConfig = async () => {
                   
 
@@ -632,12 +644,17 @@ export const updateAlbumInfo = async (albumId: string, updateAlbumDto: UpdateAlb
               options: localVarRequestOptions,
           };
       },
+
+      */
+
+
       /**
        * 
        * @param {object} body 
        * @param {*} [options] Override http request option.
        * @throws {RequiredError}
        */
+      /*
       export const updateConfig = async (body: object, ) => {
           // verify required parameter 'body' is not null or undefined
           assertParamExists('updateConfig', 'body', body)
@@ -652,7 +669,7 @@ export const updateAlbumInfo = async (albumId: string, updateAlbumDto: UpdateAlb
           return {};
       }
 
-
+*/
 
 
 
@@ -665,39 +682,49 @@ export const updateAlbumInfo = async (albumId: string, updateAlbumDto: UpdateAlb
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
+
+/*
  export const getServerInfo = async () => {
 
   const res = await api.get(`/photo/server-info`);
   
   return {};
 },
+
+*/
 /**
 * 
 * @param {*} [options] Override http request option.
 * @throws {RequiredError}
 */
+
+/*
 export const getServerVersion = async () => {
 
   const res = await api.get(`/photo/server-info/version`);
   
   return {};
 },
+*/
 /**
 * 
 * @param {*} [options] Override http request option.
 * @throws {RequiredError}
 */
+/*
 export const getStats = async () => {
 
   const res = await api.get(`/photo/server-info/stats`);
   
   return {};
 },
+*/
 /**
 * 
 * @param {*} [options] Override http request option.
 * @throws {RequiredError}
 */
+/*
 export const pingServer =  async () => {
 
   const res = await api.get(`/photo/server-info/ping`);
@@ -705,13 +732,14 @@ export const pingServer =  async () => {
   
   return {};
 },
-
+*/
 
 /**
          * 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
+        /*
  export const getAllJobsStatus = async () => {
 
   const res = await api.put(`/photo/jobs`);  
@@ -722,12 +750,14 @@ export const pingServer =  async () => {
 
   return {};
 },
+*/
 /**
 * 
 * @param {JobId} jobId 
 * @param {*} [options] Override http request option.
 * @throws {RequiredError}
 */
+/*
 export const getJobStatus = async (jobId: JobId, ) => {
   // verify required parameter 'jobId' is not null or undefined
   assertParamExists('getJobStatus', 'jobId', jobId)
@@ -745,6 +775,7 @@ export const getJobStatus = async (jobId: JobId, ) => {
   
   return {};
 },
+*/
 /**
 * 
 * @param {JobId} jobId 
@@ -752,6 +783,7 @@ export const getJobStatus = async (jobId: JobId, ) => {
 * @param {*} [options] Override http request option.
 * @throws {RequiredError}
 */
+/*
 export const sendJobCommand = async (jobId: JobId, jobCommandDto: JobCommandDto, ) => {
   // verify required parameter 'jobId' is not null or undefined
   assertParamExists('sendJobCommand', 'jobId', jobId)
@@ -773,7 +805,7 @@ export const sendJobCommand = async (jobId: JobId, jobCommandDto: JobCommandDto,
   return {};
 }
 
-
+*/
 
 
         /**
@@ -782,6 +814,7 @@ export const sendJobCommand = async (jobId: JobId, jobCommandDto: JobCommandDto,
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
+        /*
          createDeviceInfo: async (createDeviceInfoDto: CreateDeviceInfoDto, ) => {
           // verify required parameter 'createDeviceInfoDto' is not null or undefined
           assertParamExists('createDeviceInfo', 'createDeviceInfoDto', createDeviceInfoDto)                  
@@ -797,12 +830,15 @@ export const sendJobCommand = async (jobId: JobId, jobCommandDto: JobCommandDto,
             
           };
       },
+      */
       /**
        * 
        * @param {UpdateDeviceInfoDto} updateDeviceInfoDto 
        * @param {*} [options] Override http request option.
        * @throws {RequiredError}
        */
+
+      /*
       export const updateDeviceInfo = async (updateDeviceInfoDto: UpdateDeviceInfoDto, ) => {
           // verify required parameter 'updateDeviceInfoDto' is not null or undefined
           assertParamExists('updateDeviceInfo', 'updateDeviceInfoDto', updateDeviceInfoDto)
@@ -839,425 +875,6 @@ export const getAssetSearchTerms = async () => {
 
   return {};
 },
-/**
-* 
-* @param {string} assetId 
-* @param {ThumbnailFormat} [format] 
-* @param {*} [options] Override http request option.
-* @throws {RequiredError}
-*/
-export const getAssetThumbnail = async (assetId: string, format?: ThumbnailFormat, ) => {
-  // verify required parameter 'assetId' is not null or undefined
-  assertParamExists('getAssetThumbnail', 'assetId', assetId)
-  const localVarPath = `/asset/thumbnail/{assetId}`
-      .replace(`{${"assetId"}}`, encodeURIComponent(String(assetId)));
 
-  const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-  
-
-  // authentication bearer required
-  // http bearer authentication required
-  await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-  if (format !== undefined) {
-      localVarQueryParameter['format'] = format;
-  }
-
-
-
-  
-  return {};
-},
-/**
-* 
-* @param {*} [options] Override http request option.
-* @throws {RequiredError}
-*/
-export const getCuratedLocations = async () => {
-
-  const res = await api.get(`/photo/asset/curated-locations`);
-  
-
-  // authentication bearer required
-  // http bearer authentication required
-  await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-  return {};
-},
-/**
-* 
-* @param {*} [options] Override http request option.
-* @throws {RequiredError}
-*/
-export const getCuratedObjects = async () => {
-
-  const res = await api.get(`/photo/asset/curated-objects`);
-
-  // authentication bearer required
-  // http bearer authentication required
-  await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-
-  
-  return {};
-},
-/**
-* Get all asset of a device that are in the database, ID only.
-* @summary 
-* @param {string} deviceId 
-* @param {*} [options] Override http request option.
-* @throws {RequiredError}
-*/
-export const getUserAssetsByDeviceId = async (deviceId: string, ) => {
-  // verify required parameter 'deviceId' is not null or undefined
-  assertParamExists('getUserAssetsByDeviceId', 'deviceId', deviceId)
-  const localVarPath = `/asset/{deviceId}`
-      .replace(`{${"deviceId"}}`, encodeURIComponent(String(deviceId)));
-
-  const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-  
-
-  // authentication bearer required
-  // http bearer authentication required
-  await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-
-  
-  return {};
-},
-/**
-* 
-* @param {SearchAssetDto} searchAssetDto 
-* @param {*} [options] Override http request option.
-* @throws {RequiredError}
-*/
-export const searchAsset = async (searchAssetDto: SearchAssetDto, ) => {
-  // verify required parameter 'searchAssetDto' is not null or undefined
-  assertParamExists('searchAsset', 'searchAssetDto', searchAssetDto)
-
-  const res = await api.post(`/photo//asset/search`);
-  
-
-  // authentication bearer required
-  // http bearer authentication required
-  await setBearerAuthToObject(localVarHeaderParameter, configuration)
-    
-  localVarRequestOptions.data = serializeDataIfNeeded(searchAssetDto, localVarRequestOptions, configuration)
-
-  return {};
-},
-/**
-* 
-* @param {string} assetId 
-* @param {boolean} [isThumb] 
-* @param {boolean} [isWeb] 
-* @param {*} [options] Override http request option.
-* @throws {RequiredError}
-*/
-serveFile: async (assetId: string, isThumb?: boolean, isWeb?: boolean, ) => {
-  // verify required parameter 'assetId' is not null or undefined
-  assertParamExists('serveFile', 'assetId', assetId)
-  const localVarPath = `/asset/file/{assetId}`
-      .replace(`{${"assetId"}}`, encodeURIComponent(String(assetId)));
-
-      const res = await api.put(`/api/post/${postId}/unlike`);
-
-
-  const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-  
-
-  // authentication bearer required
-  // http bearer authentication required
-  await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-  if (isThumb !== undefined) {
-      localVarQueryParameter['isThumb'] = isThumb;
-  }
-
-  if (isWeb !== undefined) {
-      localVarQueryParameter['isWeb'] = isWeb;
-  }
-
-
-
-  
-  return {};
-},
-/**
-* Update an asset
-* @summary 
-* @param {string} assetId 
-* @param {UpdateAssetDto} updateAssetDto 
-* @param {*} [options] Override http request option.
-* @throws {RequiredError}
-*/
-updateAssetById: async (assetId: string, updateAssetDto: UpdateAssetDto, ) => {
-  // verify required parameter 'assetId' is not null or undefined
-  assertParamExists('updateAssetById', 'assetId', assetId)
-  // verify required parameter 'updateAssetDto' is not null or undefined
-  assertParamExists('updateAssetById', 'updateAssetDto', updateAssetDto)
-  const localVarPath = `/asset/assetById/{assetId}`
-      .replace(`{${"assetId"}}`, encodeURIComponent(String(assetId)));
-
-
-    const res = await api.put(`/api/post/${postId}/unlike`);
-
-
-  const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
-  
-
-  // authentication bearer required
-  // http bearer authentication required
-  await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-
-  localVarHeaderParameter['Content-Type'] = 'application/json';
-
-    localVarRequestOptions.data = serializeDataIfNeeded(updateAssetDto, localVarRequestOptions, configuration)
-
-  return {};
-},
-
-/**
-         * Check duplicated asset before uploading - for Web upload used
-         * @summary 
-         * @param {CheckDuplicateAssetDto} checkDuplicateAssetDto 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
- checkDuplicateAsset: async (checkDuplicateAssetDto: CheckDuplicateAssetDto, ) => {
-  // verify required parameter 'checkDuplicateAssetDto' is not null or undefined
-  assertParamExists('checkDuplicateAsset', 'checkDuplicateAssetDto', checkDuplicateAssetDto)
-
-  const res = await api.post(`/photo//asset/check`);  
-
-  // authentication bearer required
-  // http bearer authentication required
-  await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-  localVarRequestOptions.data = serializeDataIfNeeded(checkDuplicateAssetDto, localVarRequestOptions, configuration)
-
-  return {};
-},
-/**
-* Checks if multiple assets exist on the server and returns all existing - used by background backup
-* @summary 
-* @param {CheckExistingAssetsDto} checkExistingAssetsDto 
-* @param {*} [options] Override http request option.
-* @throws {RequiredError}
-*/
-checkExistingAssets: async (checkExistingAssetsDto: CheckExistingAssetsDto, ) => {
-  // verify required parameter 'checkExistingAssetsDto' is not null or undefined
-  assertParamExists('checkExistingAssets', 'checkExistingAssetsDto', checkExistingAssetsDto)
-    
-  const res = await api.post(`/photo/asset/exist`);  
-
-  // authentication bearer required
-  // http bearer authentication required
-  await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    localVarRequestOptions.data = serializeDataIfNeeded(checkExistingAssetsDto, localVarRequestOptions, configuration)
-
-  return {};
-},
-/**
-* 
-* @param {DeleteAssetDto} deleteAssetDto 
-* @param {*} [options] Override http request option.
-* @throws {RequiredError}
-*/
-export const deleteAsset = async (deleteAssetDto: DeleteAssetDto, ) => {
-  // verify required parameter 'deleteAssetDto' is not null or undefined
-  assertParamExists('deleteAsset', 'deleteAssetDto', deleteAssetDto)
-
-  const res = await api.del(`/photo/asset`);
-  
-
-  // authentication bearer required
-  // http bearer authentication required
-  await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    localVarRequestOptions.data = serializeDataIfNeeded(deleteAssetDto, localVarRequestOptions, configuration)
-
-  return {};
-},
-/**
-* 
-* @param {string} assetId 
-* @param {boolean} [isThumb] 
-* @param {boolean} [isWeb] 
-* @param {*} [options] Override http request option.
-* @throws {RequiredError}
-*/
-downloadFile: async (assetId: string, isThumb?: boolean, isWeb?: boolean, ) => {
-  // verify required parameter 'assetId' is not null or undefined
-  assertParamExists('downloadFile', 'assetId', assetId)
-  const localVarPath = `/asset/download/{assetId}`
-      .replace(`{${"assetId"}}`, encodeURIComponent(String(assetId)));
-
-      const res = await api.put(`/api/post/${postId}/unlike`);
-
-
-  const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-  
-
-  // authentication bearer required
-  // http bearer authentication required
-  await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-  if (isThumb !== undefined) {
-      localVarQueryParameter['isThumb'] = isThumb;
-  }
-
-  if (isWeb !== undefined) {
-      localVarQueryParameter['isWeb'] = isWeb;
-  }
-
-
-
-  
-  return {};
-},
-/**
-* 
-* @param {number} [skip] 
-* @param {*} [options] Override http request option.
-* @throws {RequiredError}
-*/
-export const downloadLibrary = async (skip?: number, ) => {
-
-  const res = await api.get(`/photo/asset/download-library`);  
-
-  // authentication bearer required
-  // http bearer authentication required
-  await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-  if (skip !== undefined) {
-      localVarQueryParameter['skip'] = skip;
-  }
-
-
-
-  
-  return {};
-},
-/**
-* Get all AssetEntity belong to the user
-* @summary 
-* @param {string} [ifNoneMatch] ETag of data already cached on the client
-* @param {*} [options] Override http request option.
-* @throws {RequiredError}
 */
 
-
-
-
-
-
-
-export const getAllAssets = async (ifNoneMatch?: string, ) => {
-
-  const res = await api.get(`/photo/asset`);  
-
-  // authentication bearer required
-  // http bearer authentication required
-  await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-  if (ifNoneMatch !== undefined && ifNoneMatch !== null) {
-      localVarHeaderParameter['if-none-match'] = String(ifNoneMatch);
-  }
-
-  
-  return {};
-},
-/**
-* Get a single asset\'s information
-* @summary 
-* @param {string} assetId 
-* @param {*} [options] Override http request option.
-* @throws {RequiredError}
-*/
-getAssetById: async (assetId: string, ) => {
-  // verify required parameter 'assetId' is not null or undefined
-  assertParamExists('getAssetById', 'assetId', assetId)
-  const localVarPath = `/asset/assetById/{assetId}`
-      .replace(`{${"assetId"}}`, encodeURIComponent(String(assetId)));
-
-  const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-  
-
-  // authentication bearer required
-  // http bearer authentication required
-  await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-
-  
-  return {};
-},
-/**
-* 
-* @param {GetAssetByTimeBucketDto} getAssetByTimeBucketDto 
-* @param {*} [options] Override http request option.
-* @throws {RequiredError}
-*/
-export const getAssetByTimeBucket = async (getAssetByTimeBucketDto: GetAssetByTimeBucketDto, ) => {
-  // verify required parameter 'getAssetByTimeBucketDto' is not null or undefined
-  assertParamExists('getAssetByTimeBucket', 'getAssetByTimeBucketDto', getAssetByTimeBucketDto)
-
-  const res = await api.post(`/photo/asset/time-bucket`);  
-  
-
-  // authentication bearer required
-  // http bearer authentication required
-  await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-    localVarRequestOptions.data = serializeDataIfNeeded(getAssetByTimeBucketDto, localVarRequestOptions, configuration)
-
-  return {};
-},
-/**
-* 
-* @param {GetAssetCountByTimeBucketDto} getAssetCountByTimeBucketDto 
-* @param {*} [options] Override http request option.
-* @throws {RequiredError}
-*/
-export const getAssetCountByTimeBucket = async (getAssetCountByTimeBucketDto: GetAssetCountByTimeBucketDto, ) => {
-  // verify required parameter 'getAssetCountByTimeBucketDto' is not null or undefined
-  assertParamExists('getAssetCountByTimeBucket', 'getAssetCountByTimeBucketDto', getAssetCountByTimeBucketDto)
-
-  const res = await api.post(`/photo/asset/count-by-time-bucket`);    
-
-  // authentication bearer required
-  // http bearer authentication required
-  await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-  localVarRequestOptions.data = serializeDataIfNeeded(getAssetCountByTimeBucketDto, localVarRequestOptions, configuration)
-
-  return {};
-},
-
-/**
-* 
-* @param {*} [options] Override http request option.
-* @throws {RequiredError}
-*/
-export const getAssetCountByUserId = async () => {
-
-  const res = await api.get(`/photo/asset/count-by-user-id`);    
-
-  // authentication bearer required
-  // http bearer authentication required
-  await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-
-  
-  return {};
-}
