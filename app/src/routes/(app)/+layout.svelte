@@ -1,10 +1,16 @@
-<script>
+<script lang="ts">
   	/** @type {import('./$types').LayoutData} */
 	export let data;
 
   	import { onMount } from "svelte";
 	import { goto } from "$app/navigation";
 	import { auth } from "$lib/stores/auth";
+
+	interface $$Slots {
+		default: {}
+		secound: {}
+
+	}
 
 
 
@@ -21,8 +27,42 @@
 
 	import { redirect } from '@sveltejs/kit';
 
-	
+	import Nav from "$components/Music/Nav/Nav.svelte";
+	import Player from "$lib/components/Music/Player/Player.svelte";
+	import Wrapper from "$lib/components/Music/Wrapper/Wrapper.svelte";
+	import { Popper } from "$lib/components/Music/Popper";
+	import PlaylistPopper from "$lib/components/Music/PlaylistPopper";
+	import { showAddToPlaylistPopper } from "$stores/stores";
+	import { queue } from "$lib/stores/list";
+	import Fullscreen from "$lib/components/Music/Player/Fullscreen.svelte";
+	import GroupSessionCreator from "$lib/components/Music/GroupSessionCreator";
+	import { fullscreenStore } from "$lib/components/Music/Player/channel";
+	import { groupSession } from "$lib/stores";
+	import { AudioPlayer } from "$lib/player";
+	import { page } from "$app/stores";
+	import { afterNavigate } from "$app/navigation";
+	import SessionListService from "$stores/list/sessionList";
 
+	$: key = $page.data.key;
+	let main: HTMLElement;
+
+	let isFullscreen = false;
+	$: $fullscreenStore === "open"
+		? setTimeout(() => {
+				isFullscreen = true;
+		  }, 425)
+		: setTimeout(() => {
+				isFullscreen = false;
+		  }, 0);
+	$: hasplayer = $queue.length !== 0;
+	afterNavigate(() => {
+		if (import.meta.env.SSR) return;
+		if (main) main.scrollTop = 0;
+	});
+	// $: console.log($queue, $SessionListService);
+
+	
+ 
 	onMount(async () => {
     try {
       const token = localStorage.getItem("token");
@@ -96,6 +136,7 @@
 </script>
 
 
+
 <!--<Topnavbutton></Topnavbutton>-->
 <Leftnavbar></Leftnavbar>
 <Chatchannel></Chatchannel>
@@ -134,7 +175,8 @@
   </Createmediaselection>
 {/if}
 -->
-<slot name="master"></slot>
-<slot name="second"></slot>
+
 <slot></slot>
+<slot name="second"></slot>
+
 

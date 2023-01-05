@@ -45,6 +45,7 @@
         }
     }
 
+    /*
     const getRooms = async () => {
         const res = await fetch('localhost:5234/api/rooms')
         
@@ -56,7 +57,7 @@
         // }
 
     }
-
+*/
     /*
     let stopUpdate
 
@@ -69,7 +70,7 @@
     })
     */
 
-    room.subscribe(() => getRooms())
+    //room.subscribe(() => getRooms())
 </script>
 
 <div class="joined-rooms">

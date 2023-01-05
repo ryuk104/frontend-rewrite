@@ -22,7 +22,32 @@
   import { auth } from "$lib/stores/auth.js";
   import { post as postState } from "$lib/stores/post.js";
   import { user } from "$lib/stores/user.js";
+  import userss from "$stores/users";
+
   import { onMount } from "svelte";
+
+
+  import Player from "$lib/components/Music/Player/Player.svelte";
+  import { fullscreenStore } from "$lib/components/Music/Player/channel";
+	import { AudioPlayer } from "$lib/player";
+  import { messenger } from "$lib/utils/sync";
+
+  const { paused } = AudioPlayer;
+	let volume = 0.5;
+	let volumeHover;
+
+	$: isPlaying = $paused;
+	let innerWidth = 640;
+	messenger.listen("player", (data) => {
+		AudioPlayer.play();
+	});
+
+  fullscreenStore.toggle();
+
+
+  
+
+
 
   export let posts;
   export let users;
@@ -36,6 +61,9 @@
   const socket = io("http://localhost:4000", {
     transports: ['websocket']
   })
+
+  import { queue } from "$lib/stores/list";
+	$: hasplayer = $queue.length !== 0;
 
   /*
   onMount(() => {
@@ -73,6 +101,16 @@
               'Authorization': `Bearer ${localStorage.token}`
           }
         });
+
+
+      const data = await res.json();
+      const userdata = data.user
+      userss.set(userdata);      
+      console.log(userdata)
+      console.log(userss)
+
+
+
 
     }   
 
@@ -182,24 +220,53 @@
 */
 </script>
 
-
-
 <main class="app">
     <ul class="maincontainer"> 
         <l1> 
             <div class="userprofilecard">
               <h6>Profile</h6>
-                <img  class="avatar" src="{data.avatar}" >
-                <div class="username">{data.username}</div>
-                <div class="bio">Add custom </div>
-                <div class="status">{data.status}</div>
+                <img  class="avatar" src="{$userss.avatar}" >
+                <div class="username">{$userss.username}</div>
+                <div class="bio"> {$userss.bio} </div>
+                <div class="status">{$userss.status}</div>
 
             </div> 
         </l1>
 
-        <l1> <div class="notifications"></div> </l1>
-        <l1> <div class="muisc"></div> </l1>
-        <l1> <div class="dsdsa"></div> </l1>
+        <l1> 
+          <div class="notifications">
+            <h6>Notifications</h6>
+            <div class="username">++ has followed you</div>
+          </div> 
+       </l1>
+
+        <l1> 
+          <div class="muisc">
+            <h6>Music</h6>
+            <div class="albumcover"></div>
+            <div class="title"></div>
+            <div class="player" class:show-player={hasplayer}>
+              
+                <Player />
+              
+            </div>
+            <div class="albumcover"></div>
+
+          </div> 
+        </l1>
+
+
+        <l1> 
+          <div class="dsdsa">
+            <h6>Friends activity</h6>
+            <div>
+              <img>
+              <div class=username>rizz</div>
+              <div class="activity">playing Fortnite</div>
+            </div>
+
+          </div> 
+        </l1>
     </ul>
     <div class="mediaacontainer">
         <Stories/>

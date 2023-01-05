@@ -3,10 +3,45 @@
 
 
    /** @type {import('./$types').PageLoad} */
+   import { user } from "$lib/stores/user.js";
 
 
 export async function load ({ url, fetch, params }) {
   let username;
+
+
+try {
+    const token = localStorage.getItem("token");
+    
+    const getuser = async () => {
+      const res = await fetch(`http://localhost:4000/api/user`, { 
+        method: 'GET',
+        headers: {
+            'content-type': 'application/json',
+            'Authorization': `Bearer ${localStorage.token}`
+        }
+      });
+      const data = await res.json();
+      const userdata = data
+      user.set(userdata)
+      console.log(data)
+
+  }   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
   try {
     const token = localStorage.getItem("token");
     if (token) {
@@ -28,6 +63,9 @@ export async function load ({ url, fetch, params }) {
         console.log(error);
       }
     }
+
+    */
+
   } catch (error) {
     console.log(error);
   }
