@@ -1,11 +1,16 @@
 
 <script lang='ts'>
 	
+	import Nav from '$lib/components/chattest/nav.svelte';
+
+	//import { isAuthenticated } from '$lib/stores/chat/auth.store';
 	//import Chat from '../components/app/Chat/index.svelte';
+	//import UserLoginModal from '$components/app/utils/UserLoginModal.svelte';
 	
 
 	import currentUser from '$lib/stores/chat/userDataStore.js';
-	import ChatBox from '$lib/components/chattest/chatbox.svelte';
+	import ChatSideBar from '$lib/components/chattest/chatSideBar.svelte';
+	//import ChatBox from '$lib/components/chattest/chatbox.svelte';
 	import Sidepanel from '$lib/components/chattest/Sidepanel.svelte'
 	//import Chat from '$lib/components/chattest/Chat.svelte'
 
@@ -18,6 +23,9 @@
 	import { room } from '$lib/stores/chat/activeRoom.js'
 	import { onDestroy, onMount } from 'svelte'
 	import { setContext } from 'svelte'
+	import { fly, fade } from 'svelte/transition';
+    import { expoIn } from 'svelte/easing';
+
 
 	/*
 	let host = dev_server.host ? dev_server.host : window.location.hostname
@@ -98,23 +106,27 @@
 	<title>Chat</title>
 </svelte:head>
 
+
 <div class="cream-msg h-screen w-screen">
 	<div class="flex flex-no-wrap">
 		<div class="content">
-			<Sidepanel {chats}/>
-
+			<Sidepanel />
 			<main>
 				<!--<Chat />-->
 			</main>
 		
 
-		
-		
+		<div class="fixed z-10 pt-2 sm:p-0.5 rounded-lg">
+			<!--<ChatSideBar {chats} />-->
+		</div>
+		<!-- 
 		<div class="mt-0 sm:mt-0 sm:ml-72 md:ml-80 sm:pr-3  lg:pl-0 container md:w-4/5 w-11/12">
 			<ChatBox chats={chatConversationNames} />
 		</div>
-	
-		</div>
+		-->
+</div>
+
+
 	</div>
 </div>
 
@@ -136,5 +148,14 @@
 
 
 
+<!--
+{#if $isAuthenticated}
+	<Chat />
+{/if}
+<UserLoginModal />
 
+<div class="sticky top-0 z-40">
+	<Nav />
+</div>
 
+ -->

@@ -138,19 +138,46 @@
   
   };
   */
+ 
 
   socket.on("message", (message) => {
     console.log(message)
   })
 
-  socket.on("connect", (message) => {
-    console.log(message)
+  socket.on("connect", (data) => {
+    console.log(user)
+
+    const servers: any = {};
+  const channels: any = {};
+    
   })
+
+  socket.on("authenticated", (data) => {
+
+  const users: any = {};
+  const friends: any = {};
+  for (let i = 0; i < data.user.friends.length; i++) {
+    const friend = data.user.friends[i];
+    const user = friend.recipient;
+    users[user.id] = user;
+    friends[user.id] = {
+      status: friend.status,
+      id: user.id,
+    };
+  }
+    
+  //WE GOT IT
+  //make another page for WS
+  console.log(data.user.servers)
+
+  })
+
+  
 
 
   /*
   onMount(() => {
-        io.on("message", message => { // Listen to the message event
+        io.on("message", message => { // Listen to the message events
             messages = [...messages, message]
         })
         io.on("name", name => { // Another listener for the name:
