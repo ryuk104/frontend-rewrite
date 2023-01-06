@@ -9,6 +9,11 @@ import Postbuttonpopup from './textchannelprofile.svelte'
 import Minimusicplayer from '../../musicplayer/minimusicplayer.svelte';
 import Player from '../../Player/Player.svelte';
 
+
+import userss from "$stores/users";
+import { friend } from "$stores/friend";
+
+
 let id = "dsad";
 
 
@@ -62,26 +67,15 @@ let id = "dsad";
 
       <!--<Textchannelprofile/>-->
 
-      <a class="channelprofile" href="/channel/{id}"> 
+			{#each $friend as friends}
+      <a class="channelprofile" href="/channel/{friends.recipient.id}"> 
         <div class="avatarpicture" role="img"> 
-          <img src=../image/image1.jpeg class="avatarpicturecircle" width="45px" hieght="45px" alt="d"> 
+          <img src="{friends.recipient.avatar}" class="avatarpicturecircle" width="45px" hieght="45px" alt="d"> 
         </div>
-        <div class="friendsusername">Quax</div>
+        <div class="friendsusername">{friends.recipient.username}</div>
       </a>
-
-      <a class="channelprofile" href="s"> 
-        <div class="avatarpicture" role="img"> 
-          <img src=../image/image1.jpeg class="avatarpicturecircle" width="45px" hieght="45px" alt="d"> 
-        </div>
-        <div class="friendsusername">Quax</div>
-      </a>
-
-      <a class="channelprofile" href="s"> 
-        <div class="avatarpicture" role="img"> 
-          <img src=../image/image1.jpeg class="avatarpicturecircle" width="45px" hieght="45px" alt="d"> 
-        </div>
-        <div class="friendsusername">Quax</div>
-      </a>
+      {/each}
+     
 
 
 
@@ -90,9 +84,9 @@ let id = "dsad";
     <!--<Player></Player>-->
 
     <div class="smallprofile">
-      <img  class="smallprofileimage" src="https://media-photos.depop.com/b0/3643699/1293111538_b8d9de6ba3294226a92c1796a7e2d572/P0.jpg" width="60px" height="60px">
-      <div>RE</div>
-      <div>#dsao</div>
+      <img  class="smallprofileimage" src="{$userss.avatar}" width="60px" height="60px">
+      <div>{$userss.username}</div>
+      <div>#{$userss.tag}</div>
     </div>      
 
 

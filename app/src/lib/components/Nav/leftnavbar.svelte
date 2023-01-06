@@ -26,6 +26,7 @@
   import Serverprofile from '../server/serverprofile.svelte'
   //import Setting from '../setting/setting.svelte'
   import Guild from "$lib/components/Nav/guild.svelte";
+  import Servers from "$lib/components/Nav/servers.svelte"; 
 
 </script>
 
@@ -74,8 +75,9 @@
   
   -->  
   <ul class="serverlist">
-
-  <Guild/>
+  
+    <Servers/>
+  <!-- <Guild/>-->
   </ul>
 <!-- 
     <div class="settingbutton">

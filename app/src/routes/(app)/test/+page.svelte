@@ -1,49 +1,30 @@
 <script lang="ts">
-    //import { page } from '$app/stores';
+  /** @type {import('./$types').PageData} */
+  export let data;
+  const { userdata } = data
 
-    /** @type {import('./$types').PageData} */
-    export let data;
-    const { userdata } = data
 
-    import { io } from "socket.io-client";
+  import { page } from '$app/stores';
+
+
      
-    import Stories from "$lib/components/stories/stories.svelte";
-    import Instagram from "$lib/components/posts/instagram.svelte";
-    import PostCard from "$lib/components/insta/post/PostCard.svelte";
+  import Stories from "$lib/components/stories/stories.svelte";
+  //import Instagram from "$lib/components/posts/instagram.svelte";
+  import PostCard from "$lib/components/insta/post/PostCard.svelte";
 
-    import {
-    Button,
-    Card,
-    Col,
-    Icon,
-    ProgressCircular,
-    Row,
-  } from "svelte-materialify";
+  import { onMount } from "svelte";
+  import { socket } from "$lib/utils/socket"
   import { auth } from "$lib/stores/auth.js";
   import { post as postState } from "$lib/stores/post.js";
   import { user } from "$lib/stores/user.js";
   import userss from "$stores/users";
-
-  import { onMount } from "svelte";
-
-
+  import friend from "$stores/friend";
+  import server from "$stores/server";
   import Player from "$lib/components/Music/Player/Player.svelte";
   import { fullscreenStore } from "$lib/components/Music/Player/channel";
 	import { AudioPlayer } from "$lib/player";
   import { messenger } from "$lib/utils/sync";
-
-  const { paused } = AudioPlayer;
-	let volume = 0.5;
-	let volumeHover;
-
-	$: isPlaying = $paused;
-	let innerWidth = 640;
-	messenger.listen("player", (data) => {
-		AudioPlayer.play();
-	});
-
-  fullscreenStore.toggle();
-
+  import { queue } from "$lib/stores/list";
 
   
 
@@ -52,29 +33,16 @@
   export let posts;
   export let users;
 
-  let page = 0;
+  //let page = 0;
   let limit = 3;
   //let totalPage = posts.pagination.totalPage;
   let totalPage = 1;
   let loading = false;
 
-  const socket = io("http://localhost:4000", {
-    transports: ['websocket']
-  })
-
-  import { queue } from "$lib/stores/list";
 	$: hasplayer = $queue.length !== 0;
 
-  /*
-  onMount(() => {
-        io.on("message", message => { // Listen to the message event
-            messages = [...messages, message]
-        })
-        io.on("name", name => { // Another listener for the name:
-            username = name // Update the name so it can be displayed
-        })
-    })
-    */
+
+    
 
     
 
@@ -88,6 +56,7 @@
     } catch {
       console.log("error")
     }
+
   });
 
   try {
@@ -109,9 +78,6 @@
       console.log(userdata)
       console.log(userss)
 
-
-
-
     }   
 
     getuser()
@@ -121,70 +87,8 @@
     }
 
 
-  
 
 
-  /*
-  socket.on("authentication", {
-    token: localStorage.getItem("token"),
-  });
-*/
-
-/*
-  const onConnect = () => {
-  socket.emit("authentication", {
-    token: token,
-  });
-  
-  };
-  */
- 
-
-  socket.on("message", (message) => {
-    console.log(message)
-  })
-
-  socket.on("connect", (data) => {
-    console.log(user)
-
-    const servers: any = {};
-  const channels: any = {};
-    
-  })
-
-  socket.on("authenticated", (data) => {
-
-  const users: any = {};
-  const friends: any = {};
-  for (let i = 0; i < data.user.friends.length; i++) {
-    const friend = data.user.friends[i];
-    const user = friend.recipient;
-    users[user.id] = user;
-    friends[user.id] = {
-      status: friend.status,
-      id: user.id,
-    };
-  }
-    
-  //WE GOT IT
-  //make another page for WS
-  console.log(data.user.servers)
-
-  })
-
-  
-
-
-  /*
-  onMount(() => {
-        io.on("message", message => { // Listen to the message events
-            messages = [...messages, message]
-        })
-        io.on("name", name => { // Another listener for the name:
-            username = name // Update the name so it can be displayed
-        })
-    })
-*/
 
   async function loadMore() {
     try {
@@ -221,30 +125,9 @@
 
 
 
-  let username;
-  let avatar;
-  /*
-  async function loaduser() {
-        try {
-          const res = await fetch(`http://localhost:4000/api/auth/me`, { 
-            headers: {
-                'content-type': 'application/json',
-				'Authorization': `Bearer ${localStorage.token}`
-            }
-        });
 
-		const data = await res.json();
-		 return {
-            username: data.data.username,
-            avatar: data.data.avatar
-        } 
-        }catch (error) {
-          console.log(error);
-        }
-      };
-
-      loaduser();
-*/
+console.log($server)
+console.log($friend)
 </script>
 
 <main class="app">
