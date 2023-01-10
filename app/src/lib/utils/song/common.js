@@ -151,7 +151,7 @@ export function Toast(msg, duration, callback) {
       m.style.transition = 'ttransform ' + d + 's ease-in, opacity ' + d + 's ease-in';
       m.style.opacity = '0';
       setTimeout(function () {
-        localStorage.setItem('isShowToast', '0');
+        ('isShowToast', '0');
         document.body.removeChild(m);
         if (typeof callback === 'function') callback();
       }, d * 1000);

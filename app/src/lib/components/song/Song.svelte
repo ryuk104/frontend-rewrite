@@ -3,11 +3,11 @@
   import Lazy from 'svelte-lazy';
   import { HeartFill } from 'svelte-remixicon';
 
-  import { isLoginStore } from '../store/common';
-  import { userLikeSongIdsStore } from '../store/user';
-  import { currentSongStore, playStatusStore } from '../store/play';
+  import { isLoginStore } from '$lib/stores/song/common';
+  import { userLikeSongIdsStore } from '$lib/stores/song/user';
+  import { currentSongStore, playStatusStore } from '$lib/stores/song/play';
 
-  import { ripple, songerListToStr, Toast } from '../utils/common';
+  import { ripple, songerListToStr, Toast } from '$lib/utils/song/common';
 
   const dispatch = createEventDispatcher();
 

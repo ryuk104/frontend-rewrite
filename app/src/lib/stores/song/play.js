@@ -1,5 +1,8 @@
 import { writable } from 'svelte/store';
 
+import { browser } from "$app/environment"
+
+
 //播放器播放与暂停状态。true/false
 export const playStatusStore = writable(false);
 //播放器是否显示最大化。true/false
@@ -8,7 +11,7 @@ export const playIsMaxStore = writable(false);
 export const playIsMinStore = writable(true);
 //当前播放歌曲信息
 export const currentSongStore = writable(
-  JSON.parse(localStorage.getItem('currentSong'))
+  JSON.parse(browser && localStorage.getItem('currentSong'))
     ? JSON.parse(localStorage.getItem('currentSong'))
     : {
         name: '简易云音乐',
@@ -25,7 +28,7 @@ export const nextSongStore = writable({});
 export const currentSongIndexStore = writable(0);
 //正在播放的播放列表
 export const currentPlayListStore = writable([
-  JSON.parse(localStorage.getItem('currentSong'))
+  JSON.parse(browser && localStorage.getItem('currentSong'))
     ? JSON.parse(localStorage.getItem('currentSong'))
     : {
         name: '简易云音乐',
@@ -42,10 +45,10 @@ export const isLoadingSongStore = writable(false);
 export const maxPlayToTopStore = writable('100%');
 
 //是否正在私人FM播放
-export const isFMPlayStore = writable(localStorage.getItem('isFMPlay') === '1' ? true : false);
+export const isFMPlayStore = writable(browser && localStorage.getItem('isFMPlay') === '1' ? true : false);
 //私人FM当前播放
 export const FMPlayStore = writable(
-  JSON.parse(localStorage.getItem('FMPlay')) ? JSON.parse(localStorage.getItem('FMPlay')) : {}
+  JSON.parse(browser && localStorage.getItem('FMPlay')) ? JSON.parse(localStorage.getItem('FMPlay')) : {}
 );
 //私人FM下一首播放
 export const FMPlayNextStore = writable({});
@@ -53,8 +56,8 @@ export const FMPlayNextStore = writable({});
 export const currentTimeStore = writable('');
 //当前歌曲歌词
 export const currentLyricStore = writable(
-  JSON.parse(localStorage.getItem('currentLyric'))
-    ? JSON.parse(localStorage.getItem('currentLyric'))
+  JSON.parse(browser && localStorage.getItem('currentLyric'))
+    ? JSON.parse(browser && localStorage.getItem('currentLyric'))
     : {
         songId: '',
         lyric: '',
@@ -68,4 +71,4 @@ export const playRepeatModelStore = writable('repeat');
 //当前歌曲码率
 export const currentSongQualityStore = writable(128000);
 //音频可视化
-export const showVisualizerStore = writable(localStorage.getItem('showVisualizer') === '1' ? '1' : '0');
+export const showVisualizerStore = writable(browser && localStorage.getItem('showVisualizer') === '1' ? '1' : '0');

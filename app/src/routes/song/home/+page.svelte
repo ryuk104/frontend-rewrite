@@ -28,9 +28,6 @@
   }
 </script>
 
-<div style="display:{$homeActiveStore === 0 ? 'block' : 'none'}">
-  <Love />
-</div>
 <div style="display:{$homeActiveStore === 1 ? 'block' : 'none'}">
   <Discover />
 </div>

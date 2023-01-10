@@ -27,7 +27,7 @@
   import { todayListStore } from '$lib/stores/song/playList';
   import { userLikeListIdStore } from '$lib/stores/song/user';
 
-  import { dailyRecommendTracks, getSimiPlaylist, dailyRecommendPlaylist, getPlaylistDetail } from '../api/playlist';
+  import { dailyRecommendTracks, getSimiPlaylist, dailyRecommendPlaylist, getPlaylistDetail } from '$lib/api/playlist';
   import { getSongUrl, personalFM, getSongDetail, getSimiSong } from '$lib/api/song';
   import { similarArtists, getSongerDetail } from '$lib/api/songer';
 

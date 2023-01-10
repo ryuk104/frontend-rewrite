@@ -1,14 +1,15 @@
 <script>
-    import { pop, push } from 'svelte-stack-router';
 
-    import { NavBar, Cell, Button } from '../components/base';
+    import { NavBar, Cell, Button } from '$lib/components/song/base';
 
-    import { logout } from '../api/user';
+    import { logout } from '$lib/api/user';
 
-    import { restoreScrollStore, musicQualityStore, isShowTranslateStore, isLoginStore, isShowCommentStore } from '../store/common';
-    import { showVisualizerStore } from '../store/play';
+    import { restoreScrollStore, musicQualityStore, isShowTranslateStore, isLoginStore, isShowCommentStore } from '$lib/stores/song/common';
+    import { showVisualizerStore } from '$lib/stores/song/play';
 
-    import { Confirm } from '../utils/common';
+    import { Confirm } from '$lib/utils/song/common';
+
+
 
     let musicQualityArr = ['普通', '较高', '极高', '无损'];
 
