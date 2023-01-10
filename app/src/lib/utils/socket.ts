@@ -3,6 +3,8 @@ import { io } from "socket.io-client";
 import userss from "$stores/users";
 import friend from "$stores/friend";
 import server from "$stores/server";
+import notificationss from "$stores/notifications";
+import usersactivity from "$stores/usersactivity";
 
 
 
@@ -32,6 +34,8 @@ socket.on("authenticated", (data) => {
   //make another page for WS
   server.set(data.user.servers)
   friend.set(data.user.friends)
+  notificationss.set(data.notifications)
+  usersactivity.set(data.programActivityArr)
 
     MeModule.SetConnectionDetails({ connected: true, message: null });
     userss.set({

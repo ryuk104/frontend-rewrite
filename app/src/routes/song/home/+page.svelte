@@ -1,13 +1,13 @@
 <script>
   import { onMount } from 'svelte';
 
-  import Love from './Love.svelte';
-  import Discover from './Discover.svelte';
-  import Mine from './Mine.svelte';
+  import Love from '../love.svelte';
+  import Discover from '../discover.svelte';
+  import Mine from '../mine.svelte';
 
-  import { dailySignin } from '../api/user';
+  import { dailySignin } from '$lib/api/user';
 
-  import { isLoginStore, homeActiveStore } from '../store/common';
+  import { isLoginStore, homeActiveStore } from '$lib/stores/song/common';
 
   onMount(() => {
     $isLoginStore ? homeActiveStore.set(0) : homeActiveStore.set(1);

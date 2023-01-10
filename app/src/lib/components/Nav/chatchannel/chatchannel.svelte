@@ -6,7 +6,7 @@ import Userprofile from '../../searchbar/userprofile.svelte';
 import NoResults from '../../searchbar/userprofile.svelte';
 import Textchannelprofile from './textchannelprofile.svelte'
 import Postbuttonpopup from './textchannelprofile.svelte'
-import Minimusicplayer from '../../musicplayer/minimusicplayer.svelte';
+import Minimusicplayer from '../../Music/Player/minimusicplayer.svelte';
 import Player from '../../Player/Player.svelte';
 
 
@@ -25,7 +25,7 @@ let id = "dsad";
     
       <div class="quickacess"> 
 
-      <a class="channelprofile" href="http://"> 
+      <a class="channelprofile" href="/test"> 
         <div class="avatarpicture" role="img"> 
           <img src=../icon/homeicon.svg class="avatarpicturecircle" width="48px" hieght="48px" alt="d"> 
         </div>

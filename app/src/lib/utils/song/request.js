@@ -1,10 +1,10 @@
 import { get } from 'svelte/store';
 import axios from 'axios';
 import Cookies from 'js-cookie';
-import { isLoadingStore } from '../store/common';
+import { isLoadingStore } from '$lib/stores/song/common';
 import { Alert } from './common';
 
-let baseURL = ENV === 'development' ? 'http://xx.xx.xx.xx:3000/' : '/api/';
+let baseURL = 'http://xx.xx.xx.xx:3000/' 
 
 const service = axios.create({
   baseURL,

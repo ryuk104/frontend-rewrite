@@ -1,16 +1,16 @@
 <script>
   import { onMount } from 'svelte';
-  import { push } from 'svelte-stack-router';
+  import { goto } from '$app/navigation';
   import { RefreshLine, ArrowRightSLine, PlayFill, HeartPulseFill } from 'svelte-remixicon';
 
-  import { Button, Title } from '../components/base';
-  import TopTitle from '../components/TopTitle.svelte';
-  import ListGrid from '../components/ListGrid.svelte';
-  import Songer from '../components/Singer.svelte';
+  import { Button, Title } from '$lib/components/song/base';
+  import TopTitle from '$lib/components/song/TopTitle.svelte';
+  import ListGrid from '$lib/components/song/ListGrid.svelte';
+  import Songer from '$lib/components/song/Singer.svelte';
 
-  import { getSongDetail, getSongUrl } from '../api/song';
-  import { userPlaylist, likedArtists } from '../api/user';
-  import { getPlaylistDetail, intelligenceList } from '../api/playlist';
+  import { getSongDetail, getSongUrl } from '$lib/api/song';
+  import { userPlaylist, likedArtists } from '$lib/api/user';
+  import { getPlaylistDetail, intelligenceList } from '$lib/api/playlist';
 
   import {
     currentSongStore,
@@ -20,11 +20,11 @@
     isFMPlayStore,
     playRepeatModelStore,
     currentSongQualityStore,
-  } from '../store/play';
-  import { isLoginStore, isHomePageStore } from '../store/common';
-  import { userLikeSongIdsStore, userInfoStore, userLikeListIdStore } from '../store/user';
+  } from '$lib/stores/song/play';
+  import { isLoginStore, isHomePageStore } from '$lib/stores/song/common';
+  import { userLikeSongIdsStore, userInfoStore, userLikeListIdStore } from '$lib/stores/song/user';
 
-  import { Toast, Alert, ripple } from '../utils/common';
+  import { Toast, Alert, ripple } from '$lib/utils/song/common';
 
   let loveSongDom;
   let infoDom;

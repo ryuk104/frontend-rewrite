@@ -1,9 +1,8 @@
 <script>
-  import { pop } from 'svelte-stack-router';
   import { createEventDispatcher, onMount, afterUpdate } from 'svelte';
   import { ArrowLeftLine } from 'svelte-remixicon';
 
-  import { ripple } from '../../utils/common';
+  import { ripple } from '$lib/utils/song/common';
 
   export let title = 'Title';
   export let leftEvent = false;

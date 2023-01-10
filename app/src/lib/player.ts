@@ -5,7 +5,7 @@ import { tweened } from "svelte/motion";
 import type { Unsubscriber } from "svelte/store";
 import { get } from "svelte/store";
 import SessionListService, { type ISessionListProvider } from "./stores/list";
-import { groupSession, type ConnectionState } from "./stores/sessionsrtrtr";
+import { groupSession, type ConnectionState } from "./stores/sessions";
 import { currentTitle } from "./stores/stores";
 import type { Nullable } from "./types";
 import { notify, type Maybe } from "./utils";

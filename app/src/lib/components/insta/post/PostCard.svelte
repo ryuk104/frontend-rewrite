@@ -23,6 +23,11 @@
 
   export let post;
 
+  let loading = false;
+  let page = 0;
+
+  
+
 
   async function handleLikePost() {
     try {

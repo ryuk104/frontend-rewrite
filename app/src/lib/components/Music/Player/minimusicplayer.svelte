@@ -1,6 +1,6 @@
 <script>
 	//import { isPlay, title } from '../stores/song';
-  import Icon from "../Music/Icon/Icon.svelte";
+  import Icon from "../Icon/Icon.svelte";
 
 
 	export let song;
@@ -13,6 +13,27 @@
 	export let loading;
 	export let isQueue = false;
 	export let sizes = { main: "2em", skip: "1.5em" };
+  import { browser } from "$app/environment";
+	import { goto } from "$app/navigation";
+	import { clickOutside } from "$lib/actions/clickOutside";
+	import { IMAGE_NOT_FOUND } from "$lib/constants";
+	import { IDBService } from "$lib/workers/db/service";
+	import { AudioPlayer } from "$lib/player";
+	import { groupSession, isMobileMQ } from "$lib/stores";
+	import list, { currentTrack, queue, queuePosition } from "$lib/stores/list";
+	import { IsoBase64 } from "$lib/utils";
+	import { messenger } from "$lib/utils/sync";
+	import { notify } from "$lib/utils";
+	import { playerLoading, showAddToPlaylistPopper, showGroupSessionCreator } from "$stores/stores";
+	import { PopperButton } from "../../Popper";
+	import { fullscreenStore } from "./channel";
+	import Controls from "./Controls.svelte";
+	import keyboardHandler from "./keyboardHandler";
+	import ProgressBar from "./ProgressBar";
+
+	import { page } from "$app/stores";
+	import { SITE_ORIGIN_URL } from "$stores/url";
+
 /*
 	$: if ($isPlay && song.title == $title) {
 		icon = 'pause';
@@ -40,13 +61,13 @@
     <div class="musiccard">
 
       <div class="musiccardimage">
-        <img src="https://media.pitchfork.com/photos/623a9d636597466fa9d6e2ba/master/w_1280%2Cc_limit/beabadoobee-Beatopia.jpg" class="musiccardimage" width="40%" hieght="40%" alt="d">
+        <img src="{$currentTrack?.thumbnails?.[0]?.url ?? IMAGE_NOT_FOUND}" class="musiccardimage" width="40%" hieght="40%" alt="d">
       </div>
 
       <div class="musiccardtext">
         <div class="musiccardtexttitle">
           <a href="artist"> 
-            <h4>{title}</h4>
+            <h4>{$currentTrack?.title}</h4>
           </a>
         </div>
 
@@ -74,8 +95,8 @@
     </div>
 -->
     <div class="tracktimeline">
-      <div data-percents="100" style="width:100%"></div>
-      <div data-percents="100" style="width:100%"></div>
+      <ProgressBar />
+
     </div>
 
 
@@ -89,7 +110,7 @@
       padding: 0;
       display: flex;
       bottom: 75px;
-      background-color: purple;
+      background-color: rgb(46, 44, 46);
       position: fixed;
       max-width: 100%;
       width: 100%;
@@ -117,7 +138,7 @@
       position: fixed;
       width: 100%;
       height: 4%;
-      background-color:red;
+      background-color:rgb(72, 66, 66)(38, 32, 32);
     }
 
     .trackbutton{
@@ -136,7 +157,7 @@
       position: fixed;
       width: 100%;
       height: 1%;    
-      background-color:pink;
+      background-color:rgb(60, 59, 59);
 
     }
   </style>

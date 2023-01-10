@@ -5,7 +5,7 @@
     import { Tip } from './base';
     import PlayListCover from './PlayListCover.svelte';
 
-    import { ripple } from '../utils/common';
+    import { ripple } from '$lib/utils/song/common';
 
     export let title = '';
     export let playList = [];

@@ -1,15 +1,16 @@
 <script>
   import { onMount } from 'svelte';
-  import { push } from 'svelte-stack-router';
   import { RadioFill, RefreshLine, Calendar2Fill, GitRepositoryPrivateLine } from 'svelte-remixicon';
 
-  import TopTitle from '../components/TopTitle.svelte';
-  import { Button } from '../components/base';
-  import ListGrid from '../components/ListGrid.svelte';
-  import SongList from '../components/SongList.svelte';
-  import Songer from '../components/Singer.svelte';
+  import TopTitle from '$lib/components/song/TopTitle.svelte';
+  import { Button } from '$lib/components/song/base';
+  import ListGrid from '$lib/components/song/ListGrid.svelte';
+  import SongList from '$lib/components/song/SongList.svelte';
+  import Songer from '$lib/components/song/Singer.svelte';
+  import { goto } from '$app/navigation';
 
-  import { isLoginStore } from '../store/common';
+
+  import { isLoginStore } from '$lib/stores/song/common';
   import {
     playIsMaxStore,
     playStatusStore,
@@ -21,16 +22,16 @@
     isFMPlayStore,
     FMPlayNextStore,
     currentSongQualityStore,
-  } from '../store/play';
-  import { isHomePageStore } from '../store/common';
-  import { todayListStore } from '../store/playList';
-  import { userLikeListIdStore } from '../store/user';
+  } from '$lib/stores/song/play';
+  import { isHomePageStore } from '$lib/stores/song/common';
+  import { todayListStore } from '$lib/stores/song/playList';
+  import { userLikeListIdStore } from '$lib/stores/song/user';
 
   import { dailyRecommendTracks, getSimiPlaylist, dailyRecommendPlaylist, getPlaylistDetail } from '../api/playlist';
-  import { getSongUrl, personalFM, getSongDetail, getSimiSong } from '../api/song';
-  import { similarArtists, getSongerDetail } from '../api/songer';
+  import { getSongUrl, personalFM, getSongDetail, getSimiSong } from '$lib/api/song';
+  import { similarArtists, getSongerDetail } from '$lib/api/songer';
 
-  import { songerListToStr, Toast, ripple } from '../utils/common';
+  import { songerListToStr, Toast, ripple } from '$lib/utils/song/common';
 
   let dailyRecommendPlayList = []; //每日歌单推荐
   let randomLoveSong = {}; //随机一个喜欢歌曲
@@ -398,7 +399,7 @@
             type="primary"
             on:BtnClick={() => {
               isHomePageStore.set(false);
-              push('/login');
+              goto('/login');
             }}
           >
             立即登录
@@ -408,7 +409,7 @@
           <Button
             on:BtnClick={() => {
               isHomePageStore.set(false);
-              push('/about');
+              goto('/about');
             }}
           >
             关于

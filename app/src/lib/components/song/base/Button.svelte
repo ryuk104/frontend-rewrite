@@ -2,7 +2,7 @@
   import { onMount } from 'svelte';
   import { createEventDispatcher } from 'svelte';
 
-  import { ripple } from '../../utils/common';
+  import { ripple } from '$lib/utils/song/common';
 
   export let type = 'default'; //primary
   const dispatch = createEventDispatcher();

@@ -1,4 +1,3 @@
-import App from './App.svelte';
 
 localStorage.setItem('isShowToast', '0');
 if (localStorage.getItem('searchkeywords')) {

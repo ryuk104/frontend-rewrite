@@ -2,7 +2,7 @@
   import { createEventDispatcher, onMount, afterUpdate } from 'svelte';
   import { ArrowRightSLine } from 'svelte-remixicon';
 
-  import { ripple } from '../../utils/common';
+  import { ripple } from '$lib/utils/song/common';
 
   export let title = 'Title';
   export let isShowRight = false;

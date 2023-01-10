@@ -7,13 +7,13 @@
     isFMPlayStore,
     playRepeatModelStore,
     currentSongQualityStore,
-  } from '../store/play';
+  } from '$lib/stores/song/play';
 
   import Song from './Song.svelte';
 
-  import { getSongUrl } from '../api/song';
+  import { getSongUrl } from '$lib/api/song';
 
-  import { Toast } from '../utils/common';
+  import { Toast } from '$lib/utils/song/common';
 
   export let songList = [];
   export let isPlayList = false; //是否播放列表，false表示播放单曲

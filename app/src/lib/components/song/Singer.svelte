@@ -1,12 +1,12 @@
 <script>
   import { onMount } from 'svelte';
-  import Lazy from 'svelte-lazy';
-  import { push } from 'svelte-stack-router';
   import { StarSFill } from 'svelte-remixicon';
+  import { goto } from '$app/navigation';
 
-  import { isHomePageStore, currentDetailSongerIdStore } from '../store/common';
 
-  import { ripple } from '../utils/common';
+  import { isHomePageStore, currentDetailSongerIdStore } from '$lib/stores/song/common';
+
+  import { ripple } from '$lib/utils/song/common';
 
   export let songer = {};
   export let coverSize = 200;

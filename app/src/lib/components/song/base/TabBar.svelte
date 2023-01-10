@@ -2,8 +2,8 @@
   import { onMount, afterUpdate } from 'svelte';
   import { ThumbUpFill, Compass3Fill, AccountCircleFill } from 'svelte-remixicon';
 
-  import { isHomePageStore, homeActiveStore } from '../../store/common';
-  import { ripple } from '../../utils/common';
+  import { isHomePageStore, homeActiveStore } from '$lib/stores/song/common';
+  import { ripple } from '$lib/utils/song/common';
 
   let navDatas = [
     {

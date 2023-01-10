@@ -1,14 +1,15 @@
 <script>
   import { onMount } from 'svelte';
-  import { push } from 'svelte-stack-router';
   import { SearchLine } from 'svelte-remixicon';
+  import { goto } from '$app/navigation';
+
 
   import { Title, Button } from '$lib/components/song/base';
   import TopTitle from '$lib/components/song/TopTitle.svelte';
   import ListGrid from '$lib/components/song/ListGrid.svelte';
   import Songer from '$lib/components/song/Singer.svelte';
 
-  import { isHomePageStore, isLoginStore } from '../store/common';
+  import { isHomePageStore, isLoginStore } from '$lib/stores/song/common';
 
   import {
     topPlaylist,
@@ -17,8 +18,8 @@
     playlistCatlist,
     playlistHotCatlist,
     highQualityCat,
-  } from '../api/playlist';
-  import { topArtists } from '../api/songer';
+  } from '$lib/api/playlist';
+  import { topArtists } from '$lib/api/songer';
 
   let topPlayList = [];
   let highquality = [];
@@ -123,12 +124,12 @@
   // 查看全部热门歌手
   function hotSongersFun() {
     isHomePageStore.set(false);
-    push('/moreSonger');
+    goto('/moreSonger');
   }
   function topClickFun(event) {
     if (event.detail.index === 0) {
       isHomePageStore.set(false);
-      push('/search');
+      goto('/search');
     }
   }
   function dealWithData(data) {
@@ -136,7 +137,7 @@
     let d = {};
     data.forEach(element => {
       if (!d[element.category]) {
-        c.push({
+        c.goto({
           category: element.category,
           allData: [element],
         });
@@ -162,7 +163,7 @@
         playList={topPlayList}
         on:titleClick={() => {
           isHomePageStore.set(false);
-          push('/moreList?cat=' + cat + '&type=top');
+          goto('/moreList?cat=' + cat + '&type=top');
         }}
       >
         <div>
@@ -210,7 +211,7 @@
         playList={offList}
         on:titleClick={() => {
           isHomePageStore.set(false);
-          push('/moreList?cat=官方');
+          goto('/moreList?cat=官方');
         }}
       />
     </div>
@@ -236,7 +237,7 @@
         isShowMore={highquality.length < 6 ? false : true}
         on:titleClick={() => {
           isHomePageStore.set(false);
-          push('/moreList?cat=' + heigcat + '&type=high');
+          goto('/moreList?cat=' + heigcat + '&type=high');
         }}
       >
         <div class="tab-2-box">
@@ -263,7 +264,7 @@
       <Button
         on:BtnClick={() => {
           isHomePageStore.set(false);
-          push('/about');
+          goto('/about');
         }}
       >
         关于

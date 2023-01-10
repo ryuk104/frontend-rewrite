@@ -26,7 +26,6 @@
       const data = await res.json();
       const storyData = data.stories;
       storystate.addStory(storyData)
-      console.log($storystate.story)
 
       loading = false;
 

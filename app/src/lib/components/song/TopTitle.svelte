@@ -1,7 +1,7 @@
 <script>
   import { createEventDispatcher, onMount, afterUpdate } from 'svelte';
 
-  import { ripple } from '../utils/common';
+  import { ripple } from '$lib/utils/song/common';
 
   export let title = '首页';
   export let desc = '暂无描述';

@@ -12,6 +12,9 @@
 
 	}
 
+	import { socket } from "$lib/utils/socket"
+
+
 
 
     //import Topnavbutton from "$lib/components/Nav/Topnavbutton.svelte";
@@ -62,7 +65,19 @@
 	// $: console.log($queue, $SessionListService);
 
 	
+	onMount(async () => {
+    try {
+      const token = localStorage.getItem("token");
+      socket.emit("authentication", {
+        token: token,
+      })		   
+    } catch {
+      console.log("error")
+    }
+
+  });
  
+  /*
 	onMount(async () => {
     try {
       const token = localStorage.getItem("token");
@@ -94,7 +109,7 @@
       console.log(error);
     }
   });
-
+*/
 
     //import '../app.css';
 

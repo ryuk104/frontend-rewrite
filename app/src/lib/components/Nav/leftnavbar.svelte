@@ -38,7 +38,7 @@
 
   <ul class="applist">
     <li class="app-component">
-      <a href="/home">Home
+      <a href="/home">
       <img src=/icon/homeicon.svg width="48px" alt="lodsadsadgo">
       </a>
     </li>
@@ -175,7 +175,8 @@ cursor: pointer;
 }
 
 .app-component{
-  left: 1%;
+  position: relative;
+  right: 21%;
 }
 
 .breakpoint {

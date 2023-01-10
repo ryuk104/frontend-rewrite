@@ -60,7 +60,7 @@
 			{#each $server as servers}
 			<div class="guild">
 			    <span class="pill"></span>        
-                <a href="/server/{servers.id}"> 
+                <a href="/server/{servers.server_id}"> 
 				    <img class="img" src="{servers.avatar}" alt="d"/>
                 </a>
 			</div>

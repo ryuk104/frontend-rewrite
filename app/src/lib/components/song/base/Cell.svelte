@@ -1,7 +1,7 @@
 <script>
   import { createEventDispatcher, onMount } from 'svelte';
   import { ArrowRightSLine } from 'svelte-remixicon';
-  import { ripple } from '../../utils/common';
+  import { ripple } from '$lib/utils/song/common';
 
   import Switch from './Switch.svelte';
 
