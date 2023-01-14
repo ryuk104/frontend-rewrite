@@ -1,4 +1,113 @@
-import { AssetResponseDto } from '@api';
+interface AssetResponseDto {
+    /**
+     * 
+     * @type {AssetTypeEnum}
+     * @memberof AssetResponseDto
+     */
+    'type': AssetTypeEnum;
+    /**
+     * 
+     * @type {string}
+     * @memberof AssetResponseDto
+     */
+    'id': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof AssetResponseDto
+     */
+    'deviceAssetId': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof AssetResponseDto
+     */
+    'ownerId': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof AssetResponseDto
+     */
+    'deviceId': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof AssetResponseDto
+     */
+    'originalPath': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof AssetResponseDto
+     */
+    'resizePath': string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof AssetResponseDto
+     */
+    'createdAt': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof AssetResponseDto
+     */
+    'modifiedAt': string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof AssetResponseDto
+     */
+    'isFavorite': boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof AssetResponseDto
+     */
+    'mimeType': string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof AssetResponseDto
+     */
+    'duration': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof AssetResponseDto
+     */
+    'webpPath': string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof AssetResponseDto
+     */
+    'encodedVideoPath'?: string | null;
+    /**
+     * 
+     * @type {ExifResponseDto}
+     * @memberof AssetResponseDto
+     */
+    'exifInfo'?: ExifResponseDto;
+    /**
+     * 
+     * @type {SmartInfoResponseDto}
+     * @memberof AssetResponseDto
+     */
+    'smartInfo'?: SmartInfoResponseDto;
+    /**
+     * 
+     * @type {string}
+     * @memberof AssetResponseDto
+     */
+    'livePhotoVideoId'?: string | null;
+    /**
+     * 
+     * @type {Array<TagResponseDto>}
+     * @memberof AssetResponseDto
+     */
+    'tags': Array<TagResponseDto>;
+}
 
 export class AssetBucket {
 	/**

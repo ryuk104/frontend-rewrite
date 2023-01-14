@@ -1,13 +1,12 @@
 <script>
   import { onMount, onDestroy } from 'svelte';
-  import { onResume } from 'svelte-stack-router';
   import { PlayCircleLine, ShuffleLine, SearchLine, RefreshLine } from 'svelte-remixicon';
 
-  import { Button, NavBar } from '../components/base';
-  import SongList from '../components/SongList.svelte';
+  import { Button, NavBar } from '$lib/components/song/base';
+  import SongList from '$lib/components/song/SongList.svelte';
 
-  import { isHomePageStore, isLoadingStore, defaultResumableStore } from '../store/common';
-  import { userInfoStore, userLikeListIdStore } from '../store/user';
+  import { isHomePageStore, isLoadingStore, defaultResumableStore } from '$lib/stores/song/common';
+  import { userInfoStore, userLikeListIdStore } from '$lib/stores/song/user';
   import {
     currentSongStore,
     playStatusStore,
@@ -16,12 +15,12 @@
     isFMPlayStore,
     playRepeatModelStore,
     currentSongQualityStore,
-  } from '../store/play';
+  } from '$lib/stores/song/play';
 
-  import { getSongUrl, getSongDetail } from '../api/song';
-  import { getPlaylistDetail } from '../api/playlist';
+  import { getSongUrl, getSongDetail } from '$lib/api/song';
+  import { getPlaylistDetail } from '$lib/api/playlist';
 
-  import { Toast, cutArray, songerListToStr } from '../utils/common';
+  import { Toast, cutArray, songerListToStr } from '$lib/utils/song/common';
 
   let inputDom;
   $: keywords = '';
@@ -36,6 +35,7 @@
       icon: SearchLine,
     },
   ];
+  /*
   onResume(() => {
     if (!$defaultResumableStore) {
       songList = [];
@@ -46,6 +46,8 @@
       getPlaylistDetailFun();
     }
   });
+  */
+
   onMount(() => {
     isHomePageStore.set(false);
     getPlaylistDetailFun();

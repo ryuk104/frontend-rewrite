@@ -963,14 +963,13 @@ export function leaveCall() {
 */
 
 /*
-export const addAssetsToAlbum = async (albumId: string, addAssetsDto: AddAssetsDto) => {
+export function async addAssetsToAlbum (albumId: string, addAssetsDto: AddAssetsDto) => {
   // verify required parameter 'albumId' is not null or undefined
   assertParamExists('addAssetsToAlbum', 'albumId', albumId)
   // verify required parameter 'addAssetsDto' is not null or undefined
   assertParamExists('addAssetsToAlbum', 'addAssetsDto', addAssetsDto)
 
-  const res = await api.put(`/album/{albumId}/assets`
-  .replace(`{${"albumId"}}`, encodeURIComponent(String(albumId)));
+  const res = await api.put(`/album/{albumId}/assets`, encodeURIComponent(String(albumId)));
 
   
   // authentication bearer required

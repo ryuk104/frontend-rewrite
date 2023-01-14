@@ -1,4 +1,4 @@
-import request from '../utils/request';
+import request from '$lib/utils/song/request';
 
 /**
  * 获取歌手详情

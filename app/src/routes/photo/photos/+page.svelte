@@ -6,11 +6,15 @@
 	import type { PageData } from './$types';
 
 	//import { openFileUploadDialog, UploadType } from '$lib/utils/photo/file-uploader';
+
+	/*
 	import {
 		assetInteractionStore,
 		isMultiSelectStoreState,
 		selectedAssets
 	} from '$lib/stores/photo/asset-interaction.store';
+	*/
+
 
 	//import ControlAppBar from '$lib/components/photo/shared-components/control-app-bar.svelte';
 	//import Close from 'svelte-material-icons/Close.svelte';
@@ -24,7 +28,7 @@
 	} from '$lib/components/photo/shared-components/notification/notification';
 	*/
 
-	import { assetStore } from '$lib/stores/photo/assets.store';
+	//import { assetStore } from '$lib/stores/photo/assets.store';
 
 	export let data: PageData;
 
@@ -64,7 +68,7 @@
 </svelte:head>
 
 <section>
-	{#if $isMultiSelectStoreState}
+	<!--{#if $isMultiSelectStoreState}-->
 	<!-- 
 		<ControlAppBar
 			on:close-button-click={() => assetInteractionStore.clearMultiselect()}
@@ -82,12 +86,12 @@
 				/>
 			</svelte:fragment>
 		</ControlAppBar>-->
-	{:else}
+	<!--{:else}-->
 		<NavigationBar
 			user={data.user}
 			on:uploadClicked={() => openFileUploadDialog(UploadType.GENERAL)}
 		/>
-	{/if}
+	<!--{/if}-->
 </section>
 
 <section class="grid grid-cols-[250px_auto] relative pt-[72px] h-screen bg-immich-bg">

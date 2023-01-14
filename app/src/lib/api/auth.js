@@ -1,4 +1,4 @@
-import request from "../utils/request";
+import request from "$lib/utils/song/request";
 /**
  * 手机登录
  * - phone: 手机号码

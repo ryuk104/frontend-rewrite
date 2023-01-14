@@ -1,11 +1,13 @@
 <script>
   import { onMount } from 'svelte';
-  import { onResume, search } from 'svelte-stack-router';
 
-  import { NavBar, Pagination } from '../components/base';
-  import Song from '../components/Song.svelte';
+  import { NavBar, Pagination } from '$lib/components/song/base';
+  import Song from '$lib/components/song/Song.svelte';
 
-  import { defaultResumableStore, coverImgUrlStore } from '../store/common';
+  import { browser } from "$app/environment"
+
+
+  import { defaultResumableStore, coverImgUrlStore } from '$lib/stores/song/common';
   import {
     currentSongStore,
     playStatusStore,
@@ -13,12 +15,12 @@
     currentSongIndexStore,
     isFMPlayStore,
     currentSongQualityStore,
-  } from '../store/play';
+  } from '$lib/stores/song/play';
 
-  import { getAllSongs } from '../api/songer';
-  import { getSongUrl } from '../api/song';
+  import { getAllSongs } from '$lib/api/songer';
+  import { getSongUrl } from '$lib/api/song';
 
-  import { getRequest, Toast } from '../utils/common';
+  import { getRequest, Toast } from '$lib/utils/song/common';
 
   $: songList = [];
   $: hasMore = true;
@@ -33,6 +35,7 @@
   $: active = 0;
   $: order = typeList[0].type;
 
+  /*
   onResume(() => {
     if (!$defaultResumableStore) {
       songList = [];
@@ -45,12 +48,14 @@
       getAllSongsFun(0, order);
     }
   });
-
+  */
+/*
   onMount(() => {
     searchObj = getRequest($search);
     paginationHeight = document.documentElement.clientHeight || document.body.clientHeight - 120;
     getAllSongsFun(0, order);
   });
+  */
   //热门歌手
   async function getAllSongsFun(offset, order) {
     const res = await getAllSongs(searchObj.id, order, limit, offset);
@@ -61,7 +66,7 @@
   }
   function playListFun(index) {
     isFMPlayStore.set(false);
-    localStorage.setItem('isFMPlay', '0');
+    browser && localStorage.setItem('isFMPlay', '0');
     let newcurrentPlayList = $currentPlayListStore;
     let newPlayListIds = [];
     for (let r = 0; r < newcurrentPlayList.length; r++) {
@@ -77,7 +82,7 @@
       for (let r = 0; r < newcurrentPlayList.length; r++) {
         ids.push(newcurrentPlayList[r].id);
       }
-      localStorage.setItem('localPlayList', JSON.stringify(ids));
+      browser && localStorage.setItem('localPlayList', JSON.stringify(ids));
       currentSongIndexStore.set($currentSongIndexStore + 1);
       getSongUrlFun($currentPlayListStore[$currentSongIndexStore]);
     }
@@ -96,7 +101,7 @@
         }
         song.al.picUrl = $coverImgUrlStore;
         currentSongStore.set(song);
-        localStorage.setItem('currentSong', JSON.stringify(song));
+        browser && localStorage.setItem('currentSong', JSON.stringify(song));
         window.audioDOM.src = song.url;
         window.audioDOM.play();
         playStatusStore.set(true);
@@ -135,7 +140,7 @@
       </div>
     {/each}
   </div>
-  <div class="active-line" style="left: {20 + ((localStorage.getItem('fullWidth') - 40) / 2) * active}px;" />
+  <div class="active-line" style="left: {20 + ((browser && localStorage.getItem('fullWidth') - 40) / 2) * active}px;" />
   <div style="margin-top:40px">
     <Pagination
       bottomHeight={70}

@@ -1,21 +1,22 @@
 <script>
   import { onMount } from "svelte";
-  import { onResume } from "svelte-stack-router";
 
-  import Songer from "../components/Singer.svelte";
-  import { NavBar } from "../components/base";
+  import Songer from "$lib/components/song/Singer.svelte";
+  import { NavBar } from "$lib/components/song/base";
 
-  import { defaultResumableStore } from "../store/common";
+  import { defaultResumableStore } from "$lib/stores/song/common";
 
-  import { likedArtists } from "../api/user";
+  import { likedArtists } from "$lib/api/user";
 
   $: collectSongers = [];
 
+  /*
   onResume(() => {
     if (!$defaultResumableStore) {
       likedArtistsFun();
     }
   });
+  */
   onMount(() => {
     likedArtistsFun();
   });

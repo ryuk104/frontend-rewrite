@@ -1,13 +1,12 @@
 <script>
   import { onMount } from 'svelte';
   import Lazy from 'svelte-lazy';
-  import { push } from 'svelte-stack-router';
   import { PlayMiniLine } from 'svelte-remixicon';
 
-  import { playListIdStore } from '../store/playList';
-  import { isHomePageStore } from '../store/common';
+  import { playListIdStore } from '$lib/stores/song/playList';
+  import { isHomePageStore } from '$lib/stores/song/common';
 
-  import { ripple, tranNumber, Confirm } from '../utils/common';
+  import { ripple, tranNumber, Confirm } from '$lib/utils/song/common';
 
   export let coverImgUrl = '';
   export let playCount = 0;

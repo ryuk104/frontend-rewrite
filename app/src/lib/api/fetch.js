@@ -2,7 +2,7 @@
  * Fetching from server
  */
 
-import environment from '../lib/config.js'
+import environment from './config.js'
 
 let config, http
 

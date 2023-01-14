@@ -20,14 +20,7 @@
 		getUserProfileImage();
 	});
 
-	const getUserProfileImage = async () => {
-		try {
-			await api.userApi.getProfileImage(user.id);
-			shouldShowProfileImage = true;
-		} catch (e) {
-			shouldShowProfileImage = false;
-		}
-	};
+	
 	const getFirstLetter = (text?: string) => {
 		return text?.charAt(0).toUpperCase();
 	};
@@ -70,7 +63,7 @@
 				</button>
 			{/if}
 
-			{#if user.isAdmin}
+			<!--{#if user.isAdmin}-->
 				<a data-sveltekit-prefetch href={`admin`}>
 					<button
 						class={`flex place-items-center place-content-center gap-2 hover:bg-immich-primary/5 p-2 rounded-lg font-medium ${
@@ -78,7 +71,7 @@
 						}`}>Administration</button
 					>
 				</a>
-			{/if}
+			<!--{/if}-->
 
 			<div
 				on:mouseover={() => (shouldShowAccountInfo = true)}
@@ -106,7 +99,7 @@
 						out:fade={{ delay: 200, duration: 150 }}
 						class="absolute -bottom-12 right-5 border bg-gray-500 text-[12px] text-gray-100 p-2 rounded-md shadow-md"
 					>
-						<p>{user.firstName} {user.lastName}</p>
+						<!--<p>{user.firstName} {user.lastName}</p>-->
 						<p>{user.email}</p>
 					</div>
 				{/if}

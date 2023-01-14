@@ -1,16 +1,15 @@
 <script>
   import { onMount } from 'svelte';
-  import { onResume, search } from 'svelte-stack-router';
   import Lazy from 'svelte-lazy';
 
-  import { NavBar, Pagination } from '../components/base';
-  import MiniPlayListCover from '../components/MiniPlayListCover.svelte';
+  import { NavBar, Pagination } from '$lib/components/song/base';
+  import MiniPlayListCover from '$lib/components/song/MiniPlayListCover.svelte';
 
-  import { defaultResumableStore } from '../store/common';
+  import { defaultResumableStore } from '$lib/stores/song/common';
 
-  import { topPlaylist, highQualityPlaylist } from '../api/playlist';
+  import { topPlaylist, highQualityPlaylist } from '$lib/api/playlist';
 
-  import { getRequest } from '../utils/common';
+  import { getRequest } from '$lib/utils/song/common';
 
   $: playList = [];
   $: hasMore = true;

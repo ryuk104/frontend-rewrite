@@ -282,13 +282,13 @@
       <div class="info-box" on:click={toSettingFun} bind:this={infoDom}>
         <div class="left">
           <div class="avatar">
-            <img src={$userInfoStore.profile.avatarUrl.replace(/^http:/, 'https:') + '?param=180y180'} alt="" />
+            <img src={$userInfoStore.profile} alt="" />
           </div>
           <div class="info">
-            <div class="nicename">{$userInfoStore.profile.nickname}</div>
-            <div class="signature">{$userInfoStore.profile.signature || ''}</div>
+            <div class="nicename">{$userInfoStore.profile}</div>
+            <div class="signature">{$userInfoStore.profile || ''}</div>
             <div class="tag">
-              {#if $userInfoStore.account.vipType !== 0}
+              {#if $userInfoStore.account !== 0}
                 <span class="vip">
                   <img class="cvip" src="/images/vip/vip.png" alt="" />
                   <span class="vip-text">黑胶VIP</span>
@@ -307,8 +307,7 @@
       </div>
       <div
         class="love-song-box"
-        style="background-image: url({$userInfoStore.profile.avatarUrl.replace(/^http:/, 'https:') +
-          '?param=180y180'});"
+        style="background-image: url({$userInfoStore.profile});"
       >
         <div class="love-song" on:click={goToLoveListFun} bind:this={loveSongDom}>
           <div class="love-title">

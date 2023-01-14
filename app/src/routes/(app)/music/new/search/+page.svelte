@@ -2,15 +2,15 @@
   import { onMount } from 'svelte';
   import { DeleteBinLine } from 'svelte-remixicon';
 
-  import { NavBar } from '../components/base';
-  import Songer from '../components/Singer.svelte';
-  import MiniPlayListCover from '../components/MiniPlayListCover.svelte';
-  import SongList from '../components/SongList.svelte';
+  import { NavBar } from '$lib/components/song/base';
+  import Songer from '$lib/components/song/Singer.svelte';
+  import MiniPlayListCover from '$lib/components/song/MiniPlayListCover.svelte';
+  import SongList from '$lib/components/song/SongList.svelte';
 
-  import { search } from '../api/others';
-  import { getSongDetail } from '../api/song';
+  import { search } from '$lib/api/others';
+  import { getSongDetail } from '$lib/api/song';
 
-  import { ripple } from '../utils/common';
+  import { ripple } from '$lib/utils/song/common';
 
   let inputDom;
   let keywords = '';
