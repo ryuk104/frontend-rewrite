@@ -1,10 +1,35 @@
 
 
-<script>
+<script lang="ts">
 
   /** @type {import('./$types').PageData} */
-  export let data;
+  export let Data;
   import { onMount } from "svelte";
+  import server from "$lib/stores/server"
+
+
+  console.log($server)
+
+
+
+  async function getMessages() {
+    try {
+      const res = await fetch(`http://localhost:4000/api/messages/channels/${$server.default_channel_id}`, { 
+            method: 'GET',
+            headers: {
+                'content-type': 'application/json',
+                'Accept': 'application/json',
+                'Authorization': `Bearer ${localStorage.token}`
+            }
+        });
+        const data = await res.json();
+    } catch (error) {
+      console.log(error);
+    } 
+  }
+
+  getMessages()
+
 
 
 /*
@@ -93,7 +118,7 @@ onMount(async () => {
 </script>
 
 <svelte:head>
-  <title>fdsf</title>
+  <title>{$server.name}</title>
 </svelte:head>
 <div style="max-width:1200px ;margin: auto;">
   <h1>dsadsa</h1>

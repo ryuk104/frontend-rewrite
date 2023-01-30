@@ -1,6 +1,6 @@
 
 
-
+import server from "$lib/stores/server"
 
 
 /** @type {import('./$types').PageLoad} */
@@ -21,16 +21,23 @@ export async function load ({ fetch, params }) {
 
 
     const Data = await res.json();
+    server.set(Data)
 
-    console.log(Data)
+    //console.log(Data)
 
   }
   getserver()
+
+  
 
   } catch (error) {
     console.log(error);
   }
 
 }
+
+
+
+
 
 
