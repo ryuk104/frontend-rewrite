@@ -8,7 +8,7 @@
 	import InformationOutline from 'svelte-material-icons/InformationOutline.svelte';
 	import SideBarButton from './side-bar-button.svelte';
 	import StatusBox from '../status-box.svelte';
-	import { api } from '@api';
+	//import { api } from '@api';
 	import { fade } from 'svelte/transition';
 	import LoadingSpinner from '../loading-spinner.svelte';
 

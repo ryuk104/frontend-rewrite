@@ -1,17 +1,18 @@
 <script lang="ts">
-	import AlbumCard from '$lib/components/album-page/album-card.svelte';
+	import AlbumCard from '$lib/components/photo/album-page/album-card.svelte';
 	import { goto } from '$app/navigation';
 	import { onMount } from 'svelte';
-	import ContextMenu from '$lib/components/shared-components/context-menu/context-menu.svelte';
-	import MenuOption from '$lib/components/shared-components/context-menu/menu-option.svelte';
-	import DeleteOutline from 'svelte-material-icons/DeleteOutline.svelte';
+	//import ContextMenu from '$lib/components/photo/shared-components/context-menu/context-menu.svelte';
+	//import MenuOption from '$lib/components/photo/shared-components/context-menu/menu-option.svelte';
+	//import DeleteOutline from 'svelte-material-icons/DeleteOutline.svelte';
 	import type { PageData } from './$types';
-	import NavigationBar from '$lib/components/shared-components/navigation-bar.svelte';
-	import SideBar from '$lib/components/shared-components/side-bar/side-bar.svelte';
-	import PlusBoxOutline from 'svelte-material-icons/PlusBoxOutline.svelte';
-	import { useAlbums } from './albums.bloc';
+	//import NavigationBar from '$lib/components/photo/shared-components/navigation-bar.svelte';
+	//import SideBar from '$lib/components/photo/shared-components/side-bar/side-bar.svelte';
+	//import PlusBoxOutline from 'svelte-material-icons/PlusBoxOutline.svelte';
+	//import { useAlbums } from './albums.bloc';
 
 	export let data: PageData;
+
 
 	const {
 		albums,
@@ -22,7 +23,7 @@
 		loadAlbums,
 		showAlbumContextMenu,
 		closeAlbumContextMenu
-	} = useAlbums({ albums: data.albums });
+	} = useAlbums();
 
 	onMount(loadAlbums);
 
@@ -39,11 +40,11 @@
 </svelte:head>
 
 <section>
-	<NavigationBar user={data.user} shouldShowUploadButton={false} />
+	<!-- <NavigationBar user={data.user} shouldShowUploadButton={false} />-->
 </section>
 
 <section class="grid grid-cols-[250px_auto] relative pt-[72px] h-screen bg-immich-bg ">
-	<SideBar />
+	<!--<SideBar />-->
 
 	<!-- Main Section -->
 
@@ -57,7 +58,7 @@
 				<div>
 					<button on:click={handleCreateAlbum} class="immich-text-button text-sm">
 						<span>
-							<PlusBoxOutline size="18" />
+							<!--<PlusBoxOutline size="18" />-->
 						</span>
 						<p>Create album</p>
 					</button>
@@ -98,6 +99,7 @@
 	</section>
 
 	<!-- Context Menu -->
+	<!-- 
 	{#if $isShowContextMenu}
 		<ContextMenu {...$contextMenuPosition} on:clickoutside={closeAlbumContextMenu}>
 			<MenuOption on:click={deleteSelectedContextAlbum}>
@@ -108,4 +110,5 @@
 			</MenuOption>
 		</ContextMenu>
 	{/if}
+-->
 </section>

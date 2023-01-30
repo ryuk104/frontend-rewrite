@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { clickOutside } from '$lib/utils/click-outside';
+	import { clickOutside } from '$lib/utils/photo/click-outside';
 	import { createEventDispatcher } from 'svelte';
 	import { quintOut } from 'svelte/easing';
 	import { slide } from 'svelte/transition';

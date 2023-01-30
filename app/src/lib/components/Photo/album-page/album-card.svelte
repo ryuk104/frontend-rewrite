@@ -12,7 +12,6 @@
 </script>
 
 <script lang="ts">
-	import { AlbumResponseDto, api, ThumbnailFormat } from '@api';
 	import { createEventDispatcher, onMount } from 'svelte';
 	import DotsVertical from 'svelte-material-icons/DotsVertical.svelte';
 	import CircleIconButton from '../shared-components/circle-icon-button.svelte';
@@ -23,6 +22,7 @@
 	const dispatchClick = createEventDispatcher<OnClick>();
 	const dispatchShowContextMenu = createEventDispatcher<OnShowContextMenu>();
 
+		/*
 	const loadHighQualityThumbnail = async (thubmnailId: string | null) => {
 		if (thubmnailId == null) {
 			return;
@@ -36,6 +36,7 @@
 			return URL.createObjectURL(data);
 		}
 	};
+	*/
 
 	const showAlbumContextMenu = (e: MouseEvent) => {
 		dispatchShowContextMenu('showalbumcontextmenu', {

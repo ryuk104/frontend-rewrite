@@ -7,14 +7,14 @@
   import { onMount } from "svelte";
 
 
-
+/*
 
 onMount(async () => {
   try {
-    const serverId = params.server_id;
+    const server_id = req.paramas;
     
     const getserver = async () => {
-    const res = await fetch(`http://localhost:4000/api/server/${serverId}`, { 
+    const res = await fetch(`http://localhost:4000/api/server/${server_id}`, { 
       method: 'GET',
       headers: {
           'content-type': 'application/json',
@@ -43,6 +43,7 @@ onMount(async () => {
   }
 
 })
+*/
 
 /*
   import { onMount } from "svelte";
@@ -95,5 +96,5 @@ onMount(async () => {
   <title>fdsf</title>
 </svelte:head>
 <div style="max-width:1200px ;margin: auto;">
- 
+  <h1>dsadsa</h1>
 </div>

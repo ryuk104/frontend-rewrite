@@ -1,22 +1,31 @@
 import {
 	notificationController,
 	NotificationType
-} from '$lib/components/shared-components/notification/notification';
-import { AlbumResponseDto, api } from '@api';
-import { OnShowContextMenuDetail } from '$lib/components/album-page/album-card.svelte';
+} from '$lib/components/photo/shared-components/notification/notification';
+//import { AlbumResponseDto, api } from '@api';
+import { OnShowContextMenuDetail } from '$lib/components/photo/album-page/album-card.svelte';
 import { writable, derived, get } from 'svelte/store';
 
-type AlbumsProps = { albums: AlbumResponseDto[] };
 
-export const useAlbums = (props: AlbumsProps) => {
-	const albums = writable([...props.albums]);
+	const albums = writable([]);
 	const contextMenuPosition = writable<OnShowContextMenuDetail>({ x: 0, y: 0 });
-	const contextMenuTargetAlbum = writable<AlbumResponseDto | undefined>();
+	const contextMenuTargetAlbum = writable();
 	const isShowContextMenu = derived(contextMenuTargetAlbum, ($selectedAlbum) => !!$selectedAlbum);
 
 	async function loadAlbums(): Promise<void> {
 		try {
-			const { data } = await api.albumApi.getAllAlbums();
+		const token = localStorage.getItem("token");
+      
+        const { data } = await fetch(`http://localhost:4000/api/photo/album/getAllAlbums`, { 
+          method: 'GET',
+          headers: {
+              'content-type': 'application/json',
+              'Authorization': `Bearer ${localStorage.token}`
+          }
+		
+        });
+
+			//=const { data } = await api.albumApi.getAllAlbums();
 			albums.set(data);
 
 			// Delete album that has no photos and is named 'Untitled'
@@ -37,7 +46,7 @@ export const useAlbums = (props: AlbumsProps) => {
 		}
 	}
 
-	async function createAlbum(): Promise<AlbumResponseDto | undefined> {
+	export const createAlbum() {
 		try {
 			const { data: newAlbum } = await api.albumApi.createAlbum({
 				albumName: 'Untitled'
