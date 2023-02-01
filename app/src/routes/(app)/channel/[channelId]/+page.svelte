@@ -5,6 +5,8 @@
   /** @type {import('./$types').PageData} */
   export let data;
 
+  import channel from "$lib/stores/channel"
+
     import {fade} from 'svelte/transition';
     import {onMount} from "svelte";
     import {messages} from "$lib/stores/messages.js";
@@ -73,7 +75,7 @@
 </script>
 
 <svelte:head>
-  <title>d</title>
+  <title>{$channel.name}</title>
 </svelte:head>
 <div class="app">
 
