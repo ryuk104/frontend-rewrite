@@ -1,8 +1,4 @@
 import { writable, derived } from "svelte/store";
 
-const server = writable([
-    
-]);
-
-
+const server = writable({});
 export default server;

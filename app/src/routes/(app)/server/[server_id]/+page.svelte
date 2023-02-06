@@ -1,14 +1,22 @@
 
 
-<script lang="ts">
+<script>
 
   /** @type {import('./$types').PageData} */
-  export let Data;
+  export let data;
   import { onMount } from "svelte";
   import server from "$lib/stores/server"
 
 
+
   console.log($server)
+  console.log(data.server)
+  console.log(data)
+
+  
+
+
+
 
 
 
@@ -22,7 +30,7 @@
                 'Authorization': `Bearer ${localStorage.token}`
             }
         });
-        const data = await res.json();
+        const channeldata = await res.json(); 
     } catch (error) {
       console.log(error);
     } 
@@ -81,7 +89,7 @@
 </script>
 
 <svelte:head>
-  <title>{$server.name}</title>
+  <title>{data.name}</title>
 </svelte:head>
 <div style="max-width:1200px ;margin: auto;">
   <h1>dsadsa</h1>

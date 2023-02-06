@@ -20,10 +20,11 @@ export async function load ({ fetch, params }) {
     });
 
 
-    const Data = await res.json();
-    server.set(Data)
+    const serverd = await res.json();
+    const serverdata = serverd
+    server.set(serverdata)
+    return {serverdata}
 
-    //console.log(Data)
 
   }
   getserver()
