@@ -22,6 +22,7 @@
   import userss from "$stores/users";
   import friend from "$stores/friend";
   import server from "$stores/server";
+  
   import Midplayer from "$lib/components/Music/Player/midplayer.svelte";
   import { fullscreenStore } from "$lib/components/Music/Player/channel";
 	import { AudioPlayer } from "$lib/player";
@@ -77,22 +78,7 @@
 
 
 
-    
-
-    
-
-    
-  onMount(async () => {
-    try {
-      const token = localStorage.getItem("token");
-      socket.emit("authentication", {
-        token: token,
-      })		   
-    } catch {
-      console.log("error")
-    }
-
-  });
+  
 
   try {
       const token = localStorage.getItem("token");
@@ -117,9 +103,6 @@
     } catch {
       console.log("error")
     }
-
-
-
 
 
   

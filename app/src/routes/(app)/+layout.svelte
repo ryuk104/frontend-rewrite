@@ -76,7 +76,15 @@
     }
 
   });
- 
+
+  try {
+      const token = localStorage.getItem("token");
+      socket.emit("authentication", {
+        token: token,
+      })		   
+    } catch {
+      console.log("error")
+    } 
   /*
 	onMount(async () => {
     try {

@@ -28,6 +28,7 @@ const config = {
 		},
 		postcss: { configFilePath: path.resolve("./postcss.config.cjs") },
 	}),
+	ssr: false,
 	kit: {
 		adapter: adapter(),
 		alias: {

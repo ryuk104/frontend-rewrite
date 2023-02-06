@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import Storyprofile from './storyprofile.svelte'
   import { story as storystate } from '$lib/stores/stories.js';	
 	 

@@ -1,16 +1,18 @@
 
 
-<script>
+<script lang="ts">
 
-  /** @type {import('./$types').PageData} */
-  export let data;
+  // /** @type {import('./$types').PageData} */
+  import type { PageData } from './$types';
+
+  export let data: PageData;
   import { onMount } from "svelte";
   import server from "$lib/stores/server"
 
 
 
   console.log($server)
-  console.log(data.server)
+  console.log(data.default_channel_id)
   console.log(data)
 
   
@@ -22,7 +24,7 @@
 
   async function getMessages() {
     try {
-      const res = await fetch(`http://localhost:4000/api/messages/channels/${$server.default_channel_id}`, { 
+      const res = await fetch(`http://localhost:4000/api/messages/channels/${data.default_channel_id}`, { 
             method: 'GET',
             headers: {
                 'content-type': 'application/json',

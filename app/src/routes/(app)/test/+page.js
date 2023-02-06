@@ -23,7 +23,7 @@ try {
       });
       const data = await res.json();
       const userdata = data
-      user.set(userdata)
+      //user.set(userdata)
       console.log(data)
 
   }   

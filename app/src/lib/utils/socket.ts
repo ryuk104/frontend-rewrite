@@ -37,7 +37,7 @@ socket.on("authenticated", (data) => {
   notificationss.set(data.notifications)
   usersactivity.set(data.programActivityArr)
 
-    MeModule.SetConnectionDetails({ connected: true, message: null });
+    //MeModule.SetConnectionDetails({ connected: true, message: null });
     userss.set({
       email: data.user.email,
       username: data.user.username,
@@ -54,6 +54,7 @@ socket.on("authenticated", (data) => {
   const users: any = {};
   //const friend: any = {};
   //set friend
+  /*
   for (let i = 0; i < data.user.friends.length; i++) {
     const friend = data.user.friends[i];
     const user = friend.recipient;
@@ -63,7 +64,7 @@ socket.on("authenticated", (data) => {
       id: user.id,
     };
   }
-
+*/
   // set servers
   const servers: any = {};
   const channels: any = {};
@@ -161,7 +162,7 @@ socket.on("authenticated", (data) => {
       calls[channelId][userId] = {};
     }
   }
-  voiceChannelModule.InitVoiceChannels(calls);
+  //voiceChannelModule.InitVoiceChannels(calls);
 
   // muted servers
   const mutedServersObj: any = {};
