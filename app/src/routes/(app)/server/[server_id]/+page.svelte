@@ -2,29 +2,44 @@
 
 <script lang="ts">
 
-  // /** @type {import('./$types').PageData} */
+ // /** @type {import('./$types').PageData} */
   import type { PageData } from './$types';
 
   export let data: PageData;
+  
+  import EmojiSelector from "$lib/components/emoji/index.svelte";
+
+
   import { onMount } from "svelte";
-  import server from "$lib/stores/server"
+  import server from "$stores/server";
+  import channel from "$stores/channel";
+  import Message from "$lib/components/server/Message.svelte";
+	//import { channel } from 'diagnostics_channel';
 
 
 
-  console.log($server)
-  console.log(data.default_channel_id)
-  console.log(data)
+  let text = ""
+  let textContent = '';
+
+  /*
+  function onEmoji(event) {
+    textContent += event.detail;
+  }
+  */
+
+
+console.log($channel)
+
+
+
+  
 
   
 
 
-
-
-
-
   async function getMessages() {
     try {
-      const res = await fetch(`http://localhost:4000/api/messages/channels/${data.default_channel_id}`, { 
+      const res = await fetch(`http://localhost:4000/api/messages/channels/${data.serverdata.default_channel_id}`, { 
             method: 'GET',
             headers: {
                 'content-type': 'application/json',
@@ -33,12 +48,60 @@
             }
         });
         const channeldata = await res.json(); 
+        channel.set(channeldata)
     } catch (error) {
       console.log(error);
     } 
   }
 
   getMessages()
+
+
+
+  
+  async function sendMessage() {
+    try {
+      const res = await fetch(`http://localhost:4000/api/messages/channels/${data.serverdata.default_channel_id}`, { 
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+                'Accept': 'application/json',
+                'Authorization': `Bearer ${localStorage.token}`
+            },
+            body: JSON.stringify({
+                message: text,
+
+            })
+        });
+    } catch (error) {
+      console.log(error);
+    } 
+  }
+
+  
+
+
+
+
+  
+  async function getgif() {
+    try {
+      const res = await fetch(`http://localhost:4000/api/tenor/categories`, { 
+            method: 'GET',
+            headers: {
+                'content-type': 'application/json',
+                'Accept': 'application/json',
+                'Authorization': `Bearer ${localStorage.token}`
+            }
+        });
+    } catch (error) {
+      console.log(error);
+    } 
+  }
+
+
+
+  
 
 
 
@@ -91,8 +154,101 @@
 </script>
 
 <svelte:head>
-  <title>{data.name}</title>
+  <title></title>
 </svelte:head>
-<div style="max-width:1200px ;margin: auto;">
-  <h1>dsadsa</h1>
+
+<div class="app">
+
+  <div class="member-list">
+    <div class="member"></div>
+  </div>
+  
+  <div class="messagebox">
+    {#each $channel as message}
+      <Message 						
+      {message}
+      />
+    {/each}
+    </div>
+  
+  <div class="chatbar">
+    <form on:submit|preventDefault={sendMessage} class="chat">
+      <input bind:value={text} placeholder="Enter your message..."/>
+      <button>+</button>
+      
+      <button>GIF</button>
+      <button>sticker</button>
+
+
+    </form>
+    <button on:click|preventDefault={getgif} >GIF</button>
+
+    <EmojiSelector  />      
+
+  </div>
+
 </div>
+
+
+
+
+
+
+  <style>
+    .app{
+      margin: 0;
+      padding: 0;
+      display: flex;
+      position: fixed;
+      top:4%;
+      left: 300px;
+      height: 96%;
+      width: 100%;    
+    }
+  
+    .member-list{
+      background-color:#1a1a1d;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      position: fixed;
+      top:4%;
+      right: 0;
+      height: 96%;
+      width: 10%;
+    }
+  
+    .messagebox{
+      background-color:#202124;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      position: fixed;
+      top:4%;
+      right: 10%;
+      height: 90%;
+      width: 78.4%;  
+    }
+  
+    .chatbar{
+      background-color:#292a2d;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      position: fixed;
+      bottom:0%;
+      right: 10%;
+      height: 6%;
+      width: 78.4%;  
+    }
+
+    .chat{
+      padding: 10px;
+      border: none;
+      border-radius: 3px;
+      font-size: 1em;
+      display: flex;
+      height: 50px;
+      width: 2000px;
+    }
+  </style>

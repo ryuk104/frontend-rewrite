@@ -5,7 +5,7 @@
   /** @type {import('./$types').PageData} */
   export let data;
 
-  import channel from "$lib/stores/channel"
+  import channel from "$stores/channel"
 
     import {fade} from 'svelte/transition';
     import {onMount} from "svelte";

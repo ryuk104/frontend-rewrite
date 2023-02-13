@@ -1,5 +1,7 @@
 <script lang="ts">
   	/** @type {import('./$types').LayoutData} */
+	export const ssr = false;
+
 	export let data;
 
   	import { onMount } from "svelte";

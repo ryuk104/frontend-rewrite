@@ -63,7 +63,7 @@
 				    <img class="img" src="{servers.avatar}" alt="d"/>
                 </a>
 			</div>
-            {/each}
+      {/each}
 
 			
 

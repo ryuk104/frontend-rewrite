@@ -1,8 +1,8 @@
 import { writable, derived } from "svelte/store";
 
-const server = writable([
+const channel = writable([
     
 ]);
 
 
-export default server;
+export default channel;

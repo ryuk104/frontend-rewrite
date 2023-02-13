@@ -3,9 +3,9 @@ import channel from "$lib/stores/channel"
 
 /** @type {import('./$types').PageLoad} */
 
-export async function load ({ fetch, params }) {
+export async function load ({ params, fetch  }) {
   try {
-    const channelId = params;
+    const { channelId } = params;
     const token = localStorage.getItem("token");
 
     const res = await fetch(`http://localhost:4000/api/channels/${channelId}`,

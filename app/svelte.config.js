@@ -18,7 +18,6 @@ const config = {
 	// Consult https://github.com/sveltejs/svelte-preprocess
 	// for more information about preprocessors
 	preprocess: preprocess({
-		sass: false,
 
 		scss: {
 			includePaths: ["src"],
@@ -28,9 +27,10 @@ const config = {
 		},
 		postcss: { configFilePath: path.resolve("./postcss.config.cjs") },
 	}),
-	//ssr: false,
+	ssr: false,
 	kit: {
 		adapter: adapter(),
+		
 		alias: {
 			$stores: path.resolve("./src/lib/stores"),
 			$api: path.resolve("./src/routes/api/_lib"),
