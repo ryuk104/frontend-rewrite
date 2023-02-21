@@ -3,6 +3,36 @@
   import User from './User.svelte';
   import { users } from './mockData.js';
   import swipe from './swipe';
+  
+
+  async function loadstories() {
+    try {
+      const res = await fetch(`http://localhost:4000/api/stories/:storyId`, { 
+            method: 'GET',
+            headers: {
+                'content-type': 'application/json',
+                'Accept': 'application/json',
+                'Authorization': `Bearer ${localStorage.token}`
+            },
+            
+        });
+      const data = await res.json();
+      const storyData = data.stories;
+
+
+      if (res.status === 201) {
+        console.log(storyData)
+        return storyData
+      }
+      if (res.type === "error") {
+        return;
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  loadstories()
 
   let currentUserIndex = 0;
   let currentImageIndex = 0;
