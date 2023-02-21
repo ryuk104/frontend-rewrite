@@ -12,7 +12,6 @@
     import QuillEditor from "./QuillEditor.svelte";
     import NenoItem from "./NenoItem.svelte";
     import ProgressLine from "./ProgressLine.svelte";
-    import { detail } from "../request/fetchApi";
 
     import { onMount } from "svelte";
     let isLoding = true;

@@ -12,7 +12,6 @@ export async function load({ params, query, locals, parent, cookies, request }) 
 		throw error(
 			404,
 			`Store Not Found @Page 
-			<br/>ID: ${locals.store.id}
 			<br/>ORIGIN: ${locals.origin}
 			<br/>DOMAIN(env):${DOMAIN}
 			<br/>HTTP_ENDPOINT(env):${HTTP_ENDPOINT}`

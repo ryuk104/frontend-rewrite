@@ -9,7 +9,6 @@
 <script>
     import { fade } from "svelte/transition";
     import { getObjectURL } from "../utils/process";
-    import { getFileFromIndexedDB } from "../request/fetchApi";
 
     import { onMount } from "svelte";
     let show = false;
@@ -31,6 +30,8 @@
     function hidden() {
         show = false;
     }
+
+    /*
     async function getPIcUrl(showImageInfo) {
         let url;
         if (showImageInfo.file == null) {
@@ -45,6 +46,8 @@
             return getObjectURL(showImageInfo.file); //预览模式未上传
         }
     }
+    */
+   let getPIcUrl = "dsad"
 </script>
 
 {#if show}

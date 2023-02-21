@@ -6,11 +6,6 @@
 
     import Quill from "quill";
 
-    import {
-        addNeno,
-        uploadPicIndexedDB,
-        getFileFromIndexedDB,
-    } from "../request/fetchApi";
     import {getObjectURL} from "../utils/process";
     import {showPictureView} from "./ViewPicture.svelte";
 

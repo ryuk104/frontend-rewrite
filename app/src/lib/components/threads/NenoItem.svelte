@@ -10,7 +10,6 @@
     import {showNeno} from "./NenoDetail.svelte";
     import QuillEditor from "./QuillEditor.svelte";
     import {showPictureView} from "./ViewPicture.svelte";
-    import {deleteOne, getFileFromIndexedDB} from "../request/fetchApi";
     import {searchNenoByTag} from "../store/store.js";
     import {showShareView} from "./Share.svelte";
 

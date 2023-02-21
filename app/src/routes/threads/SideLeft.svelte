@@ -1,16 +1,6 @@
 <script>
-    import {count, pin, pins, renameTag, tags} from "../request/fetchApi";
-    import {
-        countStore,
-        currentPage,
-        reload,
-        searchNenoByDate,
-        searchNenoByTag,
-        settingStore,
-        tagStore,
-    } from "../store/store.js";
-    import GreenMap from "../components/GreenMap.svelte";
-    import TagExpand from "../components/TagExpand.svelte";
+    import GreenMap from "$lib/components/threads/GreenMap.svelte";
+    import TagExpand from "$lib/components/threads/TagExpand.svelte";
 
     import {onMount} from "svelte";
     import dayjs from "dayjs";
@@ -139,18 +129,7 @@
                 console.log(reason);
             });
     }
-    function changeDarkMode() {
-        $settingStore.isDark = !$settingStore.isDark;
-        if ($settingStore.isDark) {
-            document.querySelector('meta[name="theme-color"]').setAttribute("content", "#000");
-        }else {
-            document.querySelector('meta[name="theme-color"]').setAttribute("content", "#f3f4f6");
-        }
-        window.localStorage.setItem(
-            "settingStore",
-            JSON.stringify($settingStore)
-        );
-    }
+    
 </script>
 
 <div class="w-full flex flex-col overflow-auto   h-screen    overflow-visible">
@@ -192,25 +171,22 @@
     </div>
     <GreenMap
 
-        countDate={$countStore.countDate}
-        on:greenmapClick={(event) => {
-            $searchNenoByDate.date = event.detail;
-        }}
+        
     />
 
     <div
         class="flex justify-around  w-full mt-4 text-gray-500dark:text-slate-300"
     >
         <div class="font-bold text-lg">
-            <div class="text-xl">{$countStore.nenoCount}</div>
+            <div class="text-xl"></div>
             NENO
         </div>
         <div class="font-bold text-lg">
-            <div class="text-xl">{$countStore.tagCount}</div>
+            <div class="text-xl"></div>
             TAGS
         </div>
         <div class="font-bold text-lg">
-            <div class="text-xl">{$countStore.dayCount}</div>
+            <div class="text-xl"></div>
             DAY
         </div>
     </div>

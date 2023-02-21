@@ -28,7 +28,6 @@
 <script>
     import { fly, fade } from "svelte/transition";
     import { getObjectURL } from "../utils/process";
-    import { getFileFromIndexedDB } from "../request/fetchApi";
     import dayjs from 'dayjs'
     import html2canvas from "html2canvas";
     import {countStore, searchNenoByTag} from "../store/store.js";
@@ -87,7 +86,7 @@
     function hidden() {
         show = false;
     }
-
+/*
     async function getImageurl( key, index) {
         const url = await getFileFromIndexedDB(key);
         if (index === images.length - 1) {
@@ -104,6 +103,9 @@
         }
         return url.key;
     }
+    */
+
+    let getImageurl = "dsad"
     function praseTag(rawContent, tags) {
         let pContent = "";
         let pIndex = 0;
