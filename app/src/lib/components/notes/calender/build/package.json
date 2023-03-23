@@ -1,0 +1,37 @@
+{
+  "name": "@event-calendar/build",
+  "version": "0.17.0",
+  "title": "Event Calendar",
+  "description": "Full-sized drag & drop event calendar with resource view",
+  "keywords": [
+    "calendar",
+    "event",
+    "resource",
+    "full-sized"
+  ],
+  "homepage": "https://vkurko.github.io/calendar/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vkurko/calendar.git",
+    "directory": "packages/build"
+  },
+  "funding": [
+    {
+      "type": "paypal_$10",
+      "url": "https://paypal.me/vkurko/10usd"
+    },
+    {
+      "type": "paypal_$1",
+      "url": "https://paypal.me/vkurko/1usd"
+    }
+  ],
+  "license": "MIT",
+  "jsdelivr": "event-calendar.min.js",
+  "devDependencies": {
+    "@event-calendar/day-grid": "~0.17.0",
+    "@event-calendar/interaction": "~0.17.0",
+    "@event-calendar/list": "~0.17.0",
+    "@event-calendar/time-grid": "~0.17.0",
+    "@event-calendar/resource-time-grid": "~0.17.0"
+  }
+}

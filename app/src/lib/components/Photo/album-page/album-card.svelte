@@ -8,7 +8,7 @@
 	};
 
 	export type OnShowContextMenuDetail = { x: number; y: number };
-	export type OnClickDetail = AlbumResponseDto;
+	//export type OnClickDetail = AlbumResponseDto;
 </script>
 
 <script lang="ts">

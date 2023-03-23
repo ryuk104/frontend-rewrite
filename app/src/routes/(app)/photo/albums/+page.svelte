@@ -9,11 +9,12 @@
 	//import NavigationBar from '$lib/components/photo/shared-components/navigation-bar.svelte';
 	//import SideBar from '$lib/components/photo/shared-components/side-bar/side-bar.svelte';
 	//import PlusBoxOutline from 'svelte-material-icons/PlusBoxOutline.svelte';
-	//import { useAlbums } from './albums.bloc';
+	import { useAlbums } from './albums.bloc';
 
 	export let data: PageData;
 
 
+	
 	const {
 		albums,
 		isShowContextMenu,
@@ -24,6 +25,8 @@
 		showAlbumContextMenu,
 		closeAlbumContextMenu
 	} = useAlbums();
+	
+	
 
 	onMount(loadAlbums);
 
@@ -82,6 +85,7 @@
 					{/key}
 				{/each}
 			</div>
+
 
 			<!-- Empty Message -->
 			{#if $albums.length === 0}

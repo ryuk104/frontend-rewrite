@@ -1,0 +1,73 @@
+<script>
+    import {getContext, setContext} from 'svelte';
+    import State from './state';
+    import {Header, Body, Day, Week} from '@event-calendar/time-grid';
+    import Label from './Label.svelte';
+
+    let state = getContext('state');
+    let {datesAboveResources, _viewDates, _intlDayHeader, _viewClass, allDaySlot, theme} = state;
+
+    let viewState = new State(state);
+    setContext('view-state', viewState);
+
+    let {_viewResources} = viewState;
+
+    $_viewClass = 'week';
+
+    let loops;
+    $: loops = $datesAboveResources ? [$_viewDates, $_viewResources] : [$_viewResources, $_viewDates];
+</script>
+
+<Header>
+    {#each loops[0] as item0}
+        <div class="{$theme.resource}">
+            {#if $datesAboveResources}
+                <div class="{$theme.day}">{$_intlDayHeader.format(item0)}</div>
+            {:else}
+                <Label resource={item0} />
+            {/if}
+            {#if loops[1].length > 1}
+                <div class="{$theme.days}">
+                    {#each loops[1] as item1}
+                        {#if $datesAboveResources}
+                            <Label resource={item1} date={item0} />
+                        {:else}
+                            <div class="{$theme.day}">{$_intlDayHeader.format(item1)}</div>
+                        {/if}
+                    {/each}
+                </div>
+            {/if}
+        </div>
+    {/each}
+</Header>
+{#if $allDaySlot}
+    <Header allDay>
+        {#if $datesAboveResources}
+            {#each $_viewDates as date}
+                <div class="{$theme.resource}">
+                    {#each $_viewResources as resource}
+                        <Week dates={[date]} {resource}/>
+                    {/each}
+                </div>
+            {/each}
+        {:else}
+            {#each $_viewResources as resource}
+                <div class="{$theme.resource}">
+                    <Week dates={$_viewDates} {resource}/>
+                </div>
+            {/each}
+        {/if}
+    </Header>
+{/if}
+<Body>
+{#each loops[0] as item0}
+    <div class="{$theme.resource}">
+        {#each loops[1] as item1}
+            <Day
+                date={$datesAboveResources ? item0 : item1}
+                resource={$datesAboveResources ? item1 : item0}
+            />
+        {/each}
+    </div>
+{/each}
+</Body>
