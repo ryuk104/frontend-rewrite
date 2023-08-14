@@ -2,6 +2,8 @@
 	import Editor from '$lib/components/notes/index.svelte';
 	import content from './content.json';
 	let title = 'Svelte Tiptap Notion Clone (Svnotion?)';
+	let mobile_menu = false;
+
 </script>
 
 <svelte:head>
@@ -25,16 +27,7 @@
 	<Editor {content} />
 </div>
 
-<style>
-	h1:empty::before {
-		content: 'Title';
-		color: #adb5bd;
-	}
-</style>
-
-<script>
-	let mobile_menu = false;
-</script>
+	
 
 <div class="isolate bg-white">
 	<div
@@ -291,10 +284,14 @@
 </div>
 
 <style>
+	h1:empty::before {
+		content: 'Title';
+		color: #adb5bd;
+	}
+
 	.gradient {
 		background: -webkit-linear-gradient(315deg, #046ade 0, #08a86d 75%);
 		text-decoration: none;
-		-webkit-background-clip: text;
 		background-clip: text;
 		-webkit-text-fill-color: transparent;
 	}

@@ -1,4 +1,4 @@
-import { slashVisible, slashItems, slashLocaltion, slashProps } from '$lib/stores';
+import { slashVisible, slashItems, slashLocaltion, slashProps } from '$lib/stores/notes';
 
 export default {
 	items: ({ query }) => {

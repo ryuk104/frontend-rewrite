@@ -1,6 +1,6 @@
 <script>
 	export let selectedIndex = 0;
-	import { slashVisible, slashItems, slashLocaltion, slashProps } from '$lib/stores';
+	import { slashVisible, slashItems, slashLocaltion, slashProps } from '$lib/stores/notes';
 
 	let height;
 

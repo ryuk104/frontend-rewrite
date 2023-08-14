@@ -15,18 +15,33 @@ export const useAlbums = () => {
 
 	async function loadAlbums(): Promise<void> {
 		try {
-		const token = localStorage.getItem("token");
-      
+		//const token = localStorage.getItem("token");
+      /*
         const { data } = await fetch(`http://localhost:4000/api/photo/album/getAllAlbums`, { 
           method: 'GET',
           headers: {
               'content-type': 'application/json',
               'Authorization': `Bearer ${localStorage.token}`
           }
-		
-        });
+*/
+		  const res = await fetch(`http://localhost:4000/api/photo/album/getAllAlbums`, { 
+			  method: 'GET',
+			  headers: {
+				  'content-type': 'application/json',
+				  'Accept': 'application/json',
+				  'Authorization': `Bearer ${localStorage.token}`
+			  }
+		  });
+		  const data = await res.json();
+		  console.log(data)
+		  //const postData = data.data.posts;
+		  //postState.addPosts(postData)
 
-			//=const { data } = await api.albumApi.getAllAlbums();
+
+		
+		
+
+			//const { data } = await api.albumApi.getAllAlbums();
 			albums.set(data);
 
 			// Delete album that has no photos and is named 'Untitled'
@@ -47,8 +62,22 @@ export const useAlbums = () => {
 		}
 	}
 
+
+
 	async function createAlbum() {
 		try {
+			const res = await fetch(`http://localhost:4000/api/post`, { 
+			  method: 'GET',
+			  headers: {
+				  'content-type': 'application/json',
+				  'Accept': 'application/json',
+				  'Authorization': `Bearer ${localStorage.token}`
+			  }
+		  });
+		  const data = await res.json();
+		  const postData = data.data.posts;
+		  postState.addPosts(postData)
+
 			const { data: newAlbum } = await api.albumApi.createAlbum({
 				albumName: 'Untitled'
 			});
@@ -64,6 +93,18 @@ export const useAlbums = () => {
 
 	async function deleteAlbum(album: AlbumResponseDto): Promise<void> {
 		try {
+			const res = await fetch(`http://localhost:4000/api/post`, { 
+			  method: 'GET',
+			  headers: {
+				  'content-type': 'application/json',
+				  'Accept': 'application/json',
+				  'Authorization': `Bearer ${localStorage.token}`
+			  }
+		  });
+		  const data = await res.json();
+		  const postData = data.data.posts;
+		  postState.addPosts(postData)
+
 			await api.albumApi.deleteAlbum(album.id);
 		} catch {
 			// Do nothing?

@@ -2,7 +2,7 @@
 	import { onMount, onDestroy } from 'svelte';
 	import { browser } from '$app/environment';
 	import suggestion from './suggestion';
-	import Commands from './command';
+	//import Commands from './command';
 	import CommandList from './CommandList.svelte';
 	import { slashVisible, slashItems, slashProps, editorWidth } from '$lib/stores/notes';
 

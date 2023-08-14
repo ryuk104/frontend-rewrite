@@ -26,7 +26,7 @@
 		NotificationType
 	} from '../shared-components/notification/notification';
 	import { browser } from '$app/environment';
-	import { albumAssetSelectionStore } from '$lib/stores/album-asset-selection.store';
+	import { albumAssetSelectionStore } from '$lib/stores/photo/album-asset-selection.store';
 
 	export let album: AlbumResponseDto;
 	const { isAlbumAssetSelectionOpen } = albumAssetSelectionStore;
